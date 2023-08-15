@@ -21,7 +21,8 @@ void usart1_init(uint32_t baudrate)
     usart_baudrate_set(USART1, baudrate);
     usart_receive_config(USART1, USART_RECEIVE_ENABLE);
     usart_transmit_config(USART1, USART_TRANSMIT_ENABLE);
-    
+		usart_parity_config(USART1, USART_PM_EVEN);
+		usart_stop_bit_set(USART1, USART_STB_1BIT);
     usart_enable(USART1);
 }
 
