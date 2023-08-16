@@ -109,8 +109,14 @@
 #define CURRENT_ALARM_RECOVERY										0x82		//	4 байта
 #define WRITE_TEST_OPERATING_MODE									0x8B		//	4 байта
 #define EXTERN_OUTPUT_SIGNAL_BLOCK								0x90		//	4 байта
-#define POSITIONING_MODE													0xA0
+#define TEST_MODE																	0xA0
 #define TEST_MODE_INPUT_SIGNAL										0x92
+
+//--------------------------------------------------------Тестовый режим (данныt)--------------------------------------------------
+#define TEST_MODE_BREAK														"0000"
+#define TEST_MODE_JOG															"0001"
+#define TEST_MODE_POSITIONING											"0002"
+
 
 //--------------------------------------------------------Режим позиционирования (номера данных)------------------------------------------
 #define POS_MODE_FREQUENCY												0x10
@@ -119,10 +125,21 @@
 #define POS_MODE_SET_PATH_LENGTH									0x13
 #define POS_MODE_BREAK														0x15
 #define POS_MODE_SON_LSP_LSN_ON										0x00
+#define OUTPUT_SIGNAL_BLOCK												0x00
+#define OUTPUT_SIGNAL_UNBLOCK											0x10
+#define SET_TEST_MODE															0x00
 
 //--------------------------------------------------------Режим позиционирования (данные)-------------------------------------------------
-#define POS_MODE_BREAK_DATA												"1EA5"
+#define TEST_MODE_BREAK_DATA											"1EA5"
 #define POS_MODE_SON_LSP_LSN_ON_DATA							"00000007"
+
+//--------------------------------------------------------Режим JOG-----------------------------------------------------------------------
+#define JOG_MODE_DIRECT_ROTATION									"00000807"
+#define JOG_MODE_REVERSE_ROTATION									"00001007"
+#define JOG_MODE_STOP_ROTATION										"00000007"
+#define JOG_MODE_STOP															0x12
+#define JOG_MODE_FREQUENCY												0x10
+#define JOG_MODE_ACCELERATION_TIME								0x11
 
 //--------------------------------------------------------Параметры-----------------------------------------------------------------------
 #define OPERATING_MODE														0x00		//  настройки рабочего режима
@@ -161,9 +178,9 @@ uint16_t get_servo_data_length(const char* data);
 void servo_init(uint32_t baudrate);
 
 void servo_send_read_command(uint16_t read_command, uint16_t data_to_read, uint16_t response_size, uint8_t servo_number);
-
 void servo_send_write_command(uint16_t write_command, uint16_t data_number, const char* data_to_write, uint8_t servo_number);
-
+void servo_send_eot(void);
+	
 void servo_emg_stop(void);
 void servo_set_operating_mode(const char* op_mode);
 void servo_set_input_signal(uint8_t signal);
@@ -172,6 +189,9 @@ void servo_positioning_mode_on(const char* freq, const char* acceleration_time);
 void servo_set_positioning_mode_path_length(const char* path_length);
 void servo_positioning_mode_break(void);
 void servo_positioning_mode_off(void);
+
+void servo_jog_mode_on(const char* freq_4_byte, const char* acceleration_time_8_byte);
+void servo_jog_mode_off(void);
 
 void servo_handle_error(void);
 	

@@ -3,11 +3,11 @@
 uint16_t rx_size = 50;
 char rxbuffer[50];
 
-char tx_write_buffer[20];
-uint16_t tx_write_size = 20;
+char tx_write_buffer[50];
+uint16_t tx_write_size = 50;
 
-char tx_read_buffer[11];
-uint16_t tx_read_size = 11;
+char tx_read_buffer[50];
+uint16_t tx_read_size = 50;
 
 servo_ready_status servo_ready = READY;
 
@@ -40,6 +40,7 @@ void servo_send_read_command(uint16_t command, uint16_t data, uint16_t response_
 			__NOP();
 		}
 		__NOP();
+		servo_send_eot();
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -66,6 +67,13 @@ void servo_send_write_command(uint16_t write_command, uint16_t data_number, cons
 			__NOP();
 		}
 		__NOP();
+		servo_send_eot();
+}
+
+void servo_send_eot(void)
+{
+		sprintf(tx_write_buffer, "%02X", EOT);
+		usart1_dma0_send(tx_write_buffer, 2);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -86,30 +94,62 @@ void servo_set_input_signal(uint8_t signal)
 		servo_send_write_command(WRITE_PARAMS, CN1B_9_IN, "00000090", 0);
 }
 
-void servo_positioning_mode_on(const char* freq, const char* acceleration_time)
+void servo_positioning_mode_on(const char* freq_4_byte, const char* acceleration_time_8_byte)
 {
-		servo_send_write_command(POSITIONING_MODE, POS_MODE_FREQUENCY, freq, 0);
-		servo_send_write_command(POSITIONING_MODE, POS_MODE_ACCELERATION_TIME, acceleration_time, 0);
-		servo_send_write_command(POSITIONING_MODE, POS_MODE_SON_LSP_LSN_ON, POS_MODE_SON_LSP_LSN_ON_DATA, 0);
+		servo_send_eot();
+		servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
 	
-		servo_send_write_command(POSITIONING_MODE, POS_MODE_SET_PATH_LENGTH, "000003E8", 0);
+		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_BLOCK, TEST_MODE_BREAK_DATA, 0);
+		servo_send_write_command(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_POSITIONING, 0);
+	
+		servo_send_write_command(TEST_MODE, POS_MODE_FREQUENCY, freq_4_byte, 0);
+		servo_send_write_command(TEST_MODE, POS_MODE_ACCELERATION_TIME, acceleration_time_8_byte, 0);
+		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, POS_MODE_SON_LSP_LSN_ON_DATA, 0);
+		
+		servo_send_write_command(TEST_MODE, POS_MODE_SET_PATH_LENGTH, "000003E8", 0);
 }
+
+
 
 void servo_set_positioning_mode_path_length(const char* path_length)
 {
-		servo_send_write_command(POSITIONING_MODE, POS_MODE_SET_PATH_LENGTH, path_length, 0);
+		servo_send_write_command(TEST_MODE, POS_MODE_SET_PATH_LENGTH, path_length, 0);
 }
 
 void servo_positioning_mode_break(void)
 {
-		servo_send_write_command(POSITIONING_MODE, POS_MODE_BREAK, POS_MODE_BREAK_DATA, 0);
+		servo_send_write_command(TEST_MODE, POS_MODE_BREAK, TEST_MODE_BREAK_DATA, 0);
 }
 
 void servo_positioning_mode_off(void)
 {
-		
+		servo_send_write_command(TEST_MODE, POS_MODE_STOP, TEST_MODE_BREAK_DATA, 0);
+		servo_send_write_command(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_BREAK, 0);
+		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_UNBLOCK, TEST_MODE_BREAK_DATA, 0);
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+void servo_jog_mode_on(const char* freq_4_byte, const char* acceleration_time_8_byte)
+{
+			servo_send_eot();
+		servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_BLOCK, TEST_MODE_BREAK_DATA, 0);
+		servo_send_write_command(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_JOG, 0);
+	
+		servo_send_write_command(TEST_MODE, POS_MODE_FREQUENCY, freq_4_byte, 0);
+		servo_send_write_command(TEST_MODE, POS_MODE_ACCELERATION_TIME, acceleration_time_8_byte, 0);
+		
+		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_DIRECT_ROTATION, 0);
+
+}
+
+void servo_jog_mode_off(void)
+{
+		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_STOP_ROTATION, 0);
+		servo_send_write_command(TEST_MODE, JOG_MODE_STOP, TEST_MODE_BREAK_DATA, 0);
+		servo_send_write_command(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_BREAK, 0);
+		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_UNBLOCK, TEST_MODE_BREAK_DATA, 0);
+}
 
 
 //----------------------------------------------------------------------------------------------------------------------

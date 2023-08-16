@@ -21,13 +21,17 @@ int main(void)
 		
 		servo_init(9600);
 	
+		//servo_jog_mode_on("00FF", "000003E8");
+	
 		while(1){
 				if (gpio_input_bit_get(GPIOA, GPIO_PIN_0))
 				{
 						gpio_bit_set(GPIOA, GPIO_PIN_10);
 						while (gpio_input_bit_get(GPIOA, GPIO_PIN_0));
 						gpio_bit_reset(GPIOA, GPIO_PIN_10);
-						
+						//servo_jog_mode_off();
+					
+		servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
 						//servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
 						//servo_send_write_command(WRITE_PARAMS, 0x00, "00000002", 0);
 						//servo_send_write_command(WRITE_PARAMS, 0x00, "00000003", 0);
