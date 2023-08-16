@@ -22,6 +22,9 @@ void servo_init(uint32_t baudrate)
 		usart1_init(baudrate);
 		usart1_dma0_txinit(tx_read_buffer, tx_read_size);
 		usart1_dma0_rxinit(rxbuffer, rx_size);
+	
+		timer_nvic_config();
+		servo_timer_init();
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -34,7 +37,7 @@ void servo_send_read_command(uint16_t command, uint16_t data, uint16_t response_
 	                + ascii[(data >> 4)] + ascii[(data & 0x0f)] + ETX;
 	
     sprintf(tx_read_buffer, "%c%X%02X%c%02X%c%02X", SOH, servo_number, command, STX, data, ETX, sum & 0xff);
-		usart1_dma0_send(tx_read_buffer, COMMAND_SIZE + 1);
+		usart1_dma0_send(tx_read_buffer, COMMAND_SIZE);
 	
 		while (servo_ready == BUSY){
 			__NOP();
@@ -61,7 +64,7 @@ void servo_send_write_command(uint16_t write_command, uint16_t data_number, cons
 		
     sprintf(tx_write_buffer, "%c%X%02X%c%02X%s%c%02X", SOH, servo_number, write_command, STX, data_number, data_to_write, ETX, sum & 0xff);
 		
-		usart1_dma0_send(tx_write_buffer, COMMAND_SIZE + data_size + 1);
+		usart1_dma0_send(tx_write_buffer, COMMAND_SIZE + data_size);
 		
 		while (servo_ready == BUSY){
 			__NOP();

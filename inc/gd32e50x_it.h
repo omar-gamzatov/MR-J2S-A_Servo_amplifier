@@ -62,6 +62,7 @@ void SysTick_Handler(void);
 void DMA0_Channel6_IRQHandler(void);
 /* this function handles DMA_Channel4_IRQHandler interrupt */
 void DMA0_Channel5_IRQHandler(void);
+void TIMER2_IRQHandler(void);
 
 //void USART1_IRQHandler(void);
 #endif /* GD32E50X_IT_H */

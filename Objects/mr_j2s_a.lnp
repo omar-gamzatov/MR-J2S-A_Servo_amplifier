@@ -4,6 +4,7 @@
 ".\objects\mr_j2s_a_servo.o"
 ".\objects\systick.o"
 ".\objects\usart1_dma0.o"
+".\objects\timer.o"
 ".\objects\system_gd32e50x.o"
 ".\objects\startup_gd32e50x_hd.o"
 ".\objects\gd32e50x_usart.o"

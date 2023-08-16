@@ -142,7 +142,7 @@ void PendSV_Handler(void)
 */
 void SysTick_Handler(void)
 {
-    //delay_decrement();
+    delay_decrement();
 }
 
 /*!
@@ -184,5 +184,21 @@ void DMA0_Channel5_IRQHandler(void)
 				servo_handle_error();
 			
 				servo_ready = READY;			
+    }
+}
+
+/*!
+    \brief      this function handles TIMER2 interrupt request.
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+void TIMER2_IRQHandler(void)
+{
+    if(SET == timer_interrupt_flag_get(TIMER2, TIMER_INT_UP)){
+        /* clear channel 0 interrupt bit */
+        timer_interrupt_flag_clear(TIMER2, TIMER_INT_UP);
+				
+				servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
     }
 }

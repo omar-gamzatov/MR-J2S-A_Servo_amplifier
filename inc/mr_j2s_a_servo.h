@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "stdint.h"
 #include "usart1_dma0.h"
+#include "timer.h"
 
 #define SOH 0x01
 #define STX 0x02
