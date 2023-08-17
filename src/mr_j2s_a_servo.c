@@ -127,14 +127,14 @@ void servo_positioning_mode_off(void)
 {
 		servo_send_write_command(TEST_MODE, POS_MODE_STOP, TEST_MODE_BREAK_DATA, 0);
 		servo_send_write_command(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_BREAK, 0);
-		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_UNBLOCK, TEST_MODE_BREAK_DATA, 0);
+		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_UNLOCK, TEST_MODE_BREAK_DATA, 0);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 void servo_jog_mode_on(const char* freq_4_byte, const char* acceleration_time_8_byte)
 {
 			servo_send_eot();
-		servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+		//servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
 		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_BLOCK, TEST_MODE_BREAK_DATA, 0);
 		servo_send_write_command(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_JOG, 0);
 	
@@ -150,9 +150,28 @@ void servo_jog_mode_off(void)
 		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_STOP_ROTATION, 0);
 		servo_send_write_command(TEST_MODE, JOG_MODE_STOP, TEST_MODE_BREAK_DATA, 0);
 		servo_send_write_command(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_BREAK, 0);
-		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_UNBLOCK, TEST_MODE_BREAK_DATA, 0);
+		servo_send_write_command(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_UNLOCK, TEST_MODE_BREAK_DATA, 0);
 }
 
+void servo_jog_mode_freq_set(const char* freq_4_byte)
+{
+		servo_send_write_command(TEST_MODE, POS_MODE_FREQUENCY, freq_4_byte, 0);
+}
+
+void servo_jog_mode_direct_rotation(void)
+{
+		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_DIRECT_ROTATION, 0);
+}
+
+void servo_jog_mode_revers_rotation(void)
+{
+		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_REVERSE_ROTATION, 0);
+}
+
+void servo_jog_mode_stop_rotation(void)
+{
+		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_STOP_ROTATION, 0);
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 void servo_handle_error(void)

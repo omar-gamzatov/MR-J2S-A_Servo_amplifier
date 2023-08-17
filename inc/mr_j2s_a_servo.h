@@ -127,7 +127,7 @@
 #define POS_MODE_BREAK														0x15
 #define POS_MODE_SON_LSP_LSN_ON										0x00
 #define OUTPUT_SIGNAL_BLOCK												0x00
-#define OUTPUT_SIGNAL_UNBLOCK											0x10
+#define OUTPUT_SIGNAL_UNLOCK											0x10
 #define SET_TEST_MODE															0x00
 
 //--------------------------------------------------------Режим позиционирования (данные)-------------------------------------------------
@@ -193,6 +193,10 @@ void servo_positioning_mode_off(void);
 
 void servo_jog_mode_on(const char* freq_4_byte, const char* acceleration_time_8_byte);
 void servo_jog_mode_off(void);
+void servo_jog_mode_freq_set(const char* freq_4_byte);
+void servo_jog_mode_direct_rotation(void);
+void servo_jog_mode_revers_rotation(void);
+void servo_jog_mode_stop_rotation(void);
 
 void servo_handle_error(void);
 	
