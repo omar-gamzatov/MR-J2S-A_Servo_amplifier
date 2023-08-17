@@ -31,4 +31,4 @@
   GD32E50x_standard_peripheral\Include\gd32e50x_wwdgt.h \
   GD32E50x_standard_peripheral\Include\gd32e50x_sqpi.h \
   GD32E50x_standard_peripheral\Include\gd32e50x_sdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h inc\timer.h

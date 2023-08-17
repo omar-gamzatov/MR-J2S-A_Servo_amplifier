@@ -23,8 +23,7 @@ void servo_init(uint32_t baudrate)
 		usart1_dma0_txinit(tx_read_buffer, tx_read_size);
 		usart1_dma0_rxinit(rxbuffer, rx_size);
 	
-		timer_nvic_config();
-		servo_timer_init();
+		servo_timer_config();
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -142,12 +141,12 @@ void servo_jog_mode_on(const char* freq_4_byte, const char* acceleration_time_8_
 		servo_send_write_command(TEST_MODE, POS_MODE_FREQUENCY, freq_4_byte, 0);
 		servo_send_write_command(TEST_MODE, POS_MODE_ACCELERATION_TIME, acceleration_time_8_byte, 0);
 		
-		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_DIRECT_ROTATION, 0);
-
+		servo_timer_enable();
 }
 
 void servo_jog_mode_off(void)
 {
+		servo_timer_disable();
 		servo_send_write_command(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_STOP_ROTATION, 0);
 		servo_send_write_command(TEST_MODE, JOG_MODE_STOP, TEST_MODE_BREAK_DATA, 0);
 		servo_send_write_command(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_BREAK, 0);
@@ -164,9 +163,6 @@ void servo_handle_error(void)
 		}
 }
 
-
-
-
 uint16_t get_servo_data_length(const char* data)
 {
 		uint16_t length = 0;
@@ -176,11 +172,3 @@ uint16_t get_servo_data_length(const char* data)
 		}
 		return length;
 }
-
-/*!
-    \brief      configure DMA interrupt
-    \param[in]  none
-    \param[out] none
-    \retval     none
-*/
-

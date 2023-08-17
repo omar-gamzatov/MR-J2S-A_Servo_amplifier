@@ -31,4 +31,5 @@
   GD32E50x_standard_peripheral\Include\gd32e50x_sqpi.h \
   GD32E50x_standard_peripheral\Include\gd32e50x_sdio.h inc\systick.h \
   inc\mr_j2s_a_servo.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  inc\usart1_dma0.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h
+  inc\usart1_dma0.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  inc\timer.h

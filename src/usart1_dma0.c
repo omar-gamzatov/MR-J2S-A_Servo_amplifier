@@ -112,5 +112,5 @@ void dma_nvic_config(void)
     /*configure DMA0_CH3 interrupt*/
     nvic_irq_enable(DMA0_Channel6_IRQn, 0U, 0U);
     /*configure DMA0_CH4 interrupt*/
-    nvic_irq_enable(DMA0_Channel5_IRQn, 2U, 0U);
+    nvic_irq_enable(DMA0_Channel5_IRQn, 1U, 0U);
 }

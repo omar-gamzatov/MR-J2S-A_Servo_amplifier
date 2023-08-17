@@ -154,11 +154,9 @@ void SysTick_Handler(void)
 void DMA0_Channel6_IRQHandler(void)
 {
     if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH6, DMA_INT_FLAG_FTF)){
-				gpio_bit_set(GPIOA, GPIO_PIN_9);
+				//gpio_bit_set(GPIOA, GPIO_PIN_9);
 		
         dma_interrupt_flag_clear(DMA0, DMA_CH6, DMA_INT_FLAG_G);
-
-				//servo_ready = READY;
     }
 }
 
@@ -172,18 +170,16 @@ void DMA0_Channel6_IRQHandler(void)
 void DMA0_Channel5_IRQHandler(void)
 {
     if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH5, DMA_INT_FLAG_FTF)){
-				gpio_bit_reset(GPIOA, GPIO_PIN_9);
+				//gpio_bit_reset(GPIOA, GPIO_PIN_9);
 			
 				dma_channel_disable(DMA0, DMA_CH5);
 				dma_flag_clear(DMA0, DMA_CH5, DMA_FLAG_G);				
 				dma_transfer_number_config(DMA0, DMA_CH5, rx_size);
 				dma_channel_enable(DMA0, DMA_CH5);
-			
 				dma_interrupt_flag_clear(DMA0, DMA_CH5, DMA_INT_FLAG_G); 
 				
 				servo_handle_error();
-			
-				servo_ready = READY;			
+				servo_ready = READY;
     }
 }
 
@@ -195,10 +191,15 @@ void DMA0_Channel5_IRQHandler(void)
 */
 void TIMER2_IRQHandler(void)
 {
-    if(SET == timer_interrupt_flag_get(TIMER2, TIMER_INT_UP)){
+    if(SET == timer_interrupt_flag_get(TIMER2, TIMER_INT_UP))
+		{
         /* clear channel 0 interrupt bit */
         timer_interrupt_flag_clear(TIMER2, TIMER_INT_UP);
-				
-				servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+				if (servo_ready == READY)
+				{
+						gpio_bit_set(GPIOA, GPIO_PIN_8);
+						servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+						gpio_bit_reset(GPIOA, GPIO_PIN_8);
+				}
     }
 }
