@@ -174,6 +174,31 @@ void servo_jog_mode_stop_rotation(void)
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+
+void servo_speed_control_mode_on(void)
+{
+		servo_send_write_command(WRITE_PARAMS, 0x00, "30000002", 0);
+		servo_send_write_command(WRITE_PARAMS, 0x01, "30000002", 0);
+		servo_send_write_command(WRITE_PARAMS, 0x02, "30000105", 0);
+		servo_send_write_command(WRITE_PARAMS, 0x08, "300003E8", 0);
+		servo_send_write_command(WRITE_PARAMS, 0x09, "300005DC", 0);
+		servo_send_write_command(WRITE_PARAMS, 0x0A, "300007D0", 0);
+		servo_send_write_command(WRITE_PARAMS, 0x0B, "300003E8", 0);
+		servo_send_write_command(WRITE_PARAMS, 0x0C, "300001F4", 0);
+		servo_send_write_command(WRITE_PARAMS, 0x0D, "30000000", 0);
+	
+		
+}
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
 void servo_handle_error(void)
 {
 		if (rxbuffer[2] != 'A')
