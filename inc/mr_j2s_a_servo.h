@@ -218,8 +218,8 @@ uint16_t get_servo_data_length(const char* data);
 void servo_init(uint32_t baudrate);
 
 void servo_send_read_command(uint16_t read_command, uint16_t data_to_read, uint16_t response_size, uint8_t servo_number);
-void servo_send_write_command4(uint16_t write_command, uint16_t data_number, uint32_t data_to_write, uint8_t servo_number);
-void servo_send_write_command8(uint16_t write_command, uint16_t data_number, uint64_t data_to_write, uint8_t servo_number);
+void servo_send_write_command4(uint16_t write_command, uint16_t data_number, uint16_t data_to_write, uint8_t servo_number);
+void servo_send_write_command8(uint16_t write_command, uint16_t data_number, uint32_t data_to_write, uint8_t servo_number);
 
 void servo_set_freq(uint32_t freq);
 void servo_set_acceleration_time(uint64_t acceleration_time);

@@ -24,8 +24,10 @@ int main(void)
     gpio_bit_set(GPIOC, GPIO_PIN_0 | GPIO_PIN_1);
 	
 	servo_init(57600);
-	
+	servo_set_freq(0x00ff);
+	servo_set_acceleration_time(0x00000200);
 	servo_jog_mode_on();
+
 	//servo_timer_enable();
 		
 	while(1) {
@@ -39,8 +41,10 @@ int main(void)
 		
 		if (!gpio_input_bit_get(GPIOC, GPIO_PIN_0))	{
 			gpio_bit_set(GPIOA, GPIO_PIN_10);
-			//servo_set_freq(120);
-			//servo_jog_mode_set_freq();
+			servo_set_freq(120);
+			servo_set_acceleration_time(0x500);
+			servo_jog_mode_set_freq();
+			servo_jog_mode_set_acceleration_time();
 			servo_jog_mode_direct_rotation();
 			while (!gpio_input_bit_get(GPIOC, GPIO_PIN_0));
 			servo_jog_mode_stop_rotation();
@@ -49,9 +53,11 @@ int main(void)
 		
 		if (!gpio_input_bit_get(GPIOC, GPIO_PIN_1))	{
 			gpio_bit_set(GPIOA, GPIO_PIN_9);
-			//servo_set_freq(60);
-			//servo_jog_mode_set_freq();
-			servo_jog_mode_direct_rotation();
+			servo_set_freq(60);
+			servo_set_acceleration_time(0x500);
+			servo_jog_mode_set_freq();
+			servo_jog_mode_set_acceleration_time();
+			servo_jog_mode_revers_rotation();
 			while (!gpio_input_bit_get(GPIOC, GPIO_PIN_1));
 			servo_jog_mode_stop_rotation();
 			gpio_bit_reset(GPIOA, GPIO_PIN_9);
