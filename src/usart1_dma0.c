@@ -11,19 +11,19 @@ void usart1_init(uint32_t baudrate)
     rcu_periph_clock_enable(RCU_USART1);
 
     /* configure USART Tx as alternate function push-pull */
-		gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_2);
+	gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_2);
   
     /* configure USART Rx as alternate function push-pull */
-		gpio_init(GPIOA, GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_3);
+	gpio_init(GPIOA, GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_3);
 
     /* USART configure */
     usart_deinit(USART1);
     usart_baudrate_set(USART1, baudrate);
     usart_receive_config(USART1, USART_RECEIVE_ENABLE);
     usart_transmit_config(USART1, USART_TRANSMIT_ENABLE);
-		usart_parity_config(USART1, USART_PM_EVEN);
-		usart_stop_bit_set(USART1, USART_STB_1BIT);
-		usart_word_length_set(USART1, USART_WL_9BIT);
+	usart_parity_config(USART1, USART_PM_EVEN);
+	usart_stop_bit_set(USART1, USART_STB_1BIT);
+	usart_word_length_set(USART1, USART_WL_9BIT);
     usart_enable(USART1);
 }
 
@@ -62,7 +62,7 @@ void usart1_dma0_txinit(char* txbuffer, uint16_t len)
     dma_init(DMA0, DMA_CH6, &dma_init_struct);
     
     /* configure DMA mode */
-		dma_interrupt_enable(DMA0, DMA_CH6, DMA_INT_FTF);
+	dma_interrupt_enable(DMA0, DMA_CH6, DMA_INT_FTF);
     dma_circulation_disable(DMA0, DMA_CH6);
     dma_memory_to_memory_disable(DMA0, DMA_CH6);
 }

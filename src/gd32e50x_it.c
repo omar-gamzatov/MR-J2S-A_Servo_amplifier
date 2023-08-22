@@ -38,9 +38,13 @@ OF SUCH DAMAGE.
 #include "systick.h"
 #include "mr_j2s_a_servo.h"
 
-extern servo_ready_status servo_ready;
+//extern servo_ready_status servo_ready;
 extern uint16_t rx_size;
-
+extern servo_func_mode servo_mode;
+extern servo_jog_functions jog_func;
+extern servo_pos_functions pos_func;
+extern uint8_t servo_jog_functions_cnt[];
+extern uint8_t servo_pos_functions_cnt[];
 
 /*!
     \brief      this function handles NMI exception
@@ -61,7 +65,7 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
     /* if Hard Fault exception occurs, go to infinite loop */
-    while(1){
+    while(1) {
     }
 }
 
@@ -74,7 +78,7 @@ void HardFault_Handler(void)
 void MemManage_Handler(void)
 {
     /* if Memory Manage exception occurs, go to infinite loop */
-    while(1){
+    while(1) {
     }
 }
 
@@ -87,7 +91,7 @@ void MemManage_Handler(void)
 void BusFault_Handler(void)
 {
     /* if Bus Fault exception occurs, go to infinite loop */
-    while(1){
+    while(1) {
     }
 }
 
@@ -100,7 +104,7 @@ void BusFault_Handler(void)
 void UsageFault_Handler(void)
 {
     /* if Usage Fault exception occurs, go to infinite loop */
-    while(1){
+    while(1) {
     }
 }
 
@@ -153,8 +157,8 @@ void SysTick_Handler(void)
 */
 void DMA0_Channel6_IRQHandler(void)
 {
-    if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH6, DMA_INT_FLAG_FTF)){
-				//gpio_bit_set(GPIOA, GPIO_PIN_9);
+    if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH6, DMA_INT_FLAG_FTF)) {
+		//gpio_bit_set(GPIOA, GPIO_PIN_9);
 		
         dma_interrupt_flag_clear(DMA0, DMA_CH6, DMA_INT_FLAG_G);
     }
@@ -169,17 +173,101 @@ void DMA0_Channel6_IRQHandler(void)
 */
 void DMA0_Channel5_IRQHandler(void)
 {
-    if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH5, DMA_INT_FLAG_FTF)){
-				//gpio_bit_reset(GPIOA, GPIO_PIN_9);
-			
-				dma_channel_disable(DMA0, DMA_CH5);
-				dma_flag_clear(DMA0, DMA_CH5, DMA_FLAG_G);				
-				dma_transfer_number_config(DMA0, DMA_CH5, rx_size);
-				dma_channel_enable(DMA0, DMA_CH5);
-				dma_interrupt_flag_clear(DMA0, DMA_CH5, DMA_INT_FLAG_G); 
-				
-				servo_handle_error();
-				servo_ready = READY;
+    if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH5, DMA_INT_FLAG_FTF)) {
+		//gpio_bit_reset(GPIOA, GPIO_PIN_9);
+		
+		dma_channel_disable(DMA0, DMA_CH5);
+		dma_flag_clear(DMA0, DMA_CH5, DMA_FLAG_G);				
+		dma_transfer_number_config(DMA0, DMA_CH5, rx_size);
+		dma_channel_enable(DMA0, DMA_CH5);
+		dma_interrupt_flag_clear(DMA0, DMA_CH5, DMA_INT_FLAG_G); 
+		
+		servo_handle_error();
+		
+		switch (servo_mode) {
+			case jog_mode:
+				switch (jog_func) {
+					case jog_on:
+						if (servo_jog_functions_cnt[JOG_ON] != 0) {
+							servo_jog_mode_on();
+						}
+						break;
+					case jog_off:
+						if (servo_jog_functions_cnt[JOG_OFF] != 0) {
+							servo_jog_mode_off();
+						}
+						break;
+					case jog_freq_set:
+						if (servo_jog_functions_cnt[JOG_FREQ_SET] != 0) {
+							servo_jog_mode_set_freq();
+						}
+						break;
+					case jog_acceleration_time_set:
+						if (servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] != 0) {
+							servo_jog_mode_set_acceleration_time();
+						}
+						break;
+					case jog_direct_rotation:
+						if (servo_jog_functions_cnt[JOG_DIRECT_ROT] != 0) {
+							servo_jog_mode_direct_rotation();
+						}
+						break;
+					case jog_reverse_rotation:
+						if (servo_jog_functions_cnt[JOG_REVERSE_ROT] != 0) {
+							servo_jog_mode_revers_rotation();
+						}
+						break;
+					case jog_stop:
+						if (servo_jog_functions_cnt[JOG_STOP] != 0) {
+							servo_jog_mode_stop_rotation();
+						}
+						break;
+						break;
+				};
+				break;
+			case pos_mode:
+				switch (pos_func) {
+					case pos_on:
+						if (servo_pos_functions_cnt[POS_ON] != 0) {
+							servo_jog_mode_on();
+						}
+						break;
+					case pos_off:
+						if (servo_pos_functions_cnt[POS_OFF] != 0) {
+							servo_jog_mode_on();
+						}
+						break;
+					case pos_freq_set:
+						if (servo_pos_functions_cnt[POS_FREQ_SET] != 0) {
+							servo_jog_mode_on();
+						}
+						break;
+					case pos_acceleration_time_set:
+						if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] != 0) {
+							servo_jog_mode_on();
+						}
+						break;
+					case pos_break:
+						if (servo_pos_functions_cnt[POS_PATH_LENGTH] != 0) {
+							servo_jog_mode_on();
+						}
+						break;
+					case pos_path_length:
+						if (servo_pos_functions_cnt[POS_BREAK] != 0) {
+							servo_jog_mode_on();
+						}
+						break;
+				}
+				break;
+			case timer_mode:
+				servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+				gpio_bit_reset(GPIOA, GPIO_PIN_8);
+				break;
+			case nothing_mode:
+				break;
+			default:
+				break;
+		};
     }
 }
 
@@ -191,15 +279,17 @@ void DMA0_Channel5_IRQHandler(void)
 */
 void TIMER2_IRQHandler(void)
 {
-    if(SET == timer_interrupt_flag_get(TIMER2, TIMER_INT_UP))
-		{
+    if(SET == timer_interrupt_flag_get(TIMER2, TIMER_INT_UP)) {
         /* clear channel 0 interrupt bit */
         timer_interrupt_flag_clear(TIMER2, TIMER_INT_UP);
-				if (servo_ready == READY)
-				{
-						gpio_bit_set(GPIOA, GPIO_PIN_8);
-						servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
-						gpio_bit_reset(GPIOA, GPIO_PIN_8);
-				}
+		if (servo_mode == timer_mode) {
+			gpio_bit_set(GPIOA, GPIO_PIN_8);
+		}
+		else if (servo_mode == nothing_mode) {
+			servo_mode = timer_mode;
+			gpio_bit_set(GPIOA, GPIO_PIN_8);
+			servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+			gpio_bit_reset(GPIOA, GPIO_PIN_8);
+		}
     }
 }

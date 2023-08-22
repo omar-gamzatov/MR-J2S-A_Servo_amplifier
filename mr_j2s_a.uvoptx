@@ -176,22 +176,6 @@
           <ExecCommand></ExecCommand>
           <Expression>\\mr_j2s_a\GD32E50x_standard_peripheral/Source/gd32e50x_misc.c\108</Expression>
         </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>16</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134220656</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\src\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\mr_j2s_a\src/main.c\16</Expression>
-        </Bp>
       </Breakpoint>
       <WatchWindow1>
         <Ww>
