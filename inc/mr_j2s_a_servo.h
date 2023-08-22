@@ -176,8 +176,8 @@ typedef enum {
 typedef enum {
 	jog_on,
 	jog_off,
-	jog_freq_set,
-	jog_acceleration_time_set,
+//	jog_freq_set,
+//	jog_acceleration_time_set,
 	jog_direct_rotation,
 	jog_reverse_rotation,
 	jog_stop,
@@ -185,8 +185,8 @@ typedef enum {
 
 #define JOG_ON							0
 #define JOG_OFF							1
-#define JOG_FREQ_SET					2
-#define JOG_ACCELERATION_TIME_SET		3
+//#define JOG_FREQ_SET					2
+//#define JOG_ACCELERATION_TIME_SET		3
 #define JOG_DIRECT_ROT					4
 #define JOG_REVERSE_ROT					5
 #define JOG_STOP						6

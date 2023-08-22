@@ -23,9 +23,12 @@ int main(void)
 	gpio_init(GPIOC, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_0 | GPIO_PIN_1);
     gpio_bit_set(GPIOC, GPIO_PIN_0 | GPIO_PIN_1);
 	
+	uint8_t button1 = 0;
+	uint8_t button2 = 0;
+	
 	servo_init(57600);
 	servo_set_freq(0x00ff);
-	servo_set_acceleration_time(0x00000200);
+	servo_set_acceleration_time(0x00000500);
 	servo_jog_mode_on();
 
 	//servo_timer_enable();
@@ -40,27 +43,31 @@ int main(void)
 		}
 		
 		if (!gpio_input_bit_get(GPIOC, GPIO_PIN_0))	{
-			gpio_bit_set(GPIOA, GPIO_PIN_10);
-			servo_set_freq(120);
-			servo_set_acceleration_time(0x500);
-			servo_jog_mode_set_freq();
-			servo_jog_mode_set_acceleration_time();
-			servo_jog_mode_direct_rotation();
+			delay_1ms(100);
+			if (button1 == 0) {
+				button1 = 1;
+				gpio_bit_set(GPIOA, GPIO_PIN_10);
+				servo_jog_mode_direct_rotation();
+			} else {
+				button1 = 0;
+				servo_jog_mode_stop_rotation();
+				gpio_bit_reset(GPIOA, GPIO_PIN_10);
+			}
 			while (!gpio_input_bit_get(GPIOC, GPIO_PIN_0));
-			servo_jog_mode_stop_rotation();
-			gpio_bit_reset(GPIOA, GPIO_PIN_10);
 		}
 		
 		if (!gpio_input_bit_get(GPIOC, GPIO_PIN_1))	{
-			gpio_bit_set(GPIOA, GPIO_PIN_9);
-			servo_set_freq(60);
-			servo_set_acceleration_time(0x500);
-			servo_jog_mode_set_freq();
-			servo_jog_mode_set_acceleration_time();
-			servo_jog_mode_revers_rotation();
+			delay_1ms(100);
+			if (button2 == 0) {
+				button2 = 1;
+				gpio_bit_set(GPIOA, GPIO_PIN_9);
+				servo_jog_mode_revers_rotation();
+			} else {
+				button2 = 0;
+				servo_jog_mode_stop_rotation();
+				gpio_bit_reset(GPIOA, GPIO_PIN_9);
+			}
 			while (!gpio_input_bit_get(GPIOC, GPIO_PIN_1));
-			servo_jog_mode_stop_rotation();
-			gpio_bit_reset(GPIOA, GPIO_PIN_9);
 		}
     }
 }

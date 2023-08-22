@@ -197,16 +197,16 @@ void DMA0_Channel5_IRQHandler(void)
 							servo_jog_mode_off();
 						}
 						break;
-					case jog_freq_set:
-						if (servo_jog_functions_cnt[JOG_FREQ_SET] != 0) {
-							servo_jog_mode_set_freq();
-						}
-						break;
-					case jog_acceleration_time_set:
-						if (servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] != 0) {
-							servo_jog_mode_set_acceleration_time();
-						}
-						break;
+					//case jog_freq_set:
+					//	if (servo_jog_functions_cnt[JOG_FREQ_SET] != 0) {
+					//		servo_jog_mode_set_freq();
+					//	}
+					//	break;
+					//case jog_acceleration_time_set:
+					//	if (servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] != 0) {
+					//		servo_jog_mode_set_acceleration_time();
+					//	}
+					//	break;
 					case jog_direct_rotation:
 						if (servo_jog_functions_cnt[JOG_DIRECT_ROT] != 0) {
 							servo_jog_mode_direct_rotation();

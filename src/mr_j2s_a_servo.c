@@ -228,15 +228,9 @@ void servo_jog_mode_on(void)
 		case 2:
 			servo_jog_functions_cnt[JOG_ON] = 3;
 			servo_send_write_command4(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_JOG, 0);
-
 			break;
 		case 3:
-			servo_jog_functions_cnt[JOG_ON] = 4;
-			servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
-			break;
-		case 4:
 			servo_jog_functions_cnt[JOG_ON] = 0;
-			servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
 			servo_mode = nothing_mode;
 			servo_timer_enable();
 			break;	
@@ -273,56 +267,101 @@ void servo_jog_mode_off(void)
 	};
 }
 
-void servo_jog_mode_set_freq(void)
-{
-	if (servo_jog_functions_cnt[JOG_FREQ_SET] == 0) {
-		servo_mode = jog_mode;
-		jog_func = jog_freq_set;
-		servo_jog_functions_cnt[JOG_FREQ_SET] = 1;
-		servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
-	} else if (servo_jog_functions_cnt[JOG_FREQ_SET] == 1) {
-		servo_jog_functions_cnt[JOG_FREQ_SET] = 0;
-		servo_mode = nothing_mode;
-	}
-}
-
-void servo_jog_mode_set_acceleration_time(void)
-{
-	if (servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] == 0) {
-		servo_mode = jog_mode;
-		jog_func = jog_acceleration_time_set;
-		servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] = 1;
-		servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
-	} else if (servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] == 1) {
-		servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] = 0;
-		servo_mode = nothing_mode;
-	}
-}
+//void servo_jog_mode_set_freq(void)
+//{
+//	if (servo_jog_functions_cnt[JOG_FREQ_SET] == 0) {
+//		servo_mode = jog_mode;
+//		jog_func = jog_freq_set;
+//		servo_jog_functions_cnt[JOG_FREQ_SET] = 1;
+//		servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
+//	} else if (servo_jog_functions_cnt[JOG_FREQ_SET] == 1) {
+//		servo_jog_functions_cnt[JOG_FREQ_SET] = 0;
+//		servo_mode = nothing_mode;
+//	}
+//}
+//
+//void servo_jog_mode_set_acceleration_time(void)
+//{
+//	if (servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] == 0) {
+//		servo_mode = jog_mode;
+//		jog_func = jog_acceleration_time_set;
+//		servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] = 1;
+//		servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
+//	} else if (servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] == 1) {
+//		servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] = 0;
+//		servo_mode = nothing_mode;
+//	}
+//}
 
 void servo_jog_mode_direct_rotation(void)
 {
-	if (servo_jog_functions_cnt[JOG_DIRECT_ROT] == 0) {
-		servo_mode = jog_mode;
-		jog_func = jog_direct_rotation;
-		servo_jog_functions_cnt[JOG_DIRECT_ROT] = 1;
-		servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_DIRECT_ROTATION, 0);
-	} else if (servo_jog_functions_cnt[JOG_DIRECT_ROT] == 1) {
-		servo_jog_functions_cnt[JOG_DIRECT_ROT] = 0;
-		servo_mode = nothing_mode;
-	}
+	switch (servo_jog_functions_cnt[JOG_DIRECT_ROT]) {
+		case 0:
+			//servo_timer_disable();
+			servo_mode = jog_mode;
+			jog_func = jog_direct_rotation;
+			servo_jog_functions_cnt[JOG_DIRECT_ROT] = 1;
+			servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
+			break;
+		case 1:
+			servo_jog_functions_cnt[JOG_DIRECT_ROT] = 2;
+			servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
+			break;
+		case 2:
+			servo_jog_functions_cnt[JOG_DIRECT_ROT] = 0;
+			servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_DIRECT_ROTATION, 0);
+			servo_mode = nothing_mode;
+			//servo_timer_enable();
+			break;
+		default:
+			break;
+	};
+	
+	
+	//if (servo_jog_functions_cnt[JOG_DIRECT_ROT] == 0) {
+	//	servo_mode = jog_mode;
+	//	jog_func = jog_direct_rotation;
+	//	servo_jog_functions_cnt[JOG_DIRECT_ROT] = 1;
+	//	servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_DIRECT_ROTATION, 0);
+	//} else if (servo_jog_functions_cnt[JOG_DIRECT_ROT] == 1) {
+	//	servo_jog_functions_cnt[JOG_DIRECT_ROT] = 0;
+	//	servo_mode = nothing_mode;
+	//}
 }
 
 void servo_jog_mode_revers_rotation(void)
 {
-	if (servo_jog_functions_cnt[JOG_REVERSE_ROT] == 0) {
-		servo_mode = jog_mode;
-		jog_func = jog_reverse_rotation;
-		servo_jog_functions_cnt[JOG_REVERSE_ROT] = 1;
-		servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_REVERSE_ROTATION, 0);
-	} else if (servo_jog_functions_cnt[JOG_REVERSE_ROT] == 1) {
-		servo_jog_functions_cnt[JOG_REVERSE_ROT] = 0;
-		servo_mode = nothing_mode;
-	}
+	switch (servo_jog_functions_cnt[JOG_REVERSE_ROT]) {
+		case 0:
+			//servo_timer_disable();
+			servo_mode = jog_mode;
+			jog_func = jog_direct_rotation;
+			servo_jog_functions_cnt[JOG_REVERSE_ROT] = 1;
+			servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
+			break;
+		case 1:
+			servo_jog_functions_cnt[JOG_REVERSE_ROT] = 2;
+			servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
+			break;
+		case 2:
+			servo_jog_functions_cnt[JOG_REVERSE_ROT] = 0;
+			servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_REVERSE_ROTATION, 0);
+			servo_mode = nothing_mode;
+			//servo_timer_enable();
+			break;
+		default:
+			break;
+	};
+	
+	//if (servo_jog_functions_cnt[JOG_REVERSE_ROT] == 0) {
+	//	servo_mode = jog_mode;
+	//	jog_func = jog_reverse_rotation;
+	//	servo_jog_functions_cnt[JOG_REVERSE_ROT] = 1;
+	//	servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_REVERSE_ROTATION, 0);
+	//} else if (servo_jog_functions_cnt[JOG_REVERSE_ROT] == 1) {
+	//	servo_jog_functions_cnt[JOG_REVERSE_ROT] = 0;
+	//	servo_mode = nothing_mode;
+	//}
 }
 
 void servo_jog_mode_stop_rotation(void)
