@@ -4,7 +4,7 @@ servo_func_mode servo_mode = jog_mode;
 servo_jog_functions jog_func = jog_on;
 servo_pos_functions pos_func = pos_on;
 
-uint8_t servo_init_cnt = 0;
+//uint8_t servo_init_cnt = 0;
 uint8_t servo_jog_functions_cnt[7] = {0, 0, 0, 0, 0, 0, 0};
 uint8_t servo_pos_functions_cnt[6] = {0, 0, 0, 0, 0, 0};
 uint32_t baudrate[4] = {9600, 19200, 38400, 57600};
@@ -23,9 +23,9 @@ uint16_t tx_read_size = 50;
 
 servo_ready_status servo_ready = READY;
 
-uint32_t servo_freq = 100;
-uint64_t servo_acceleration_time = 1000;
-int64_t pos_mode_path_length = 0;
+uint16_t servo_freq = 100;
+uint32_t servo_acceleration_time = 1000;
+int32_t pos_mode_path_length = 0;
 
 uint8_t ascii[16] = {
     0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46
@@ -38,22 +38,22 @@ void servo_init(servo_baudrate _baudrate)
 	usart1_init(baudrate[_baudrate]);
 	usart1_dma0_txinit(tx_read_buffer, tx_read_size);
 	usart1_dma0_rxinit(rxbuffer, rx_size);
-	servo_set_rs232_baudrate();
+	//servo_set_rs232_baudrate();
 	servo_timer_config();
 }
 
 
-void servo_set_rs232_baudrate(void)
-{
-	if (servo_init_cnt == 0) {
-		servo_mode = init_mode;
-		servo_init_cnt = 1;
-		servo_send_write_command8(WRITE_PARAMS, 0x10, 0x00000000 | servo_curr_baudrate, 0);
-	} else if (servo_init_cnt == 1) {
-		servo_init_cnt = 0;
-		servo_mode = nothing_mode;
-	}
-}
+//void servo_set_rs232_baudrate(void)
+//{
+//	if (servo_init_cnt == 0) {
+//		servo_mode = init_mode;
+//		servo_init_cnt = 1;
+//		servo_send_write_command8(WRITE_PARAMS, 0x10, 0x00000000 | servo_curr_baudrate, 0);
+//	} else if (servo_init_cnt == 1) {
+//		servo_init_cnt = 0;
+//		servo_mode = nothing_mode;
+//	}
+//}
 
 //----------------------------------------------------------------------------------------------------------------------
 void servo_send_read_command(uint16_t command, uint16_t data, uint16_t response_size, uint8_t servo_number)
@@ -64,7 +64,7 @@ void servo_send_read_command(uint16_t command, uint16_t data, uint16_t response_
 	             + ascii[(data >> 4)] + ascii[(data & 0x0f)] + ETX;
 	
     sprintf(tx_read_buffer, "%c%c%X%02X%c%02X%c%02X", EOT, SOH, servo_number, command, STX, data, ETX, sum & 0xff);
-	usart1_dma0_send(tx_read_buffer, COMMAND_SIZE);
+	usart1_dma0_send(tx_read_buffer, COMMAND_SIZE + 1);
 }
 
 void servo_send_write_command4(uint16_t write_command, uint16_t data_number, uint16_t data_to_write, uint8_t servo_number)
@@ -250,7 +250,7 @@ void servo_jog_mode_on(void)
 			break;
 		case 3:
 			servo_jog_functions_cnt[JOG_ON] = 0;
-			servo_mode = nothing_mode;
+			servo_mode = timer_mode;
 			servo_timer_enable();
 			break;	
 		default:
@@ -324,19 +324,17 @@ void servo_jog_mode_direct_rotation(void)
 			break;
 		case 1:
 			servo_jog_functions_cnt[JOG_DIRECT_ROT] = 2;
-			servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
+			servo_send_write_command8(TEST_MODE, POS_MODE_ACCELERATION_TIME, servo_acceleration_time, 0);
 			break;
 		case 2:
 			servo_jog_functions_cnt[JOG_DIRECT_ROT] = 0;
 			servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_DIRECT_ROTATION, 0);
-			servo_mode = nothing_mode;
+			servo_mode = timer_mode;
 			//servo_timer_enable();
 			break;
 		default:
 			break;
 	};
-	
-	
 	//if (servo_jog_functions_cnt[JOG_DIRECT_ROT] == 0) {
 	//	servo_mode = jog_mode;
 	//	jog_func = jog_direct_rotation;
@@ -344,7 +342,7 @@ void servo_jog_mode_direct_rotation(void)
 	//	servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_DIRECT_ROTATION, 0);
 	//} else if (servo_jog_functions_cnt[JOG_DIRECT_ROT] == 1) {
 	//	servo_jog_functions_cnt[JOG_DIRECT_ROT] = 0;
-	//	servo_mode = nothing_mode;
+	//	servo_mode = timer_mode;
 	//}
 }
 
@@ -354,18 +352,18 @@ void servo_jog_mode_revers_rotation(void)
 		case 0:
 			//servo_timer_disable();
 			servo_mode = jog_mode;
-			jog_func = jog_direct_rotation;
+			jog_func = jog_reverse_rotation;
 			servo_jog_functions_cnt[JOG_REVERSE_ROT] = 1;
 			servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
 			break;
 		case 1:
 			servo_jog_functions_cnt[JOG_REVERSE_ROT] = 2;
-			servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
+			servo_send_write_command8(TEST_MODE, POS_MODE_ACCELERATION_TIME, servo_acceleration_time, 0);
 			break;
 		case 2:
 			servo_jog_functions_cnt[JOG_REVERSE_ROT] = 0;
 			servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_REVERSE_ROTATION, 0);
-			servo_mode = nothing_mode;
+			servo_mode = timer_mode;
 			//servo_timer_enable();
 			break;
 		default:
@@ -379,7 +377,7 @@ void servo_jog_mode_revers_rotation(void)
 	//	servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_REVERSE_ROTATION, 0);
 	//} else if (servo_jog_functions_cnt[JOG_REVERSE_ROT] == 1) {
 	//	servo_jog_functions_cnt[JOG_REVERSE_ROT] = 0;
-	//	servo_mode = nothing_mode;
+	//	servo_mode = timer_mode;
 	//}
 }
 
@@ -392,14 +390,14 @@ void servo_jog_mode_stop_rotation(void)
 		servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, JOG_MODE_STOP_ROTATION, 0);
 	} else if (servo_jog_functions_cnt[JOG_STOP] == 1) {
 		servo_jog_functions_cnt[JOG_STOP] = 0;
-		servo_mode = nothing_mode;
+		servo_mode = timer_mode;
 	}
 }
 //-----------------------------------------------------------------------------------------------------------------------------------
 uint8_t servo_handle_error(void)
 {
-	if (servo_alarm > 'F') {
-		servo_emg_stop();
+	if (rxbuffer[2] != 'A') {
+		gpio_bit_set(GPIOA, GPIO_PIN_7);
 	}
 	return rxbuffer[2];
 }

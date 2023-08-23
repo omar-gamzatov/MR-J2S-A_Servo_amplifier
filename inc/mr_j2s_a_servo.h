@@ -174,7 +174,7 @@ typedef enum {
 } servo_baudrate;
 
 typedef enum {
-	init_mode,
+//	init_mode,
 	jog_mode,
 	pos_mode,
 	timer_mode,
