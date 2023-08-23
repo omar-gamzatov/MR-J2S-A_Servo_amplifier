@@ -245,7 +245,7 @@ void servo_send_write_command8(uint16_t write_command, uint16_t data_number, uin
 
 void servo_set_freq(uint32_t freq);
 void servo_set_acceleration_time(uint64_t acceleration_time);
-void servo_set_path_length(int64_t path);
+void servo_set_path_length(int32_t path);
 
 void servo_emg_stop(void);
 void servo_set_operating_mode(uint32_t op_mode);

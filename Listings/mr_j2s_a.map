@@ -55,11 +55,11 @@ Section Cross References
     main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_set_acceleration_time) for servo_set_acceleration_time
     main.o(.text.main) refers to gd32e50x_gpio.o(.text.gpio_input_bit_get) for gpio_input_bit_get
     main.o(.text.main) refers to systick.o(.text.delay_1ms) for delay_1ms
-    main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_jog_mode_on) for servo_jog_mode_on
+    main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_positioning_mode_on) for servo_positioning_mode_on
+    main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_positioning_mode_off) for servo_positioning_mode_off
     main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_jog_mode_off) for servo_jog_mode_off
-    main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_jog_mode_direct_rotation) for servo_jog_mode_direct_rotation
-    main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_jog_mode_stop_rotation) for servo_jog_mode_stop_rotation
-    main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_jog_mode_revers_rotation) for servo_jog_mode_revers_rotation
+    main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_set_path_length) for servo_set_path_length
+    main.o(.text.main) refers to mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) for servo_positioning_mode_path_length
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     mr_j2s_a_servo.o(.text) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
     mr_j2s_a_servo.o(.text) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
@@ -251,60 +251,27 @@ Section Cross References
     mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_off) refers (Special) to _printf_str.o(.text) for _printf_str
     mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_off) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
     mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_off) refers to mr_j2s_a_servo.o(.text.servo_positioning_mode_off) for [Anonymous Symbol]
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers (Special) to _printf_str.o(.text) for _printf_str
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers to mr_j2s_a_servo.o(.bss.servo_pos_functions_cnt) for servo_pos_functions_cnt
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers to mr_j2s_a_servo.o(.bss.servo_mode) for servo_mode
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers to mr_j2s_a_servo.o(.bss.pos_func) for pos_func
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers to mr_j2s_a_servo.o(.data.servo_freq) for servo_freq
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) refers to mr_j2s_a_servo.o(.text.servo_send_write_command4) for servo_send_write_command4
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_freq) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_freq) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_freq) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_freq) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_freq) refers (Special) to _printf_str.o(.text) for _printf_str
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_freq) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_freq) refers to mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq) for [Anonymous Symbol]
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_str.o(.text) for _printf_str
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers to mr_j2s_a_servo.o(.bss.servo_pos_functions_cnt) for servo_pos_functions_cnt
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers to mr_j2s_a_servo.o(.bss.servo_mode) for servo_mode
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers to mr_j2s_a_servo.o(.bss.pos_func) for pos_func
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers to mr_j2s_a_servo.o(.data.servo_acceleration_time) for servo_acceleration_time
-    mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) refers to mr_j2s_a_servo.o(.text.servo_send_write_command8) for servo_send_write_command8
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_str.o(.text) for _printf_str
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_acceleration_time) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_acceleration_time) refers to mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time) for [Anonymous Symbol]
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_str.o(.text) for _printf_str
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.bss.servo_pos_functions_cnt) for servo_pos_functions_cnt
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.bss.servo_mode) for servo_mode
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.bss.pos_func) for pos_func
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.bss.pos_mode_path_length) for pos_mode_path_length
-    mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.text.servo_send_write_command8) for servo_send_write_command8
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_str.o(.text) for _printf_str
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_positioning_mode_path_length) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
-    mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length) for [Anonymous Symbol]
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers (Special) to _printf_str.o(.text) for _printf_str
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.bss.servo_jog_functions_cnt) for servo_jog_functions_cnt
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.bss.servo_mode) for servo_mode
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.bss.pos_func) for pos_func
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.data.servo_freq) for servo_freq
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.text.servo_send_write_command4) for servo_send_write_command4
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.bss.pos_mode_path_length) for pos_mode_path_length
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.text.servo_send_write_command8) for servo_send_write_command8
+    mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.data.servo_acceleration_time) for servo_acceleration_time
+    mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_path_length) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
+    mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_path_length) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_path_length) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_path_length) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_path_length) refers (Special) to _printf_str.o(.text) for _printf_str
+    mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_path_length) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_path_length) refers to mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length) for [Anonymous Symbol]
     mr_j2s_a_servo.o(.text.servo_positioning_mode_break) refers (Special) to _printf_c.o(.ARM.Collect$$_printf_percent$$00000013) for _printf_c
     mr_j2s_a_servo.o(.text.servo_positioning_mode_break) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
     mr_j2s_a_servo.o(.text.servo_positioning_mode_break) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
@@ -1759,20 +1726,12 @@ Removing Unused input sections from the image.
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_emg_stop), (8 bytes).
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_freq), (8 bytes).
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_acceleration_time), (8 bytes).
-    Removing mr_j2s_a_servo.o(.text.servo_set_path_length), (12 bytes).
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_path_length), (8 bytes).
     Removing mr_j2s_a_servo.o(.text.servo_set_operating_mode), (16 bytes).
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_operating_mode), (8 bytes).
-    Removing mr_j2s_a_servo.o(.text.servo_positioning_mode_on), (142 bytes).
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_on), (8 bytes).
-    Removing mr_j2s_a_servo.o(.text.servo_positioning_mode_off), (114 bytes).
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_off), (8 bytes).
-    Removing mr_j2s_a_servo.o(.text.servo_set_pos_mode_freq), (88 bytes).
-    Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_freq), (8 bytes).
-    Removing mr_j2s_a_servo.o(.text.servo_set_pos_mode_acceleration_time), (88 bytes).
-    Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_pos_mode_acceleration_time), (8 bytes).
-    Removing mr_j2s_a_servo.o(.text.servo_set_positioning_mode_path_length), (88 bytes).
-    Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_set_positioning_mode_path_length), (8 bytes).
+    Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_path_length), (8 bytes).
     Removing mr_j2s_a_servo.o(.text.servo_positioning_mode_break), (82 bytes).
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_positioning_mode_break), (8 bytes).
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.servo_jog_mode_on), (8 bytes).
@@ -1787,7 +1746,6 @@ Removing Unused input sections from the image.
     Removing mr_j2s_a_servo.o(.ARM.exidx.text.get_servo_data_length), (8 bytes).
     Removing mr_j2s_a_servo.o(.data.tx_write_size), (2 bytes).
     Removing mr_j2s_a_servo.o(.data.servo_ready), (1 bytes).
-    Removing mr_j2s_a_servo.o(.bss.pos_mode_path_length), (4 bytes).
     Removing systick.o(.text), (0 bytes).
     Removing systick.o(.ARM.exidx.text.systick_config), (8 bytes).
     Removing systick.o(.ARM.exidx.text.SysTick_Config), (8 bytes).
@@ -3413,7 +3371,7 @@ Removing Unused input sections from the image.
     Removing gd32e50x_wwdgt.o(.text.wwdgt_interrupt_enable), (18 bytes).
     Removing gd32e50x_wwdgt.o(.ARM.exidx.text.wwdgt_interrupt_enable), (8 bytes).
 
-1678 unused section(s) (total 34752 bytes) removed from the image.
+1669 unused section(s) (total 34200 bytes) removed from the image.
 
 ==============================================================================
 
@@ -3651,66 +3609,70 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08000c4c   Section        0  gd32e50x_gpio.o(.text.gpio_init)
     [Anonymous Symbol]                       0x08000d04   Section        0  gd32e50x_gpio.o(.text.gpio_input_bit_get)
     [Anonymous Symbol]                       0x08000d10   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x08000e64   Section        0  gd32e50x_misc.o(.text.nvic_irq_disable)
-    [Anonymous Symbol]                       0x08000e70   Section        0  gd32e50x_misc.o(.text.nvic_irq_enable)
-    [Anonymous Symbol]                       0x08000f14   Section        0  gd32e50x_misc.o(.text.nvic_priority_group_set)
-    [Anonymous Symbol]                       0x08000f28   Section        0  gd32e50x_misc.o(.text.nvic_vector_table_set)
-    [Anonymous Symbol]                       0x08000f44   Section        0  gd32e50x_rcu.o(.text.rcu_clock_freq_get)
-    [Anonymous Symbol]                       0x08001064   Section        0  gd32e50x_rcu.o(.text.rcu_periph_clock_enable)
-    [Anonymous Symbol]                       0x08001084   Section        0  gd32e50x_rcu.o(.text.rcu_periph_reset_disable)
-    [Anonymous Symbol]                       0x080010a4   Section        0  gd32e50x_rcu.o(.text.rcu_periph_reset_enable)
-    [Anonymous Symbol]                       0x080010c4   Section        0  mr_j2s_a_servo.o(.text.servo_handle_error)
-    [Anonymous Symbol]                       0x080010e8   Section        0  mr_j2s_a_servo.o(.text.servo_init)
-    [Anonymous Symbol]                       0x0800113c   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_direct_rotation)
-    [Anonymous Symbol]                       0x080011c8   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_off)
-    [Anonymous Symbol]                       0x08001254   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_on)
-    [Anonymous Symbol]                       0x080012d0   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_revers_rotation)
-    [Anonymous Symbol]                       0x0800135c   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_stop_rotation)
-    [Anonymous Symbol]                       0x080013b4   Section        0  mr_j2s_a_servo.o(.text.servo_send_read_command)
-    [Anonymous Symbol]                       0x0800143c   Section        0  mr_j2s_a_servo.o(.text.servo_send_write_command4)
-    [Anonymous Symbol]                       0x080014ec   Section        0  mr_j2s_a_servo.o(.text.servo_send_write_command8)
-    [Anonymous Symbol]                       0x080015b0   Section        0  mr_j2s_a_servo.o(.text.servo_set_acceleration_time)
-    [Anonymous Symbol]                       0x080015bc   Section        0  mr_j2s_a_servo.o(.text.servo_set_freq)
-    [Anonymous Symbol]                       0x080015c8   Section        0  timer.o(.text.servo_timer_config)
-    [Anonymous Symbol]                       0x0800160c   Section        0  timer.o(.text.servo_timer_disable)
-    [Anonymous Symbol]                       0x0800162c   Section        0  timer.o(.text.servo_timer_enable)
-    system_clock_180m_hxtal                  0x08001651   Thumb Code   228  system_gd32e50x.o(.text.system_clock_180m_hxtal)
-    [Anonymous Symbol]                       0x08001650   Section        0  system_gd32e50x.o(.text.system_clock_180m_hxtal)
-    system_clock_config                      0x08001735   Thumb Code     8  system_gd32e50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x08001734   Section        0  system_gd32e50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x0800173c   Section        0  systick.o(.text.systick_config)
-    [Anonymous Symbol]                       0x08001768   Section        0  gd32e50x_timer.o(.text.timer_deinit)
-    [Anonymous Symbol]                       0x080018ac   Section        0  gd32e50x_timer.o(.text.timer_disable)
-    [Anonymous Symbol]                       0x080018b8   Section        0  gd32e50x_timer.o(.text.timer_enable)
-    [Anonymous Symbol]                       0x080018c4   Section        0  gd32e50x_timer.o(.text.timer_init)
-    [Anonymous Symbol]                       0x08001988   Section        0  gd32e50x_timer.o(.text.timer_interrupt_disable)
-    [Anonymous Symbol]                       0x08001994   Section        0  gd32e50x_timer.o(.text.timer_interrupt_enable)
-    [Anonymous Symbol]                       0x0800199c   Section        0  gd32e50x_timer.o(.text.timer_interrupt_flag_clear)
-    [Anonymous Symbol]                       0x080019a4   Section        0  gd32e50x_timer.o(.text.timer_interrupt_flag_get)
-    [Anonymous Symbol]                       0x080019bc   Section        0  gd32e50x_timer.o(.text.timer_struct_para_init)
-    [Anonymous Symbol]                       0x080019d0   Section        0  usart1_dma0.o(.text.usart1_dma0_rxdata)
-    [Anonymous Symbol]                       0x08001a00   Section        0  usart1_dma0.o(.text.usart1_dma0_rxinit)
-    [Anonymous Symbol]                       0x08001a78   Section        0  usart1_dma0.o(.text.usart1_dma0_send)
-    [Anonymous Symbol]                       0x08001ab4   Section        0  usart1_dma0.o(.text.usart1_dma0_txinit)
-    [Anonymous Symbol]                       0x08001b24   Section        0  usart1_dma0.o(.text.usart1_init)
-    [Anonymous Symbol]                       0x08001ba0   Section        0  gd32e50x_usart.o(.text.usart_baudrate_set)
-    [Anonymous Symbol]                       0x08001c70   Section        0  gd32e50x_usart.o(.text.usart_deinit)
-    [Anonymous Symbol]                       0x08001cf8   Section        0  gd32e50x_usart.o(.text.usart_dma_receive_config)
-    [Anonymous Symbol]                       0x08001d20   Section        0  gd32e50x_usart.o(.text.usart_dma_transmit_config)
-    [Anonymous Symbol]                       0x08001d48   Section        0  gd32e50x_usart.o(.text.usart_enable)
-    [Anonymous Symbol]                       0x08001d68   Section        0  gd32e50x_usart.o(.text.usart_parity_config)
-    [Anonymous Symbol]                       0x08001da4   Section        0  gd32e50x_usart.o(.text.usart_receive_config)
-    [Anonymous Symbol]                       0x08001dc8   Section        0  gd32e50x_usart.o(.text.usart_stop_bit_set)
-    [Anonymous Symbol]                       0x08001df8   Section        0  gd32e50x_usart.o(.text.usart_transmit_config)
-    [Anonymous Symbol]                       0x08001e1c   Section        0  gd32e50x_usart.o(.text.usart_word_length_set)
-    i._is_digit                              0x08001e58   Section        0  __printf_wp.o(i._is_digit)
-    $v0                                      0x08001e66   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x08001e66   Section       26  fpinit.o(x$fpl$fpinit)
-    uc_hextab                                0x08001e80   Data          20  _printf_hex_int.o(.constdata)
-    .constdata                               0x08001e80   Section       40  _printf_hex_int.o(.constdata)
-    lc_hextab                                0x08001e94   Data          20  _printf_hex_int.o(.constdata)
-    maptable                                 0x08001ea8   Data          17  __printf_flags_wp.o(.constdata)
-    .constdata                               0x08001ea8   Section       17  __printf_flags_wp.o(.constdata)
+    [Anonymous Symbol]                       0x08000e70   Section        0  gd32e50x_misc.o(.text.nvic_irq_disable)
+    [Anonymous Symbol]                       0x08000e7c   Section        0  gd32e50x_misc.o(.text.nvic_irq_enable)
+    [Anonymous Symbol]                       0x08000f20   Section        0  gd32e50x_misc.o(.text.nvic_priority_group_set)
+    [Anonymous Symbol]                       0x08000f34   Section        0  gd32e50x_misc.o(.text.nvic_vector_table_set)
+    [Anonymous Symbol]                       0x08000f50   Section        0  gd32e50x_rcu.o(.text.rcu_clock_freq_get)
+    [Anonymous Symbol]                       0x08001070   Section        0  gd32e50x_rcu.o(.text.rcu_periph_clock_enable)
+    [Anonymous Symbol]                       0x08001090   Section        0  gd32e50x_rcu.o(.text.rcu_periph_reset_disable)
+    [Anonymous Symbol]                       0x080010b0   Section        0  gd32e50x_rcu.o(.text.rcu_periph_reset_enable)
+    [Anonymous Symbol]                       0x080010d0   Section        0  mr_j2s_a_servo.o(.text.servo_handle_error)
+    [Anonymous Symbol]                       0x080010f4   Section        0  mr_j2s_a_servo.o(.text.servo_init)
+    [Anonymous Symbol]                       0x08001148   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_direct_rotation)
+    [Anonymous Symbol]                       0x080011d4   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_off)
+    [Anonymous Symbol]                       0x08001260   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_on)
+    [Anonymous Symbol]                       0x080012dc   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_revers_rotation)
+    [Anonymous Symbol]                       0x08001368   Section        0  mr_j2s_a_servo.o(.text.servo_jog_mode_stop_rotation)
+    [Anonymous Symbol]                       0x080013c0   Section        0  mr_j2s_a_servo.o(.text.servo_positioning_mode_off)
+    [Anonymous Symbol]                       0x08001438   Section        0  mr_j2s_a_servo.o(.text.servo_positioning_mode_on)
+    [Anonymous Symbol]                       0x080014c8   Section        0  mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length)
+    [Anonymous Symbol]                       0x08001554   Section        0  mr_j2s_a_servo.o(.text.servo_send_read_command)
+    [Anonymous Symbol]                       0x080015dc   Section        0  mr_j2s_a_servo.o(.text.servo_send_write_command4)
+    [Anonymous Symbol]                       0x0800168c   Section        0  mr_j2s_a_servo.o(.text.servo_send_write_command8)
+    [Anonymous Symbol]                       0x08001750   Section        0  mr_j2s_a_servo.o(.text.servo_set_acceleration_time)
+    [Anonymous Symbol]                       0x0800175c   Section        0  mr_j2s_a_servo.o(.text.servo_set_freq)
+    [Anonymous Symbol]                       0x08001768   Section        0  mr_j2s_a_servo.o(.text.servo_set_path_length)
+    [Anonymous Symbol]                       0x08001774   Section        0  timer.o(.text.servo_timer_config)
+    [Anonymous Symbol]                       0x080017b8   Section        0  timer.o(.text.servo_timer_disable)
+    [Anonymous Symbol]                       0x080017d8   Section        0  timer.o(.text.servo_timer_enable)
+    system_clock_180m_hxtal                  0x080017fd   Thumb Code   228  system_gd32e50x.o(.text.system_clock_180m_hxtal)
+    [Anonymous Symbol]                       0x080017fc   Section        0  system_gd32e50x.o(.text.system_clock_180m_hxtal)
+    system_clock_config                      0x080018e1   Thumb Code     8  system_gd32e50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x080018e0   Section        0  system_gd32e50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x080018e8   Section        0  systick.o(.text.systick_config)
+    [Anonymous Symbol]                       0x08001914   Section        0  gd32e50x_timer.o(.text.timer_deinit)
+    [Anonymous Symbol]                       0x08001a58   Section        0  gd32e50x_timer.o(.text.timer_disable)
+    [Anonymous Symbol]                       0x08001a64   Section        0  gd32e50x_timer.o(.text.timer_enable)
+    [Anonymous Symbol]                       0x08001a70   Section        0  gd32e50x_timer.o(.text.timer_init)
+    [Anonymous Symbol]                       0x08001b34   Section        0  gd32e50x_timer.o(.text.timer_interrupt_disable)
+    [Anonymous Symbol]                       0x08001b40   Section        0  gd32e50x_timer.o(.text.timer_interrupt_enable)
+    [Anonymous Symbol]                       0x08001b48   Section        0  gd32e50x_timer.o(.text.timer_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x08001b50   Section        0  gd32e50x_timer.o(.text.timer_interrupt_flag_get)
+    [Anonymous Symbol]                       0x08001b68   Section        0  gd32e50x_timer.o(.text.timer_struct_para_init)
+    [Anonymous Symbol]                       0x08001b7c   Section        0  usart1_dma0.o(.text.usart1_dma0_rxdata)
+    [Anonymous Symbol]                       0x08001bac   Section        0  usart1_dma0.o(.text.usart1_dma0_rxinit)
+    [Anonymous Symbol]                       0x08001c24   Section        0  usart1_dma0.o(.text.usart1_dma0_send)
+    [Anonymous Symbol]                       0x08001c60   Section        0  usart1_dma0.o(.text.usart1_dma0_txinit)
+    [Anonymous Symbol]                       0x08001cd0   Section        0  usart1_dma0.o(.text.usart1_init)
+    [Anonymous Symbol]                       0x08001d4c   Section        0  gd32e50x_usart.o(.text.usart_baudrate_set)
+    [Anonymous Symbol]                       0x08001e1c   Section        0  gd32e50x_usart.o(.text.usart_deinit)
+    [Anonymous Symbol]                       0x08001ea4   Section        0  gd32e50x_usart.o(.text.usart_dma_receive_config)
+    [Anonymous Symbol]                       0x08001ecc   Section        0  gd32e50x_usart.o(.text.usart_dma_transmit_config)
+    [Anonymous Symbol]                       0x08001ef4   Section        0  gd32e50x_usart.o(.text.usart_enable)
+    [Anonymous Symbol]                       0x08001f14   Section        0  gd32e50x_usart.o(.text.usart_parity_config)
+    [Anonymous Symbol]                       0x08001f50   Section        0  gd32e50x_usart.o(.text.usart_receive_config)
+    [Anonymous Symbol]                       0x08001f74   Section        0  gd32e50x_usart.o(.text.usart_stop_bit_set)
+    [Anonymous Symbol]                       0x08001fa4   Section        0  gd32e50x_usart.o(.text.usart_transmit_config)
+    [Anonymous Symbol]                       0x08001fc8   Section        0  gd32e50x_usart.o(.text.usart_word_length_set)
+    i._is_digit                              0x08002004   Section        0  __printf_wp.o(i._is_digit)
+    $v0                                      0x08002012   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x08002012   Section       26  fpinit.o(x$fpl$fpinit)
+    uc_hextab                                0x0800202c   Data          20  _printf_hex_int.o(.constdata)
+    .constdata                               0x0800202c   Section       40  _printf_hex_int.o(.constdata)
+    lc_hextab                                0x08002040   Data          20  _printf_hex_int.o(.constdata)
+    maptable                                 0x08002054   Data          17  __printf_flags_wp.o(.constdata)
+    .constdata                               0x08002054   Section       17  __printf_flags_wp.o(.constdata)
     .bss                                     0x20000030   Section       96  libspace.o(.bss)
     delay                                    0x20000090   Data           4  systick.o(.bss.delay)
     [Anonymous Symbol]                       0x20000090   Section        0  systick.o(.bss.delay)
@@ -3946,61 +3908,65 @@ Image Symbol Table
     gpio_bit_set                             0x08000c49   Thumb Code     4  gd32e50x_gpio.o(.text.gpio_bit_set)
     gpio_init                                0x08000c4d   Thumb Code   182  gd32e50x_gpio.o(.text.gpio_init)
     gpio_input_bit_get                       0x08000d05   Thumb Code    10  gd32e50x_gpio.o(.text.gpio_input_bit_get)
-    main                                     0x08000d11   Thumb Code   338  main.o(.text.main)
-    nvic_irq_disable                         0x08000e65   Thumb Code    10  gd32e50x_misc.o(.text.nvic_irq_disable)
-    nvic_irq_enable                          0x08000e71   Thumb Code   162  gd32e50x_misc.o(.text.nvic_irq_enable)
-    nvic_priority_group_set                  0x08000f15   Thumb Code    20  gd32e50x_misc.o(.text.nvic_priority_group_set)
-    nvic_vector_table_set                    0x08000f29   Thumb Code    28  gd32e50x_misc.o(.text.nvic_vector_table_set)
-    rcu_clock_freq_get                       0x08000f45   Thumb Code   264  gd32e50x_rcu.o(.text.rcu_clock_freq_get)
-    rcu_periph_clock_enable                  0x08001065   Thumb Code    30  gd32e50x_rcu.o(.text.rcu_periph_clock_enable)
-    rcu_periph_reset_disable                 0x08001085   Thumb Code    32  gd32e50x_rcu.o(.text.rcu_periph_reset_disable)
-    rcu_periph_reset_enable                  0x080010a5   Thumb Code    30  gd32e50x_rcu.o(.text.rcu_periph_reset_enable)
-    servo_handle_error                       0x080010c5   Thumb Code    34  mr_j2s_a_servo.o(.text.servo_handle_error)
-    servo_init                               0x080010e9   Thumb Code    84  mr_j2s_a_servo.o(.text.servo_init)
-    servo_jog_mode_direct_rotation           0x0800113d   Thumb Code   138  mr_j2s_a_servo.o(.text.servo_jog_mode_direct_rotation)
-    servo_jog_mode_off                       0x080011c9   Thumb Code   138  mr_j2s_a_servo.o(.text.servo_jog_mode_off)
-    servo_jog_mode_on                        0x08001255   Thumb Code   124  mr_j2s_a_servo.o(.text.servo_jog_mode_on)
-    servo_jog_mode_revers_rotation           0x080012d1   Thumb Code   138  mr_j2s_a_servo.o(.text.servo_jog_mode_revers_rotation)
-    servo_jog_mode_stop_rotation             0x0800135d   Thumb Code    86  mr_j2s_a_servo.o(.text.servo_jog_mode_stop_rotation)
-    servo_send_read_command                  0x080013b5   Thumb Code   112  mr_j2s_a_servo.o(.text.servo_send_read_command)
-    servo_send_write_command4                0x0800143d   Thumb Code   148  mr_j2s_a_servo.o(.text.servo_send_write_command4)
-    servo_send_write_command8                0x080014ed   Thumb Code   168  mr_j2s_a_servo.o(.text.servo_send_write_command8)
-    servo_set_acceleration_time              0x080015b1   Thumb Code    12  mr_j2s_a_servo.o(.text.servo_set_acceleration_time)
-    servo_set_freq                           0x080015bd   Thumb Code    12  mr_j2s_a_servo.o(.text.servo_set_freq)
-    servo_timer_config                       0x080015c9   Thumb Code    68  timer.o(.text.servo_timer_config)
-    servo_timer_disable                      0x0800160d   Thumb Code    32  timer.o(.text.servo_timer_disable)
-    servo_timer_enable                       0x0800162d   Thumb Code    36  timer.o(.text.servo_timer_enable)
-    systick_config                           0x0800173d   Thumb Code    42  systick.o(.text.systick_config)
-    timer_deinit                             0x08001769   Thumb Code   324  gd32e50x_timer.o(.text.timer_deinit)
-    timer_disable                            0x080018ad   Thumb Code    10  gd32e50x_timer.o(.text.timer_disable)
-    timer_enable                             0x080018b9   Thumb Code    10  gd32e50x_timer.o(.text.timer_enable)
-    timer_init                               0x080018c5   Thumb Code   194  gd32e50x_timer.o(.text.timer_init)
-    timer_interrupt_disable                  0x08001989   Thumb Code    10  gd32e50x_timer.o(.text.timer_interrupt_disable)
-    timer_interrupt_enable                   0x08001995   Thumb Code     8  gd32e50x_timer.o(.text.timer_interrupt_enable)
-    timer_interrupt_flag_clear               0x0800199d   Thumb Code     6  gd32e50x_timer.o(.text.timer_interrupt_flag_clear)
-    timer_interrupt_flag_get                 0x080019a5   Thumb Code    22  gd32e50x_timer.o(.text.timer_interrupt_flag_get)
-    timer_struct_para_init                   0x080019bd   Thumb Code    18  gd32e50x_timer.o(.text.timer_struct_para_init)
-    usart1_dma0_rxdata                       0x080019d1   Thumb Code    48  usart1_dma0.o(.text.usart1_dma0_rxdata)
-    usart1_dma0_rxinit                       0x08001a01   Thumb Code   118  usart1_dma0.o(.text.usart1_dma0_rxinit)
-    usart1_dma0_send                         0x08001a79   Thumb Code    60  usart1_dma0.o(.text.usart1_dma0_send)
-    usart1_dma0_txinit                       0x08001ab5   Thumb Code   110  usart1_dma0.o(.text.usart1_dma0_txinit)
-    usart1_init                              0x08001b25   Thumb Code   122  usart1_dma0.o(.text.usart1_init)
-    usart_baudrate_set                       0x08001ba1   Thumb Code   206  gd32e50x_usart.o(.text.usart_baudrate_set)
-    usart_deinit                             0x08001c71   Thumb Code   136  gd32e50x_usart.o(.text.usart_deinit)
-    usart_dma_receive_config                 0x08001cf9   Thumb Code    40  gd32e50x_usart.o(.text.usart_dma_receive_config)
-    usart_dma_transmit_config                0x08001d21   Thumb Code    40  gd32e50x_usart.o(.text.usart_dma_transmit_config)
-    usart_enable                             0x08001d49   Thumb Code    32  gd32e50x_usart.o(.text.usart_enable)
-    usart_parity_config                      0x08001d69   Thumb Code    60  gd32e50x_usart.o(.text.usart_parity_config)
-    usart_receive_config                     0x08001da5   Thumb Code    36  gd32e50x_usart.o(.text.usart_receive_config)
-    usart_stop_bit_set                       0x08001dc9   Thumb Code    48  gd32e50x_usart.o(.text.usart_stop_bit_set)
-    usart_transmit_config                    0x08001df9   Thumb Code    36  gd32e50x_usart.o(.text.usart_transmit_config)
-    usart_word_length_set                    0x08001e1d   Thumb Code    60  gd32e50x_usart.o(.text.usart_word_length_set)
-    _is_digit                                0x08001e59   Thumb Code    14  __printf_wp.o(i._is_digit)
-    _fp_init                                 0x08001e67   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08001e7f   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08001e7f   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x08001ebc   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001edc   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x08000d11   Thumb Code   350  main.o(.text.main)
+    nvic_irq_disable                         0x08000e71   Thumb Code    10  gd32e50x_misc.o(.text.nvic_irq_disable)
+    nvic_irq_enable                          0x08000e7d   Thumb Code   162  gd32e50x_misc.o(.text.nvic_irq_enable)
+    nvic_priority_group_set                  0x08000f21   Thumb Code    20  gd32e50x_misc.o(.text.nvic_priority_group_set)
+    nvic_vector_table_set                    0x08000f35   Thumb Code    28  gd32e50x_misc.o(.text.nvic_vector_table_set)
+    rcu_clock_freq_get                       0x08000f51   Thumb Code   264  gd32e50x_rcu.o(.text.rcu_clock_freq_get)
+    rcu_periph_clock_enable                  0x08001071   Thumb Code    30  gd32e50x_rcu.o(.text.rcu_periph_clock_enable)
+    rcu_periph_reset_disable                 0x08001091   Thumb Code    32  gd32e50x_rcu.o(.text.rcu_periph_reset_disable)
+    rcu_periph_reset_enable                  0x080010b1   Thumb Code    30  gd32e50x_rcu.o(.text.rcu_periph_reset_enable)
+    servo_handle_error                       0x080010d1   Thumb Code    34  mr_j2s_a_servo.o(.text.servo_handle_error)
+    servo_init                               0x080010f5   Thumb Code    84  mr_j2s_a_servo.o(.text.servo_init)
+    servo_jog_mode_direct_rotation           0x08001149   Thumb Code   138  mr_j2s_a_servo.o(.text.servo_jog_mode_direct_rotation)
+    servo_jog_mode_off                       0x080011d5   Thumb Code   138  mr_j2s_a_servo.o(.text.servo_jog_mode_off)
+    servo_jog_mode_on                        0x08001261   Thumb Code   124  mr_j2s_a_servo.o(.text.servo_jog_mode_on)
+    servo_jog_mode_revers_rotation           0x080012dd   Thumb Code   138  mr_j2s_a_servo.o(.text.servo_jog_mode_revers_rotation)
+    servo_jog_mode_stop_rotation             0x08001369   Thumb Code    86  mr_j2s_a_servo.o(.text.servo_jog_mode_stop_rotation)
+    servo_positioning_mode_off               0x080013c1   Thumb Code   120  mr_j2s_a_servo.o(.text.servo_positioning_mode_off)
+    servo_positioning_mode_on                0x08001439   Thumb Code   142  mr_j2s_a_servo.o(.text.servo_positioning_mode_on)
+    servo_positioning_mode_path_length       0x080014c9   Thumb Code   138  mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length)
+    servo_send_read_command                  0x08001555   Thumb Code   112  mr_j2s_a_servo.o(.text.servo_send_read_command)
+    servo_send_write_command4                0x080015dd   Thumb Code   148  mr_j2s_a_servo.o(.text.servo_send_write_command4)
+    servo_send_write_command8                0x0800168d   Thumb Code   168  mr_j2s_a_servo.o(.text.servo_send_write_command8)
+    servo_set_acceleration_time              0x08001751   Thumb Code    12  mr_j2s_a_servo.o(.text.servo_set_acceleration_time)
+    servo_set_freq                           0x0800175d   Thumb Code    12  mr_j2s_a_servo.o(.text.servo_set_freq)
+    servo_set_path_length                    0x08001769   Thumb Code    12  mr_j2s_a_servo.o(.text.servo_set_path_length)
+    servo_timer_config                       0x08001775   Thumb Code    68  timer.o(.text.servo_timer_config)
+    servo_timer_disable                      0x080017b9   Thumb Code    32  timer.o(.text.servo_timer_disable)
+    servo_timer_enable                       0x080017d9   Thumb Code    36  timer.o(.text.servo_timer_enable)
+    systick_config                           0x080018e9   Thumb Code    42  systick.o(.text.systick_config)
+    timer_deinit                             0x08001915   Thumb Code   324  gd32e50x_timer.o(.text.timer_deinit)
+    timer_disable                            0x08001a59   Thumb Code    10  gd32e50x_timer.o(.text.timer_disable)
+    timer_enable                             0x08001a65   Thumb Code    10  gd32e50x_timer.o(.text.timer_enable)
+    timer_init                               0x08001a71   Thumb Code   194  gd32e50x_timer.o(.text.timer_init)
+    timer_interrupt_disable                  0x08001b35   Thumb Code    10  gd32e50x_timer.o(.text.timer_interrupt_disable)
+    timer_interrupt_enable                   0x08001b41   Thumb Code     8  gd32e50x_timer.o(.text.timer_interrupt_enable)
+    timer_interrupt_flag_clear               0x08001b49   Thumb Code     6  gd32e50x_timer.o(.text.timer_interrupt_flag_clear)
+    timer_interrupt_flag_get                 0x08001b51   Thumb Code    22  gd32e50x_timer.o(.text.timer_interrupt_flag_get)
+    timer_struct_para_init                   0x08001b69   Thumb Code    18  gd32e50x_timer.o(.text.timer_struct_para_init)
+    usart1_dma0_rxdata                       0x08001b7d   Thumb Code    48  usart1_dma0.o(.text.usart1_dma0_rxdata)
+    usart1_dma0_rxinit                       0x08001bad   Thumb Code   118  usart1_dma0.o(.text.usart1_dma0_rxinit)
+    usart1_dma0_send                         0x08001c25   Thumb Code    60  usart1_dma0.o(.text.usart1_dma0_send)
+    usart1_dma0_txinit                       0x08001c61   Thumb Code   110  usart1_dma0.o(.text.usart1_dma0_txinit)
+    usart1_init                              0x08001cd1   Thumb Code   122  usart1_dma0.o(.text.usart1_init)
+    usart_baudrate_set                       0x08001d4d   Thumb Code   206  gd32e50x_usart.o(.text.usart_baudrate_set)
+    usart_deinit                             0x08001e1d   Thumb Code   136  gd32e50x_usart.o(.text.usart_deinit)
+    usart_dma_receive_config                 0x08001ea5   Thumb Code    40  gd32e50x_usart.o(.text.usart_dma_receive_config)
+    usart_dma_transmit_config                0x08001ecd   Thumb Code    40  gd32e50x_usart.o(.text.usart_dma_transmit_config)
+    usart_enable                             0x08001ef5   Thumb Code    32  gd32e50x_usart.o(.text.usart_enable)
+    usart_parity_config                      0x08001f15   Thumb Code    60  gd32e50x_usart.o(.text.usart_parity_config)
+    usart_receive_config                     0x08001f51   Thumb Code    36  gd32e50x_usart.o(.text.usart_receive_config)
+    usart_stop_bit_set                       0x08001f75   Thumb Code    48  gd32e50x_usart.o(.text.usart_stop_bit_set)
+    usart_transmit_config                    0x08001fa5   Thumb Code    36  gd32e50x_usart.o(.text.usart_transmit_config)
+    usart_word_length_set                    0x08001fc9   Thumb Code    60  gd32e50x_usart.o(.text.usart_word_length_set)
+    _is_digit                                0x08002005   Thumb Code    14  __printf_wp.o(i._is_digit)
+    _fp_init                                 0x08002013   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x0800202b   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x0800202b   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x08002068   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08002088   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_gd32e50x.o(.data.SystemCoreClock)
     ascii                                    0x20000004   Data          16  mr_j2s_a_servo.o(.data.ascii)
     baudrate                                 0x20000014   Data          16  mr_j2s_a_servo.o(.data.baudrate)
@@ -4012,14 +3978,15 @@ Image Symbol Table
     __temporary_stack_top$libspace           0x20000090   Data           0  libspace.o(.bss)
     jog_func                                 0x20000094   Data           1  mr_j2s_a_servo.o(.bss.jog_func)
     pos_func                                 0x20000095   Data           1  mr_j2s_a_servo.o(.bss.pos_func)
-    rxbuffer                                 0x20000096   Data          50  mr_j2s_a_servo.o(.bss.rxbuffer)
-    servo_alarm                              0x200000c8   Data           1  mr_j2s_a_servo.o(.bss.servo_alarm)
-    servo_curr_baudrate                      0x200000cc   Data           4  mr_j2s_a_servo.o(.bss.servo_curr_baudrate)
-    servo_jog_functions_cnt                  0x200000d0   Data           7  mr_j2s_a_servo.o(.bss.servo_jog_functions_cnt)
-    servo_mode                               0x200000d7   Data           1  mr_j2s_a_servo.o(.bss.servo_mode)
-    servo_pos_functions_cnt                  0x200000d8   Data           6  mr_j2s_a_servo.o(.bss.servo_pos_functions_cnt)
-    tx_read_buffer                           0x200000de   Data          50  mr_j2s_a_servo.o(.bss.tx_read_buffer)
-    tx_write_buffer                          0x20000110   Data          50  mr_j2s_a_servo.o(.bss.tx_write_buffer)
+    pos_mode_path_length                     0x20000098   Data           4  mr_j2s_a_servo.o(.bss.pos_mode_path_length)
+    rxbuffer                                 0x2000009c   Data          50  mr_j2s_a_servo.o(.bss.rxbuffer)
+    servo_alarm                              0x200000ce   Data           1  mr_j2s_a_servo.o(.bss.servo_alarm)
+    servo_curr_baudrate                      0x200000d0   Data           4  mr_j2s_a_servo.o(.bss.servo_curr_baudrate)
+    servo_jog_functions_cnt                  0x200000d4   Data           7  mr_j2s_a_servo.o(.bss.servo_jog_functions_cnt)
+    servo_mode                               0x200000db   Data           1  mr_j2s_a_servo.o(.bss.servo_mode)
+    servo_pos_functions_cnt                  0x200000dc   Data           6  mr_j2s_a_servo.o(.bss.servo_pos_functions_cnt)
+    tx_read_buffer                           0x200000e2   Data          50  mr_j2s_a_servo.o(.bss.tx_read_buffer)
+    tx_write_buffer                          0x20000114   Data          50  mr_j2s_a_servo.o(.bss.tx_write_buffer)
 
 
 
@@ -4029,82 +3996,82 @@ Memory Map of the image
 
   Image Entry point : 0x080001a1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001f10, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000020b8, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001edc, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002088, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x000001a0   Data   RO          187    RESET               startup_gd32e50x_hd.o
-    0x080001a0   0x080001a0   0x00000008   Code   RO         2074  * !!!main             c_w.l(__main.o)
-    0x080001a8   0x080001a8   0x00000034   Code   RO         2248    !!!scatter          c_w.l(__scatter.o)
-    0x080001dc   0x080001dc   0x0000001a   Code   RO         2250    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x08000000   0x08000000   0x000001a0   Data   RO          183    RESET               startup_gd32e50x_hd.o
+    0x080001a0   0x080001a0   0x00000008   Code   RO         2070  * !!!main             c_w.l(__main.o)
+    0x080001a8   0x080001a8   0x00000034   Code   RO         2244    !!!scatter          c_w.l(__scatter.o)
+    0x080001dc   0x080001dc   0x0000001a   Code   RO         2246    !!handler_copy      c_w.l(__scatter_copy.o)
     0x080001f6   0x080001f6   0x00000002   PAD
-    0x080001f8   0x080001f8   0x0000001c   Code   RO         2252    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x08000214   0x08000214   0x00000000   Code   RO         2069    .ARM.Collect$$_printf_percent$$00000000  c_w.l(_printf_percent.o)
-    0x08000214   0x08000214   0x00000006   Code   RO         2068    .ARM.Collect$$_printf_percent$$0000000C  c_w.l(_printf_x.o)
-    0x0800021a   0x0800021a   0x00000006   Code   RO         2067    .ARM.Collect$$_printf_percent$$00000013  c_w.l(_printf_c.o)
-    0x08000220   0x08000220   0x00000004   Code   RO         2085    .ARM.Collect$$_printf_percent$$00000017  c_w.l(_printf_percent_end.o)
-    0x08000224   0x08000224   0x00000002   Code   RO         2112    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x08000226   0x08000226   0x00000004   Code   RO         2118    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2121    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2124    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2126    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2128    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2131    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2133    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2135    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2137    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2139    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2141    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2143    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2145    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2147    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2149    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2151    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2155    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2157    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2159    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000000   Code   RO         2161    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x0800022a   0x0800022a   0x00000002   Code   RO         2162    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x0800022c   0x0800022c   0x00000002   Code   RO         2184    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x0800022e   0x0800022e   0x00000000   Code   RO         2199    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x0800022e   0x0800022e   0x00000000   Code   RO         2201    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x0800022e   0x0800022e   0x00000000   Code   RO         2204    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x0800022e   0x0800022e   0x00000000   Code   RO         2207    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x0800022e   0x0800022e   0x00000000   Code   RO         2209    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x0800022e   0x0800022e   0x00000000   Code   RO         2212    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x0800022e   0x0800022e   0x00000002   Code   RO         2213    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x08000230   0x08000230   0x00000000   Code   RO         2076    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x08000230   0x08000230   0x00000000   Code   RO         2087    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x08000230   0x08000230   0x00000006   Code   RO         2099    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x08000236   0x08000236   0x00000000   Code   RO         2089    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x08000236   0x08000236   0x00000004   Code   RO         2090    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x0800023a   0x0800023a   0x00000000   Code   RO         2092    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x0800023a   0x0800023a   0x00000008   Code   RO         2093    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x08000242   0x08000242   0x00000002   Code   RO         2116    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x08000244   0x08000244   0x00000000   Code   RO         2164    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x08000244   0x08000244   0x00000004   Code   RO         2165    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x08000248   0x08000248   0x00000006   Code   RO         2166    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x080001f8   0x080001f8   0x0000001c   Code   RO         2248    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x08000214   0x08000214   0x00000000   Code   RO         2065    .ARM.Collect$$_printf_percent$$00000000  c_w.l(_printf_percent.o)
+    0x08000214   0x08000214   0x00000006   Code   RO         2064    .ARM.Collect$$_printf_percent$$0000000C  c_w.l(_printf_x.o)
+    0x0800021a   0x0800021a   0x00000006   Code   RO         2063    .ARM.Collect$$_printf_percent$$00000013  c_w.l(_printf_c.o)
+    0x08000220   0x08000220   0x00000004   Code   RO         2081    .ARM.Collect$$_printf_percent$$00000017  c_w.l(_printf_percent_end.o)
+    0x08000224   0x08000224   0x00000002   Code   RO         2108    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x08000226   0x08000226   0x00000004   Code   RO         2114    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2117    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2120    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2122    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2124    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2127    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2129    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2131    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2133    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2135    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2137    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2139    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2141    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2143    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2145    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2147    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2151    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2153    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2155    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000000   Code   RO         2157    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x0800022a   0x0800022a   0x00000002   Code   RO         2158    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x0800022c   0x0800022c   0x00000002   Code   RO         2180    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x0800022e   0x0800022e   0x00000000   Code   RO         2195    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x0800022e   0x0800022e   0x00000000   Code   RO         2197    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x0800022e   0x0800022e   0x00000000   Code   RO         2200    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x0800022e   0x0800022e   0x00000000   Code   RO         2203    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x0800022e   0x0800022e   0x00000000   Code   RO         2205    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x0800022e   0x0800022e   0x00000000   Code   RO         2208    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x0800022e   0x0800022e   0x00000002   Code   RO         2209    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x08000230   0x08000230   0x00000000   Code   RO         2072    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x08000230   0x08000230   0x00000000   Code   RO         2083    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x08000230   0x08000230   0x00000006   Code   RO         2095    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x08000236   0x08000236   0x00000000   Code   RO         2085    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x08000236   0x08000236   0x00000004   Code   RO         2086    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x0800023a   0x0800023a   0x00000000   Code   RO         2088    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x0800023a   0x0800023a   0x00000008   Code   RO         2089    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x08000242   0x08000242   0x00000002   Code   RO         2112    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x08000244   0x08000244   0x00000000   Code   RO         2160    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x08000244   0x08000244   0x00000004   Code   RO         2161    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000248   0x08000248   0x00000006   Code   RO         2162    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x0800024e   0x0800024e   0x00000002   PAD
-    0x08000250   0x08000250   0x00000040   Code   RO          188    .text               startup_gd32e50x_hd.o
-    0x08000290   0x08000290   0x00000028   Code   RO         2018    .text               c_w.l(noretval__2sprintf.o)
-    0x080002b8   0x080002b8   0x0000004e   Code   RO         2022    .text               c_w.l(_printf_pad.o)
-    0x08000306   0x08000306   0x00000052   Code   RO         2024    .text               c_w.l(_printf_str.o)
-    0x08000358   0x08000358   0x00000058   Code   RO         2029    .text               c_w.l(_printf_hex_int.o)
-    0x080003b0   0x080003b0   0x00000138   Code   RO         2059    .text               c_w.l(__printf_flags_wp.o)
-    0x080004e8   0x080004e8   0x00000006   Code   RO         2072    .text               c_w.l(heapauxi.o)
-    0x080004ee   0x080004ee   0x000000b2   Code   RO         2077    .text               c_w.l(_printf_intcommon.o)
-    0x080005a0   0x080005a0   0x00000030   Code   RO         2079    .text               c_w.l(_printf_char_common.o)
-    0x080005d0   0x080005d0   0x0000000a   Code   RO         2081    .text               c_w.l(_sputc.o)
-    0x080005da   0x080005da   0x0000002c   Code   RO         2083    .text               c_w.l(_printf_char.o)
-    0x08000606   0x08000606   0x0000004a   Code   RO         2103    .text               c_w.l(sys_stackheap_outer.o)
-    0x08000650   0x08000650   0x00000012   Code   RO         2105    .text               c_w.l(exit.o)
+    0x08000250   0x08000250   0x00000040   Code   RO          184    .text               startup_gd32e50x_hd.o
+    0x08000290   0x08000290   0x00000028   Code   RO         2014    .text               c_w.l(noretval__2sprintf.o)
+    0x080002b8   0x080002b8   0x0000004e   Code   RO         2018    .text               c_w.l(_printf_pad.o)
+    0x08000306   0x08000306   0x00000052   Code   RO         2020    .text               c_w.l(_printf_str.o)
+    0x08000358   0x08000358   0x00000058   Code   RO         2025    .text               c_w.l(_printf_hex_int.o)
+    0x080003b0   0x080003b0   0x00000138   Code   RO         2055    .text               c_w.l(__printf_flags_wp.o)
+    0x080004e8   0x080004e8   0x00000006   Code   RO         2068    .text               c_w.l(heapauxi.o)
+    0x080004ee   0x080004ee   0x000000b2   Code   RO         2073    .text               c_w.l(_printf_intcommon.o)
+    0x080005a0   0x080005a0   0x00000030   Code   RO         2075    .text               c_w.l(_printf_char_common.o)
+    0x080005d0   0x080005d0   0x0000000a   Code   RO         2077    .text               c_w.l(_sputc.o)
+    0x080005da   0x080005da   0x0000002c   Code   RO         2079    .text               c_w.l(_printf_char.o)
+    0x08000606   0x08000606   0x0000004a   Code   RO         2099    .text               c_w.l(sys_stackheap_outer.o)
+    0x08000650   0x08000650   0x00000012   Code   RO         2101    .text               c_w.l(exit.o)
     0x08000662   0x08000662   0x00000002   PAD
-    0x08000664   0x08000664   0x00000008   Code   RO         2113    .text               c_w.l(libspace.o)
-    0x0800066c   0x0800066c   0x0000000c   Code   RO         2174    .text               c_w.l(sys_exit.o)
-    0x08000678   0x08000678   0x00000002   Code   RO         2189    .text               c_w.l(use_no_semi.o)
-    0x0800067a   0x0800067a   0x00000000   Code   RO         2191    .text               c_w.l(indicate_semi.o)
+    0x08000664   0x08000664   0x00000008   Code   RO         2109    .text               c_w.l(libspace.o)
+    0x0800066c   0x0800066c   0x0000000c   Code   RO         2170    .text               c_w.l(sys_exit.o)
+    0x08000678   0x08000678   0x00000002   Code   RO         2185    .text               c_w.l(use_no_semi.o)
+    0x0800067a   0x0800067a   0x00000000   Code   RO         2187    .text               c_w.l(indicate_semi.o)
     0x0800067a   0x0800067a   0x00000002   PAD
     0x0800067c   0x0800067c   0x00000002   Code   RO            8    .text.BusFault_Handler  gd32e50x_it.o
     0x0800067e   0x0800067e   0x00000002   PAD
@@ -4122,161 +4089,169 @@ Memory Map of the image
     0x0800084e   0x0800084e   0x00000002   PAD
     0x08000850   0x08000850   0x00000002   Code   RO           12    .text.SVC_Handler   gd32e50x_it.o
     0x08000852   0x08000852   0x00000002   PAD
-    0x08000854   0x08000854   0x0000002a   Code   RO          118    .text.SysTick_Config  systick.o
+    0x08000854   0x08000854   0x0000002a   Code   RO          114    .text.SysTick_Config  systick.o
     0x0800087e   0x0800087e   0x00000002   PAD
     0x08000880   0x08000880   0x00000008   Code   RO           18    .text.SysTick_Handler  gd32e50x_it.o
-    0x08000888   0x08000888   0x000000a6   Code   RO          169    .text.SystemInit    system_gd32e50x.o
+    0x08000888   0x08000888   0x000000a6   Code   RO          165    .text.SystemInit    system_gd32e50x.o
     0x0800092e   0x0800092e   0x00000002   PAD
     0x08000930   0x08000930   0x00000048   Code   RO           24    .text.TIMER2_IRQHandler  gd32e50x_it.o
     0x08000978   0x08000978   0x00000002   Code   RO           10    .text.UsageFault_Handler  gd32e50x_it.o
     0x0800097a   0x0800097a   0x00000002   PAD
-    0x0800097c   0x0800097c   0x00000028   Code   RO         1348    .text.__NVIC_DisableIRQ  gd32e50x_misc.o
-    0x080009a4   0x080009a4   0x0000000e   Code   RO          120    .text.__NVIC_SetPriority  systick.o
+    0x0800097c   0x0800097c   0x00000028   Code   RO         1344    .text.__NVIC_DisableIRQ  gd32e50x_misc.o
+    0x080009a4   0x080009a4   0x0000000e   Code   RO          116    .text.__NVIC_SetPriority  systick.o
     0x080009b2   0x080009b2   0x00000002   PAD
-    0x080009b4   0x080009b4   0x00000014   Code   RO          122    .text.delay_1ms     systick.o
-    0x080009c8   0x080009c8   0x00000018   Code   RO          124    .text.delay_decrement  systick.o
-    0x080009e0   0x080009e0   0x00000022   Code   RO          427    .text.dma_channel_disable  gd32e50x_dma.o
+    0x080009b4   0x080009b4   0x00000014   Code   RO          118    .text.delay_1ms     systick.o
+    0x080009c8   0x080009c8   0x00000018   Code   RO          120    .text.delay_decrement  systick.o
+    0x080009e0   0x080009e0   0x00000022   Code   RO          423    .text.dma_channel_disable  gd32e50x_dma.o
     0x08000a02   0x08000a02   0x00000002   PAD
-    0x08000a04   0x08000a04   0x00000022   Code   RO          425    .text.dma_channel_enable  gd32e50x_dma.o
+    0x08000a04   0x08000a04   0x00000022   Code   RO          421    .text.dma_channel_enable  gd32e50x_dma.o
     0x08000a26   0x08000a26   0x00000002   PAD
-    0x08000a28   0x08000a28   0x00000022   Code   RO          419    .text.dma_circulation_disable  gd32e50x_dma.o
+    0x08000a28   0x08000a28   0x00000022   Code   RO          415    .text.dma_circulation_disable  gd32e50x_dma.o
     0x08000a4a   0x08000a4a   0x00000002   PAD
-    0x08000a4c   0x08000a4c   0x0000003a   Code   RO          409    .text.dma_deinit    gd32e50x_dma.o
+    0x08000a4c   0x08000a4c   0x0000003a   Code   RO          405    .text.dma_deinit    gd32e50x_dma.o
     0x08000a86   0x08000a86   0x00000002   PAD
-    0x08000a88   0x08000a88   0x0000001e   Code   RO          455    .text.dma_flag_clear  gd32e50x_dma.o
+    0x08000a88   0x08000a88   0x0000001e   Code   RO          451    .text.dma_flag_clear  gd32e50x_dma.o
     0x08000aa6   0x08000aa6   0x00000002   PAD
-    0x08000aa8   0x08000aa8   0x00000072   Code   RO          415    .text.dma_init      gd32e50x_dma.o
+    0x08000aa8   0x08000aa8   0x00000072   Code   RO          411    .text.dma_init      gd32e50x_dma.o
     0x08000b1a   0x08000b1a   0x00000002   PAD
-    0x08000b1c   0x08000b1c   0x00000022   Code   RO          457    .text.dma_interrupt_enable  gd32e50x_dma.o
+    0x08000b1c   0x08000b1c   0x00000022   Code   RO          453    .text.dma_interrupt_enable  gd32e50x_dma.o
     0x08000b3e   0x08000b3e   0x00000002   PAD
-    0x08000b40   0x08000b40   0x0000001e   Code   RO          463    .text.dma_interrupt_flag_clear  gd32e50x_dma.o
+    0x08000b40   0x08000b40   0x0000001e   Code   RO          459    .text.dma_interrupt_flag_clear  gd32e50x_dma.o
     0x08000b5e   0x08000b5e   0x00000002   PAD
-    0x08000b60   0x08000b60   0x0000004a   Code   RO          461    .text.dma_interrupt_flag_get  gd32e50x_dma.o
+    0x08000b60   0x08000b60   0x0000004a   Code   RO          457    .text.dma_interrupt_flag_get  gd32e50x_dma.o
     0x08000baa   0x08000baa   0x00000002   PAD
-    0x08000bac   0x08000bac   0x0000001e   Code   RO          431    .text.dma_memory_address_config  gd32e50x_dma.o
+    0x08000bac   0x08000bac   0x0000001e   Code   RO          427    .text.dma_memory_address_config  gd32e50x_dma.o
     0x08000bca   0x08000bca   0x00000002   PAD
-    0x08000bcc   0x08000bcc   0x00000022   Code   RO          423    .text.dma_memory_to_memory_disable  gd32e50x_dma.o
+    0x08000bcc   0x08000bcc   0x00000022   Code   RO          419    .text.dma_memory_to_memory_disable  gd32e50x_dma.o
     0x08000bee   0x08000bee   0x00000002   PAD
-    0x08000bf0   0x08000bf0   0x00000018   Code   RO          145    .text.dma_nvic_config  usart1_dma0.o
-    0x08000c08   0x08000c08   0x0000001a   Code   RO          411    .text.dma_periph_and_channel_check  gd32e50x_dma.o
+    0x08000bf0   0x08000bf0   0x00000018   Code   RO          141    .text.dma_nvic_config  usart1_dma0.o
+    0x08000c08   0x08000c08   0x0000001a   Code   RO          407    .text.dma_periph_and_channel_check  gd32e50x_dma.o
     0x08000c22   0x08000c22   0x00000002   PAD
-    0x08000c24   0x08000c24   0x0000001e   Code   RO          433    .text.dma_transfer_number_config  gd32e50x_dma.o
+    0x08000c24   0x08000c24   0x0000001e   Code   RO          429    .text.dma_transfer_number_config  gd32e50x_dma.o
     0x08000c42   0x08000c42   0x00000002   PAD
-    0x08000c44   0x08000c44   0x00000004   Code   RO          369    .text.gpio_bit_reset  gd32e50x_gpio.o
-    0x08000c48   0x08000c48   0x00000004   Code   RO          367    .text.gpio_bit_set  gd32e50x_gpio.o
-    0x08000c4c   0x08000c4c   0x000000b6   Code   RO          365    .text.gpio_init     gd32e50x_gpio.o
+    0x08000c44   0x08000c44   0x00000004   Code   RO          365    .text.gpio_bit_reset  gd32e50x_gpio.o
+    0x08000c48   0x08000c48   0x00000004   Code   RO          363    .text.gpio_bit_set  gd32e50x_gpio.o
+    0x08000c4c   0x08000c4c   0x000000b6   Code   RO          361    .text.gpio_init     gd32e50x_gpio.o
     0x08000d02   0x08000d02   0x00000002   PAD
-    0x08000d04   0x08000d04   0x0000000a   Code   RO          375    .text.gpio_input_bit_get  gd32e50x_gpio.o
+    0x08000d04   0x08000d04   0x0000000a   Code   RO          371    .text.gpio_input_bit_get  gd32e50x_gpio.o
     0x08000d0e   0x08000d0e   0x00000002   PAD
-    0x08000d10   0x08000d10   0x00000152   Code   RO           33    .text.main          main.o
-    0x08000e62   0x08000e62   0x00000002   PAD
-    0x08000e64   0x08000e64   0x0000000a   Code   RO         1346    .text.nvic_irq_disable  gd32e50x_misc.o
+    0x08000d10   0x08000d10   0x0000015e   Code   RO           33    .text.main          main.o
     0x08000e6e   0x08000e6e   0x00000002   PAD
-    0x08000e70   0x08000e70   0x000000a2   Code   RO         1344    .text.nvic_irq_enable  gd32e50x_misc.o
-    0x08000f12   0x08000f12   0x00000002   PAD
-    0x08000f14   0x08000f14   0x00000014   Code   RO         1342    .text.nvic_priority_group_set  gd32e50x_misc.o
-    0x08000f28   0x08000f28   0x0000001c   Code   RO         1354    .text.nvic_vector_table_set  gd32e50x_misc.o
-    0x08000f44   0x08000f44   0x00000120   Code   RO          545    .text.rcu_clock_freq_get  gd32e50x_rcu.o
-    0x08001064   0x08001064   0x0000001e   Code   RO          475    .text.rcu_periph_clock_enable  gd32e50x_rcu.o
-    0x08001082   0x08001082   0x00000002   PAD
-    0x08001084   0x08001084   0x00000020   Code   RO          485    .text.rcu_periph_reset_disable  gd32e50x_rcu.o
-    0x080010a4   0x080010a4   0x0000001e   Code   RO          483    .text.rcu_periph_reset_enable  gd32e50x_rcu.o
-    0x080010c2   0x080010c2   0x00000002   PAD
-    0x080010c4   0x080010c4   0x00000022   Code   RO           83    .text.servo_handle_error  mr_j2s_a_servo.o
-    0x080010e6   0x080010e6   0x00000002   PAD
-    0x080010e8   0x080010e8   0x00000054   Code   RO           43    .text.servo_init    mr_j2s_a_servo.o
-    0x0800113c   0x0800113c   0x0000008a   Code   RO           77    .text.servo_jog_mode_direct_rotation  mr_j2s_a_servo.o
-    0x080011c6   0x080011c6   0x00000002   PAD
-    0x080011c8   0x080011c8   0x0000008a   Code   RO           75    .text.servo_jog_mode_off  mr_j2s_a_servo.o
-    0x08001252   0x08001252   0x00000002   PAD
-    0x08001254   0x08001254   0x0000007c   Code   RO           73    .text.servo_jog_mode_on  mr_j2s_a_servo.o
-    0x080012d0   0x080012d0   0x0000008a   Code   RO           79    .text.servo_jog_mode_revers_rotation  mr_j2s_a_servo.o
-    0x0800135a   0x0800135a   0x00000002   PAD
-    0x0800135c   0x0800135c   0x00000056   Code   RO           81    .text.servo_jog_mode_stop_rotation  mr_j2s_a_servo.o
-    0x080013b2   0x080013b2   0x00000002   PAD
-    0x080013b4   0x080013b4   0x00000088   Code   RO           45    .text.servo_send_read_command  mr_j2s_a_servo.o
-    0x0800143c   0x0800143c   0x000000b0   Code   RO           47    .text.servo_send_write_command4  mr_j2s_a_servo.o
-    0x080014ec   0x080014ec   0x000000c4   Code   RO           49    .text.servo_send_write_command8  mr_j2s_a_servo.o
-    0x080015b0   0x080015b0   0x0000000c   Code   RO           55    .text.servo_set_acceleration_time  mr_j2s_a_servo.o
-    0x080015bc   0x080015bc   0x0000000c   Code   RO           53    .text.servo_set_freq  mr_j2s_a_servo.o
-    0x080015c8   0x080015c8   0x00000044   Code   RO          156    .text.servo_timer_config  timer.o
-    0x0800160c   0x0800160c   0x00000020   Code   RO          160    .text.servo_timer_disable  timer.o
-    0x0800162c   0x0800162c   0x00000024   Code   RO          158    .text.servo_timer_enable  timer.o
-    0x08001650   0x08001650   0x000000e4   Code   RO          175    .text.system_clock_180m_hxtal  system_gd32e50x.o
-    0x08001734   0x08001734   0x00000008   Code   RO          171    .text.system_clock_config  system_gd32e50x.o
-    0x0800173c   0x0800173c   0x0000002a   Code   RO          116    .text.systick_config  systick.o
-    0x08001766   0x08001766   0x00000002   PAD
-    0x08001768   0x08001768   0x00000144   Code   RO         1842    .text.timer_deinit  gd32e50x_timer.o
-    0x080018ac   0x080018ac   0x0000000a   Code   RO         1850    .text.timer_disable  gd32e50x_timer.o
-    0x080018b6   0x080018b6   0x00000002   PAD
-    0x080018b8   0x080018b8   0x0000000a   Code   RO         1848    .text.timer_enable  gd32e50x_timer.o
-    0x080018c2   0x080018c2   0x00000002   PAD
-    0x080018c4   0x080018c4   0x000000c2   Code   RO         1846    .text.timer_init    gd32e50x_timer.o
-    0x08001986   0x08001986   0x00000002   PAD
-    0x08001988   0x08001988   0x0000000a   Code   RO         1978    .text.timer_interrupt_disable  gd32e50x_timer.o
-    0x08001992   0x08001992   0x00000002   PAD
-    0x08001994   0x08001994   0x00000008   Code   RO         1976    .text.timer_interrupt_enable  gd32e50x_timer.o
-    0x0800199c   0x0800199c   0x00000006   Code   RO         1982    .text.timer_interrupt_flag_clear  gd32e50x_timer.o
-    0x080019a2   0x080019a2   0x00000002   PAD
-    0x080019a4   0x080019a4   0x00000016   Code   RO         1980    .text.timer_interrupt_flag_get  gd32e50x_timer.o
-    0x080019ba   0x080019ba   0x00000002   PAD
-    0x080019bc   0x080019bc   0x00000012   Code   RO         1844    .text.timer_struct_para_init  gd32e50x_timer.o
-    0x080019ce   0x080019ce   0x00000002   PAD
-    0x080019d0   0x080019d0   0x00000030   Code   RO          143    .text.usart1_dma0_rxdata  usart1_dma0.o
-    0x08001a00   0x08001a00   0x00000076   Code   RO          141    .text.usart1_dma0_rxinit  usart1_dma0.o
-    0x08001a76   0x08001a76   0x00000002   PAD
-    0x08001a78   0x08001a78   0x0000003c   Code   RO          137    .text.usart1_dma0_send  usart1_dma0.o
-    0x08001ab4   0x08001ab4   0x0000006e   Code   RO          139    .text.usart1_dma0_txinit  usart1_dma0.o
-    0x08001b22   0x08001b22   0x00000002   PAD
-    0x08001b24   0x08001b24   0x0000007a   Code   RO          135    .text.usart1_init   usart1_dma0.o
-    0x08001b9e   0x08001b9e   0x00000002   PAD
-    0x08001ba0   0x08001ba0   0x000000ce   Code   RO          197    .text.usart_baudrate_set  gd32e50x_usart.o
-    0x08001c6e   0x08001c6e   0x00000002   PAD
-    0x08001c70   0x08001c70   0x00000088   Code   RO          195    .text.usart_deinit  gd32e50x_usart.o
-    0x08001cf8   0x08001cf8   0x00000028   Code   RO          271    .text.usart_dma_receive_config  gd32e50x_usart.o
-    0x08001d20   0x08001d20   0x00000028   Code   RO          273    .text.usart_dma_transmit_config  gd32e50x_usart.o
-    0x08001d48   0x08001d48   0x00000020   Code   RO          205    .text.usart_enable  gd32e50x_usart.o
-    0x08001d68   0x08001d68   0x0000003c   Code   RO          199    .text.usart_parity_config  gd32e50x_usart.o
-    0x08001da4   0x08001da4   0x00000024   Code   RO          211    .text.usart_receive_config  gd32e50x_usart.o
-    0x08001dc8   0x08001dc8   0x00000030   Code   RO          203    .text.usart_stop_bit_set  gd32e50x_usart.o
-    0x08001df8   0x08001df8   0x00000024   Code   RO          209    .text.usart_transmit_config  gd32e50x_usart.o
-    0x08001e1c   0x08001e1c   0x0000003c   Code   RO          201    .text.usart_word_length_set  gd32e50x_usart.o
-    0x08001e58   0x08001e58   0x0000000e   Code   RO         2057    i._is_digit         c_w.l(__printf_wp.o)
-    0x08001e66   0x08001e66   0x0000001a   Code   RO         2172    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08001e80   0x08001e80   0x00000028   Data   RO         2030    .constdata          c_w.l(_printf_hex_int.o)
-    0x08001ea8   0x08001ea8   0x00000011   Data   RO         2060    .constdata          c_w.l(__printf_flags_wp.o)
-    0x08001eb9   0x08001eb9   0x00000003   PAD
-    0x08001ebc   0x08001ebc   0x00000020   Data   RO         2247    Region$$Table       anon$$obj.o
+    0x08000e70   0x08000e70   0x0000000a   Code   RO         1342    .text.nvic_irq_disable  gd32e50x_misc.o
+    0x08000e7a   0x08000e7a   0x00000002   PAD
+    0x08000e7c   0x08000e7c   0x000000a2   Code   RO         1340    .text.nvic_irq_enable  gd32e50x_misc.o
+    0x08000f1e   0x08000f1e   0x00000002   PAD
+    0x08000f20   0x08000f20   0x00000014   Code   RO         1338    .text.nvic_priority_group_set  gd32e50x_misc.o
+    0x08000f34   0x08000f34   0x0000001c   Code   RO         1350    .text.nvic_vector_table_set  gd32e50x_misc.o
+    0x08000f50   0x08000f50   0x00000120   Code   RO          541    .text.rcu_clock_freq_get  gd32e50x_rcu.o
+    0x08001070   0x08001070   0x0000001e   Code   RO          471    .text.rcu_periph_clock_enable  gd32e50x_rcu.o
+    0x0800108e   0x0800108e   0x00000002   PAD
+    0x08001090   0x08001090   0x00000020   Code   RO          481    .text.rcu_periph_reset_disable  gd32e50x_rcu.o
+    0x080010b0   0x080010b0   0x0000001e   Code   RO          479    .text.rcu_periph_reset_enable  gd32e50x_rcu.o
+    0x080010ce   0x080010ce   0x00000002   PAD
+    0x080010d0   0x080010d0   0x00000022   Code   RO           79    .text.servo_handle_error  mr_j2s_a_servo.o
+    0x080010f2   0x080010f2   0x00000002   PAD
+    0x080010f4   0x080010f4   0x00000054   Code   RO           43    .text.servo_init    mr_j2s_a_servo.o
+    0x08001148   0x08001148   0x0000008a   Code   RO           73    .text.servo_jog_mode_direct_rotation  mr_j2s_a_servo.o
+    0x080011d2   0x080011d2   0x00000002   PAD
+    0x080011d4   0x080011d4   0x0000008a   Code   RO           71    .text.servo_jog_mode_off  mr_j2s_a_servo.o
+    0x0800125e   0x0800125e   0x00000002   PAD
+    0x08001260   0x08001260   0x0000007c   Code   RO           69    .text.servo_jog_mode_on  mr_j2s_a_servo.o
+    0x080012dc   0x080012dc   0x0000008a   Code   RO           75    .text.servo_jog_mode_revers_rotation  mr_j2s_a_servo.o
+    0x08001366   0x08001366   0x00000002   PAD
+    0x08001368   0x08001368   0x00000056   Code   RO           77    .text.servo_jog_mode_stop_rotation  mr_j2s_a_servo.o
+    0x080013be   0x080013be   0x00000002   PAD
+    0x080013c0   0x080013c0   0x00000078   Code   RO           63    .text.servo_positioning_mode_off  mr_j2s_a_servo.o
+    0x08001438   0x08001438   0x0000008e   Code   RO           61    .text.servo_positioning_mode_on  mr_j2s_a_servo.o
+    0x080014c6   0x080014c6   0x00000002   PAD
+    0x080014c8   0x080014c8   0x0000008a   Code   RO           65    .text.servo_positioning_mode_path_length  mr_j2s_a_servo.o
+    0x08001552   0x08001552   0x00000002   PAD
+    0x08001554   0x08001554   0x00000088   Code   RO           45    .text.servo_send_read_command  mr_j2s_a_servo.o
+    0x080015dc   0x080015dc   0x000000b0   Code   RO           47    .text.servo_send_write_command4  mr_j2s_a_servo.o
+    0x0800168c   0x0800168c   0x000000c4   Code   RO           49    .text.servo_send_write_command8  mr_j2s_a_servo.o
+    0x08001750   0x08001750   0x0000000c   Code   RO           55    .text.servo_set_acceleration_time  mr_j2s_a_servo.o
+    0x0800175c   0x0800175c   0x0000000c   Code   RO           53    .text.servo_set_freq  mr_j2s_a_servo.o
+    0x08001768   0x08001768   0x0000000c   Code   RO           57    .text.servo_set_path_length  mr_j2s_a_servo.o
+    0x08001774   0x08001774   0x00000044   Code   RO          152    .text.servo_timer_config  timer.o
+    0x080017b8   0x080017b8   0x00000020   Code   RO          156    .text.servo_timer_disable  timer.o
+    0x080017d8   0x080017d8   0x00000024   Code   RO          154    .text.servo_timer_enable  timer.o
+    0x080017fc   0x080017fc   0x000000e4   Code   RO          171    .text.system_clock_180m_hxtal  system_gd32e50x.o
+    0x080018e0   0x080018e0   0x00000008   Code   RO          167    .text.system_clock_config  system_gd32e50x.o
+    0x080018e8   0x080018e8   0x0000002a   Code   RO          112    .text.systick_config  systick.o
+    0x08001912   0x08001912   0x00000002   PAD
+    0x08001914   0x08001914   0x00000144   Code   RO         1838    .text.timer_deinit  gd32e50x_timer.o
+    0x08001a58   0x08001a58   0x0000000a   Code   RO         1846    .text.timer_disable  gd32e50x_timer.o
+    0x08001a62   0x08001a62   0x00000002   PAD
+    0x08001a64   0x08001a64   0x0000000a   Code   RO         1844    .text.timer_enable  gd32e50x_timer.o
+    0x08001a6e   0x08001a6e   0x00000002   PAD
+    0x08001a70   0x08001a70   0x000000c2   Code   RO         1842    .text.timer_init    gd32e50x_timer.o
+    0x08001b32   0x08001b32   0x00000002   PAD
+    0x08001b34   0x08001b34   0x0000000a   Code   RO         1974    .text.timer_interrupt_disable  gd32e50x_timer.o
+    0x08001b3e   0x08001b3e   0x00000002   PAD
+    0x08001b40   0x08001b40   0x00000008   Code   RO         1972    .text.timer_interrupt_enable  gd32e50x_timer.o
+    0x08001b48   0x08001b48   0x00000006   Code   RO         1978    .text.timer_interrupt_flag_clear  gd32e50x_timer.o
+    0x08001b4e   0x08001b4e   0x00000002   PAD
+    0x08001b50   0x08001b50   0x00000016   Code   RO         1976    .text.timer_interrupt_flag_get  gd32e50x_timer.o
+    0x08001b66   0x08001b66   0x00000002   PAD
+    0x08001b68   0x08001b68   0x00000012   Code   RO         1840    .text.timer_struct_para_init  gd32e50x_timer.o
+    0x08001b7a   0x08001b7a   0x00000002   PAD
+    0x08001b7c   0x08001b7c   0x00000030   Code   RO          139    .text.usart1_dma0_rxdata  usart1_dma0.o
+    0x08001bac   0x08001bac   0x00000076   Code   RO          137    .text.usart1_dma0_rxinit  usart1_dma0.o
+    0x08001c22   0x08001c22   0x00000002   PAD
+    0x08001c24   0x08001c24   0x0000003c   Code   RO          133    .text.usart1_dma0_send  usart1_dma0.o
+    0x08001c60   0x08001c60   0x0000006e   Code   RO          135    .text.usart1_dma0_txinit  usart1_dma0.o
+    0x08001cce   0x08001cce   0x00000002   PAD
+    0x08001cd0   0x08001cd0   0x0000007a   Code   RO          131    .text.usart1_init   usart1_dma0.o
+    0x08001d4a   0x08001d4a   0x00000002   PAD
+    0x08001d4c   0x08001d4c   0x000000ce   Code   RO          193    .text.usart_baudrate_set  gd32e50x_usart.o
+    0x08001e1a   0x08001e1a   0x00000002   PAD
+    0x08001e1c   0x08001e1c   0x00000088   Code   RO          191    .text.usart_deinit  gd32e50x_usart.o
+    0x08001ea4   0x08001ea4   0x00000028   Code   RO          267    .text.usart_dma_receive_config  gd32e50x_usart.o
+    0x08001ecc   0x08001ecc   0x00000028   Code   RO          269    .text.usart_dma_transmit_config  gd32e50x_usart.o
+    0x08001ef4   0x08001ef4   0x00000020   Code   RO          201    .text.usart_enable  gd32e50x_usart.o
+    0x08001f14   0x08001f14   0x0000003c   Code   RO          195    .text.usart_parity_config  gd32e50x_usart.o
+    0x08001f50   0x08001f50   0x00000024   Code   RO          207    .text.usart_receive_config  gd32e50x_usart.o
+    0x08001f74   0x08001f74   0x00000030   Code   RO          199    .text.usart_stop_bit_set  gd32e50x_usart.o
+    0x08001fa4   0x08001fa4   0x00000024   Code   RO          205    .text.usart_transmit_config  gd32e50x_usart.o
+    0x08001fc8   0x08001fc8   0x0000003c   Code   RO          197    .text.usart_word_length_set  gd32e50x_usart.o
+    0x08002004   0x08002004   0x0000000e   Code   RO         2053    i._is_digit         c_w.l(__printf_wp.o)
+    0x08002012   0x08002012   0x0000001a   Code   RO         2168    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x0800202c   0x0800202c   0x00000028   Data   RO         2026    .constdata          c_w.l(_printf_hex_int.o)
+    0x08002054   0x08002054   0x00000011   Data   RO         2056    .constdata          c_w.l(__printf_flags_wp.o)
+    0x08002065   0x08002065   0x00000003   PAD
+    0x08002068   0x08002068   0x00000020   Data   RO         2243    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001ee0, Size: 0x00000948, Max: 0x00020000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002088, Size: 0x00000948, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08001ee0   0x00000004   Data   RW          177    .data.SystemCoreClock  system_gd32e50x.o
-    0x20000004   0x08001ee4   0x00000010   Data   RW          104    .data.ascii         mr_j2s_a_servo.o
-    0x20000014   0x08001ef4   0x00000010   Data   RW           94    .data.baudrate      mr_j2s_a_servo.o
-    0x20000024   0x08001f04   0x00000002   Data   RW           97    .data.rx_size       mr_j2s_a_servo.o
-    0x20000026   0x08001f06   0x00000002   PAD
-    0x20000028   0x08001f08   0x00000004   Data   RW          102    .data.servo_acceleration_time  mr_j2s_a_servo.o
-    0x2000002c   0x08001f0c   0x00000002   Data   RW          101    .data.servo_freq    mr_j2s_a_servo.o
-    0x2000002e   0x08001f0e   0x00000002   Data   RW           99    .data.tx_read_size  mr_j2s_a_servo.o
-    0x20000030        -       0x00000060   Zero   RW         2114    .bss                c_w.l(libspace.o)
-    0x20000090        -       0x00000004   Zero   RW          126    .bss.delay          systick.o
-    0x20000094        -       0x00000001   Zero   RW           90    .bss.jog_func       mr_j2s_a_servo.o
-    0x20000095        -       0x00000001   Zero   RW           91    .bss.pos_func       mr_j2s_a_servo.o
-    0x20000096        -       0x00000032   Zero   RW          106    .bss.rxbuffer       mr_j2s_a_servo.o
-    0x200000c8        -       0x00000001   Zero   RW           96    .bss.servo_alarm    mr_j2s_a_servo.o
-    0x200000c9   0x08001f10   0x00000003   PAD
-    0x200000cc        -       0x00000004   Zero   RW           95    .bss.servo_curr_baudrate  mr_j2s_a_servo.o
-    0x200000d0        -       0x00000007   Zero   RW           92    .bss.servo_jog_functions_cnt  mr_j2s_a_servo.o
-    0x200000d7        -       0x00000001   Zero   RW           89    .bss.servo_mode     mr_j2s_a_servo.o
-    0x200000d8        -       0x00000006   Zero   RW           93    .bss.servo_pos_functions_cnt  mr_j2s_a_servo.o
-    0x200000de        -       0x00000032   Zero   RW          105    .bss.tx_read_buffer  mr_j2s_a_servo.o
-    0x20000110        -       0x00000032   Zero   RW          107    .bss.tx_write_buffer  mr_j2s_a_servo.o
-    0x20000142   0x08001f10   0x00000006   PAD
-    0x20000148        -       0x00000400   Zero   RW          186    HEAP                startup_gd32e50x_hd.o
-    0x20000548        -       0x00000400   Zero   RW          185    STACK               startup_gd32e50x_hd.o
+    0x20000000   0x08002088   0x00000004   Data   RW          173    .data.SystemCoreClock  system_gd32e50x.o
+    0x20000004   0x0800208c   0x00000010   Data   RW          100    .data.ascii         mr_j2s_a_servo.o
+    0x20000014   0x0800209c   0x00000010   Data   RW           90    .data.baudrate      mr_j2s_a_servo.o
+    0x20000024   0x080020ac   0x00000002   Data   RW           93    .data.rx_size       mr_j2s_a_servo.o
+    0x20000026   0x080020ae   0x00000002   PAD
+    0x20000028   0x080020b0   0x00000004   Data   RW           98    .data.servo_acceleration_time  mr_j2s_a_servo.o
+    0x2000002c   0x080020b4   0x00000002   Data   RW           97    .data.servo_freq    mr_j2s_a_servo.o
+    0x2000002e   0x080020b6   0x00000002   Data   RW           95    .data.tx_read_size  mr_j2s_a_servo.o
+    0x20000030        -       0x00000060   Zero   RW         2110    .bss                c_w.l(libspace.o)
+    0x20000090        -       0x00000004   Zero   RW          122    .bss.delay          systick.o
+    0x20000094        -       0x00000001   Zero   RW           86    .bss.jog_func       mr_j2s_a_servo.o
+    0x20000095        -       0x00000001   Zero   RW           87    .bss.pos_func       mr_j2s_a_servo.o
+    0x20000096   0x080020b8   0x00000002   PAD
+    0x20000098        -       0x00000004   Zero   RW           99    .bss.pos_mode_path_length  mr_j2s_a_servo.o
+    0x2000009c        -       0x00000032   Zero   RW          102    .bss.rxbuffer       mr_j2s_a_servo.o
+    0x200000ce        -       0x00000001   Zero   RW           92    .bss.servo_alarm    mr_j2s_a_servo.o
+    0x200000cf   0x080020b8   0x00000001   PAD
+    0x200000d0        -       0x00000004   Zero   RW           91    .bss.servo_curr_baudrate  mr_j2s_a_servo.o
+    0x200000d4        -       0x00000007   Zero   RW           88    .bss.servo_jog_functions_cnt  mr_j2s_a_servo.o
+    0x200000db        -       0x00000001   Zero   RW           85    .bss.servo_mode     mr_j2s_a_servo.o
+    0x200000dc        -       0x00000006   Zero   RW           89    .bss.servo_pos_functions_cnt  mr_j2s_a_servo.o
+    0x200000e2        -       0x00000032   Zero   RW          101    .bss.tx_read_buffer  mr_j2s_a_servo.o
+    0x20000114        -       0x00000032   Zero   RW          103    .bss.tx_write_buffer  mr_j2s_a_servo.o
+    0x20000146   0x080020b8   0x00000002   PAD
+    0x20000148        -       0x00000400   Zero   RW          182    HEAP                startup_gd32e50x_hd.o
+    0x20000548        -       0x00000400   Zero   RW          181    STACK               startup_gd32e50x_hd.o
 
 
 ==============================================================================
@@ -4286,25 +4261,25 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       562          0          0          0          0       9137   gd32e50x_dma.o
-       200          0          0          0          0       6540   gd32e50x_gpio.o
-       540         12          0          0          0       2137   gd32e50x_it.o
-       260          0          0          0          0       6270   gd32e50x_misc.o
-       380         30          0          0          0      13974   gd32e50x_rcu.o
-       602          0          0          0          0      19878   gd32e50x_timer.o
-       694          0          0          0          0      21463   gd32e50x_usart.o
-       338          0          0          0          0       2185   main.o
-      1274         88          0         42        171       6768   mr_j2s_a_servo.o
+       562          0          0          0          0       9142   gd32e50x_dma.o
+       200          0          0          0          0       6545   gd32e50x_gpio.o
+       540         12          0          0          0       2142   gd32e50x_it.o
+       260          0          0          0          0       6275   gd32e50x_misc.o
+       380         30          0          0          0      13979   gd32e50x_rcu.o
+       602          0          0          0          0      19883   gd32e50x_timer.o
+       694          0          0          0          0      21468   gd32e50x_usart.o
+       350          0          0          0          0       2189   main.o
+      1686         96          0         42        175       6468   mr_j2s_a_servo.o
         64         26        416          0       2048        940   startup_gd32e50x_hd.o
-       402          0          0          4          0       3118   system_gd32e50x.o
-       142          0          0          0          4       4928   systick.o
-       136          0          0          0          0       4312   timer.o
-       482          0          0          0          0       5223   usart1_dma0.o
+       402          0          0          4          0       3123   system_gd32e50x.o
+       142          0          0          0          4       4933   systick.o
+       136          0          0          0          0       4317   timer.o
+       482          0          0          0          0       5228   usart1_dma0.o
 
     ----------------------------------------------------------------------
-      6172        156        448         48       2232     106873   Object Totals
+      6600        164        448         48       2232     106632   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        96          0          0          2          9          0   (incl. Padding)
+       100          0          0          2          5          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -4367,15 +4342,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7392        192        508         48       2328     107537   Grand Totals
-      7392        192        508         48       2328     107537   ELF Image Totals
-      7392        192        508         48          0          0   ROM Totals
+      7820        200        508         48       2328     107296   Grand Totals
+      7820        200        508         48       2328     107296   ELF Image Totals
+      7820        200        508         48          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7900 (   7.71kB)
+    Total RO  Size (Code + RO Data)                 8328 (   8.13kB)
     Total RW  Size (RW Data + ZI Data)              2376 (   2.32kB)
-    Total ROM Size (Code + RO Data + RW Data)       7948 (   7.76kB)
+    Total ROM Size (Code + RO Data + RW Data)       8376 (   8.18kB)
 
 ==============================================================================
 

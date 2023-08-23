@@ -114,7 +114,7 @@ void servo_set_acceleration_time(uint64_t acceleration_time)
 	servo_acceleration_time = acceleration_time;
 }
 
-void servo_set_path_length(int64_t path)
+void servo_set_path_length(int32_t path)
 {
 	pos_mode_path_length = path;
 }
@@ -165,9 +165,13 @@ void servo_positioning_mode_off(void)
 			break;
 		case 1:
 			servo_jog_functions_cnt[POS_OFF] = 2;
-			servo_send_write_command4(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_BREAK, 0);
+			servo_send_write_command4(TEST_MODE, POS_MODE_STOP, TEST_MODE_BREAK_DATA, 0);
 			break;
 		case 2:
+			servo_jog_functions_cnt[POS_OFF] = 3;
+			servo_send_write_command4(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_BREAK, 0);
+			break;
+		case 3:
 			servo_jog_functions_cnt[POS_OFF] = 0;
 			servo_send_write_command4(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_UNLOCK, TEST_MODE_BREAK_DATA, 0);
 			servo_mode = nothing_mode;
@@ -177,43 +181,65 @@ void servo_positioning_mode_off(void)
 	};
 }
 
-void servo_set_pos_mode_freq(void)
-{
-	if (servo_pos_functions_cnt[POS_FREQ_SET] == 0) {
-		servo_mode = pos_mode;
-		pos_func = pos_freq_set;
-		servo_pos_functions_cnt[POS_FREQ_SET] = 1;
-		servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
-	} else if (servo_pos_functions_cnt[POS_FREQ_SET] == 1) {
-		servo_pos_functions_cnt[POS_FREQ_SET] = 0;
-		servo_mode = nothing_mode;
-	}
-}
+//void servo_set_pos_mode_freq(void)
+//{
+//	if (servo_pos_functions_cnt[POS_FREQ_SET] == 0) {
+//		servo_mode = pos_mode;
+//		pos_func = pos_freq_set;
+//		servo_pos_functions_cnt[POS_FREQ_SET] = 1;
+//		servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
+//	} else if (servo_pos_functions_cnt[POS_FREQ_SET] == 1) {
+//		servo_pos_functions_cnt[POS_FREQ_SET] = 0;
+//		servo_mode = nothing_mode;
+//	}
+//}
+//
+//void servo_set_pos_mode_acceleration_time(void)
+//{
+//	if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] == 0) {
+//		servo_mode = pos_mode;
+//		pos_func = pos_acceleration_time_set;
+//		servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 1;
+//		servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
+//	} else if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] == 1) {
+//		servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 0;
+//		servo_mode = nothing_mode;
+//	}
+//}
 
-void servo_set_pos_mode_acceleration_time(void)
+void servo_positioning_mode_path_length(void)
 {
-	if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] == 0) {
-		servo_mode = pos_mode;
-		pos_func = pos_acceleration_time_set;
-		servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 1;
-		servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
-	} else if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] == 1) {
-		servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 0;
-		servo_mode = nothing_mode;
-	}
-}
-
-void servo_set_positioning_mode_path_length(void)
-{
-	if (servo_pos_functions_cnt[POS_PATH_LENGTH] == 0) {
-		servo_mode = pos_mode;
-		pos_func = pos_path_length;
-		servo_pos_functions_cnt[POS_PATH_LENGTH] = 1;
-		servo_send_write_command8(TEST_MODE, POS_MODE_SET_PATH_LENGTH, pos_mode_path_length, 0);
-	} else if (servo_pos_functions_cnt[POS_PATH_LENGTH] == 1) {
-		servo_pos_functions_cnt[POS_PATH_LENGTH] = 0;
-		servo_mode = nothing_mode;
-	}
+	switch (servo_jog_functions_cnt[POS_PATH_LENGTH]) {
+		case 0:
+			//servo_timer_disable();
+			servo_mode = pos_mode;
+			pos_func = pos_path_length;
+			servo_jog_functions_cnt[POS_PATH_LENGTH] = 1;
+			servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
+			break;
+		case 1:
+			servo_jog_functions_cnt[POS_PATH_LENGTH] = 2;
+			servo_send_write_command8(TEST_MODE, POS_MODE_ACCELERATION_TIME, servo_acceleration_time, 0);
+			break;
+		case 2:
+			servo_jog_functions_cnt[POS_PATH_LENGTH] = 0;
+			servo_send_write_command8(TEST_MODE, POS_MODE_SET_PATH_LENGTH, pos_mode_path_length, 0);
+			servo_mode = timer_mode;
+			//servo_timer_enable();
+			break;
+		default:
+			break;
+	};
+	
+	//if (servo_pos_functions_cnt[POS_PATH_LENGTH] == 0) {
+	//	servo_mode = pos_mode;
+	//	pos_func = pos_path_length;
+	//	servo_pos_functions_cnt[POS_PATH_LENGTH] = 1;
+	//	servo_send_write_command8(TEST_MODE, POS_MODE_SET_PATH_LENGTH, pos_mode_path_length, 0);
+	//} else if (servo_pos_functions_cnt[POS_PATH_LENGTH] == 1) {
+	//	servo_pos_functions_cnt[POS_PATH_LENGTH] = 0;
+	//	servo_mode = nothing_mode;
+	//}
 	
 }
 
