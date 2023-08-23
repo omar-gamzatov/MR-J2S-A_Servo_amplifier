@@ -26,7 +26,7 @@ int main(void)
 	uint8_t button1 = 0;
 	uint8_t button2 = 0;
 	
-	servo_init(57600);
+	servo_init(BAUDRATE_57600);
 	servo_set_freq(0x00ff);
 	servo_set_acceleration_time(0x00000500);
 	servo_jog_mode_on();

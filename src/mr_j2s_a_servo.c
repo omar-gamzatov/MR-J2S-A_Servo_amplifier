@@ -4,8 +4,13 @@ servo_func_mode servo_mode = jog_mode;
 servo_jog_functions jog_func = jog_on;
 servo_pos_functions pos_func = pos_on;
 
+uint8_t servo_init_cnt = 0;
 uint8_t servo_jog_functions_cnt[7] = {0, 0, 0, 0, 0, 0, 0};
 uint8_t servo_pos_functions_cnt[6] = {0, 0, 0, 0, 0, 0};
+uint32_t baudrate[4] = {9600, 19200, 38400, 57600};
+uint32_t servo_curr_baudrate = 0;
+
+uint8_t servo_alarm = 0;
 
 uint16_t rx_size = 50;
 char rxbuffer[50];
@@ -26,14 +31,28 @@ uint8_t ascii[16] = {
     0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46
 };
 
-void servo_init(uint32_t baudrate)
+void servo_init(servo_baudrate _baudrate)
 {
+	servo_curr_baudrate = _baudrate;
 	dma_nvic_config();
-	usart1_init(baudrate);
+	usart1_init(baudrate[_baudrate]);
 	usart1_dma0_txinit(tx_read_buffer, tx_read_size);
 	usart1_dma0_rxinit(rxbuffer, rx_size);
-	
+	servo_set_rs232_baudrate();
 	servo_timer_config();
+}
+
+
+void servo_set_rs232_baudrate(void)
+{
+	if (servo_init_cnt == 0) {
+		servo_mode = init_mode;
+		servo_init_cnt = 1;
+		servo_send_write_command8(WRITE_PARAMS, 0x10, 0x00000000 | servo_curr_baudrate, 0);
+	} else if (servo_init_cnt == 1) {
+		servo_init_cnt = 0;
+		servo_mode = nothing_mode;
+	}
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -377,12 +396,23 @@ void servo_jog_mode_stop_rotation(void)
 	}
 }
 //-----------------------------------------------------------------------------------------------------------------------------------
-void servo_handle_error(void)
+uint8_t servo_handle_error(void)
+{
+	if (servo_alarm > 'F') {
+		servo_emg_stop();
+	}
+	return rxbuffer[2];
+}
+
+uint8_t servo_handle_alarm(void)
 {
 	if (rxbuffer[2] != 'A') {
 		gpio_bit_set(GPIOA, GPIO_PIN_7);
+		return 0;
 	}
+	return 1;
 }
+
 
 uint16_t get_servo_data_length(const char* data)
 {

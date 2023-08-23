@@ -43,8 +43,10 @@ extern uint16_t rx_size;
 extern servo_func_mode servo_mode;
 extern servo_jog_functions jog_func;
 extern servo_pos_functions pos_func;
+extern uint8_t servo_init_cnt;
 extern uint8_t servo_jog_functions_cnt[];
 extern uint8_t servo_pos_functions_cnt[];
+extern uint8_t servo_alarm;
 
 /*!
     \brief      this function handles NMI exception
@@ -158,8 +160,6 @@ void SysTick_Handler(void)
 void DMA0_Channel6_IRQHandler(void)
 {
     if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH6, DMA_INT_FLAG_FTF)) {
-		//gpio_bit_set(GPIOA, GPIO_PIN_9);
-		
         dma_interrupt_flag_clear(DMA0, DMA_CH6, DMA_INT_FLAG_G);
     }
 }
@@ -174,17 +174,24 @@ void DMA0_Channel6_IRQHandler(void)
 void DMA0_Channel5_IRQHandler(void)
 {
     if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH5, DMA_INT_FLAG_FTF)) {
-		//gpio_bit_reset(GPIOA, GPIO_PIN_9);
-		
 		dma_channel_disable(DMA0, DMA_CH5);
 		dma_flag_clear(DMA0, DMA_CH5, DMA_FLAG_G);				
 		dma_transfer_number_config(DMA0, DMA_CH5, rx_size);
 		dma_channel_enable(DMA0, DMA_CH5);
 		dma_interrupt_flag_clear(DMA0, DMA_CH5, DMA_INT_FLAG_G); 
-		
-		servo_handle_error();
+
+		servo_alarm = servo_handle_error();
+		if (servo_alarm > 'F') {
+			servo_emg_stop();
+			return;
+		}
 		
 		switch (servo_mode) {
+			case init_mode:
+				if (servo_init_cnt != 0) {
+					servo_set_rs232_baudrate();
+				}
+				break;
 			case jog_mode:
 				switch (jog_func) {
 					case jog_on:
@@ -288,7 +295,7 @@ void TIMER2_IRQHandler(void)
 		else if (servo_mode == nothing_mode) {
 			servo_mode = timer_mode;
 			gpio_bit_set(GPIOA, GPIO_PIN_8);
-			servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+			servo_send_read_command(READ_ALARMS, CURRENT_ALARM, RESPONSE_SIZE_ALARMS, 0);
 			gpio_bit_reset(GPIOA, GPIO_PIN_8);
 		}
     }

@@ -1,6 +1,6 @@
 Dependencies for Project 'mr_j2s_a', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6160000::V6.16::ARMCLANG
-F (.\src\gd32e50x_it.c)(0x64E4AA73)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./CMSIS/GD/GD32E50x/Include -I ./GD32E50x_standard_peripheral/Include -I ./CMSIS -I ./inc-I./RTE/_Target_1-IC:/Users/Omar/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Omar/AppData/Local/Arm/Packs/GigaDevice/GD32E50x_DFP/1.3.3/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DGD32E50x_HD -D_RTE_ -DGD32E50X_HD -DGD32E50X-o ./objects/gd32e50x_it.o -MD)
+F (.\src\gd32e50x_it.c)(0x64E5A80A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./CMSIS/GD/GD32E50x/Include -I ./GD32E50x_standard_peripheral/Include -I ./CMSIS -I ./inc-I./RTE/_Target_1-IC:/Users/Omar/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Omar/AppData/Local/Arm/Packs/GigaDevice/GD32E50x_DFP/1.3.3/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DGD32E50x_HD -D_RTE_ -DGD32E50X_HD -DGD32E50X-o ./objects/gd32e50x_it.o -MD)
 I (inc\gd32e50x_it.h)(0x64E350F8)
 I (CMSIS\GD\GD32E50x\Include\gd32e50x.h)(0x64E350F8)
 I (CMSIS\core_cm33.h)(0x64E350F8)
@@ -37,12 +37,12 @@ I (GD32E50x_standard_peripheral\Include\gd32e50x_wwdgt.h)(0x64E350F8)
 I (GD32E50x_standard_peripheral\Include\gd32e50x_sqpi.h)(0x64E350F8)
 I (GD32E50x_standard_peripheral\Include\gd32e50x_sdio.h)(0x64E350F8)
 I (inc\systick.h)(0x64E350F8)
-I (inc\mr_j2s_a_servo.h)(0x64E4A9C1)
+I (inc\mr_j2s_a_servo.h)(0x64E5A677)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x60354E24)
 I (inc\usart1_dma0.h)(0x64E350F8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x60354E20)
 I (inc\timer.h)(0x64E350F8)
-F (.\src\main.c)(0x64E4B97C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./CMSIS/GD/GD32E50x/Include -I ./GD32E50x_standard_peripheral/Include -I ./CMSIS -I ./inc-I./RTE/_Target_1-IC:/Users/Omar/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Omar/AppData/Local/Arm/Packs/GigaDevice/GD32E50x_DFP/1.3.3/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DGD32E50x_HD -D_RTE_ -DGD32E50X_HD -DGD32E50X-o ./objects/main.o -MD)
+F (.\src\main.c)(0x64E59E68)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./CMSIS/GD/GD32E50x/Include -I ./GD32E50x_standard_peripheral/Include -I ./CMSIS -I ./inc-I./RTE/_Target_1-IC:/Users/Omar/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Omar/AppData/Local/Arm/Packs/GigaDevice/GD32E50x_DFP/1.3.3/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DGD32E50x_HD -D_RTE_ -DGD32E50X_HD -DGD32E50X-o ./objects/main.o -MD)
 I (CMSIS\GD\GD32E50x\Include\gd32e50x.h)(0x64E350F8)
 I (CMSIS\core_cm33.h)(0x64E350F8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x60354E20)
@@ -79,12 +79,12 @@ I (GD32E50x_standard_peripheral\Include\gd32e50x_sqpi.h)(0x64E350F8)
 I (GD32E50x_standard_peripheral\Include\gd32e50x_sdio.h)(0x64E350F8)
 I (inc\systick.h)(0x64E350F8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x60354E24)
-I (inc\mr_j2s_a_servo.h)(0x64E4A9C1)
+I (inc\mr_j2s_a_servo.h)(0x64E5A677)
 I (inc\usart1_dma0.h)(0x64E350F8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x60354E20)
 I (inc\timer.h)(0x64E350F8)
-F (.\src\mr_j2s_a_servo.c)(0x64E4B8B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./CMSIS/GD/GD32E50x/Include -I ./GD32E50x_standard_peripheral/Include -I ./CMSIS -I ./inc-I./RTE/_Target_1-IC:/Users/Omar/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Omar/AppData/Local/Arm/Packs/GigaDevice/GD32E50x_DFP/1.3.3/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DGD32E50x_HD -D_RTE_ -DGD32E50X_HD -DGD32E50X-o ./objects/mr_j2s_a_servo.o -MD)
-I (inc\mr_j2s_a_servo.h)(0x64E4A9C1)
+F (.\src\mr_j2s_a_servo.c)(0x64E5A77A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./CMSIS/GD/GD32E50x/Include -I ./GD32E50x_standard_peripheral/Include -I ./CMSIS -I ./inc-I./RTE/_Target_1-IC:/Users/Omar/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Omar/AppData/Local/Arm/Packs/GigaDevice/GD32E50x_DFP/1.3.3/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DGD32E50x_HD -D_RTE_ -DGD32E50X_HD -DGD32E50X-o ./objects/mr_j2s_a_servo.o -MD)
+I (inc\mr_j2s_a_servo.h)(0x64E5A677)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x60354E24)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x60354E20)
 I (inc\usart1_dma0.h)(0x64E350F8)
@@ -235,7 +235,7 @@ I (GD32E50x_standard_peripheral\Include\gd32e50x_sqpi.h)(0x64E350F8)
 I (GD32E50x_standard_peripheral\Include\gd32e50x_sdio.h)(0x64E350F8)
 F (.\inc\gd32e50x_it.h)(0x64E350F8)()
 F (.\inc\gd32e50x_libopt.h)(0x64E350F8)()
-F (.\inc\mr_j2s_a_servo.h)(0x64E4A9C1)()
+F (.\inc\mr_j2s_a_servo.h)(0x64E5A677)()
 F (.\inc\systick.h)(0x64E350F8)()
 F (.\inc\usart1_dma0.h)(0x64E350F8)()
 F (.\inc\timer.h)(0x64E350F8)()

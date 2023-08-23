@@ -167,6 +167,14 @@
 typedef enum {READY = 1, BUSY = 0} servo_ready_status;
 
 typedef enum {
+	BAUDRATE_9600 = 0,
+	BAUDRATE_19200,
+	BAUDRATE_38400,
+	BAUDRATE_57600
+} servo_baudrate;
+
+typedef enum {
+	init_mode,
 	jog_mode,
 	pos_mode,
 	timer_mode,
@@ -207,7 +215,20 @@ typedef enum {
 #define POS_PATH_LENGTH					4
 #define POS_BREAK						5
 
-
+//typedef enum {
+//	ok,
+//	parity_err,
+//	sum_err,
+//	symbol_err,
+//	command_err,
+//	data_err,
+//	ok_alarm,
+//	parity_err_alarm,
+//	sum_err_alarm,
+//	symbol_err_alarm,
+//	command_err_alarm,
+//	data_err_alarm,
+// servo_error;
 
 //__IO FlagStatus g_transfer_complete = SET;
 
@@ -215,7 +236,8 @@ typedef enum {
 
 uint16_t get_servo_data_length(const char* data);
 
-void servo_init(uint32_t baudrate);
+void servo_init(servo_baudrate _baudrate);
+void servo_set_rs232_baudrate(void);
 
 void servo_send_read_command(uint16_t read_command, uint16_t data_to_read, uint16_t response_size, uint8_t servo_number);
 void servo_send_write_command4(uint16_t write_command, uint16_t data_number, uint16_t data_to_write, uint8_t servo_number);
@@ -244,6 +266,6 @@ void servo_jog_mode_direct_rotation(void);
 void servo_jog_mode_revers_rotation(void);
 void servo_jog_mode_stop_rotation(void);
 
-void servo_handle_error(void);
-	
+uint8_t servo_handle_error(void);
+uint8_t servo_handle_alarm(void);	
 #endif /* MR_J2S_A_SERVO_H */
