@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\mr_j2s_a.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\mr_j2s_a.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Thu Aug 24 10:14:16 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Thu Aug 24 11:04:38 2023
 <BR><P>
-<H3>Maximum Stack Usage =        216 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        232 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-DMA0_Channel5_IRQHandler &rArr; servo_positioning_mode_set_acceleration_time &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+DMA0_Channel5_IRQHandler &rArr; servo_handle_error &rArr; servo_emg_stop &rArr; servo_positioning_mode_off &rArr; servo_send_write_command4 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 <P>
 <H3>
 Mutually Recursive functions
@@ -130,9 +130,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[cc]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[cd]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[cd]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[ce]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
 <P><STRONG><a name="[5d]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
@@ -140,7 +140,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 
-<P><STRONG><a name="[ce]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+<P><STRONG><a name="[cf]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
 
 <P><STRONG><a name="[77]"></a>_printf_percent</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
@@ -160,7 +160,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char
 </UL>
 
-<P><STRONG><a name="[cf]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
+<P><STRONG><a name="[d0]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
 
 <P><STRONG><a name="[67]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
@@ -170,70 +170,70 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init
 </UL>
 
-<P><STRONG><a name="[d0]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+<P><STRONG><a name="[d1]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[d1]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+<P><STRONG><a name="[d2]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
 
-<P><STRONG><a name="[d2]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+<P><STRONG><a name="[d3]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
 
-<P><STRONG><a name="[d3]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+<P><STRONG><a name="[d4]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
 
-<P><STRONG><a name="[d4]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+<P><STRONG><a name="[d5]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
 
-<P><STRONG><a name="[d5]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+<P><STRONG><a name="[d6]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[d6]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+<P><STRONG><a name="[d7]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[d7]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+<P><STRONG><a name="[d8]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
 
-<P><STRONG><a name="[d8]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+<P><STRONG><a name="[d9]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
 
-<P><STRONG><a name="[d9]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+<P><STRONG><a name="[da]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
 
-<P><STRONG><a name="[da]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+<P><STRONG><a name="[db]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
 
-<P><STRONG><a name="[db]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+<P><STRONG><a name="[dc]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
 
-<P><STRONG><a name="[dc]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+<P><STRONG><a name="[dd]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
 
-<P><STRONG><a name="[dd]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+<P><STRONG><a name="[de]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[de]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+<P><STRONG><a name="[df]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
 
-<P><STRONG><a name="[df]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+<P><STRONG><a name="[e0]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
 
-<P><STRONG><a name="[e0]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+<P><STRONG><a name="[e1]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
 
-<P><STRONG><a name="[e1]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+<P><STRONG><a name="[e2]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
 
-<P><STRONG><a name="[e2]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+<P><STRONG><a name="[e3]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
 
-<P><STRONG><a name="[e3]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+<P><STRONG><a name="[e4]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
 
 <P><STRONG><a name="[6c]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[e4]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<P><STRONG><a name="[e5]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
 
-<P><STRONG><a name="[e5]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
+<P><STRONG><a name="[e6]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
 
-<P><STRONG><a name="[e6]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+<P><STRONG><a name="[e7]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
 
-<P><STRONG><a name="[e7]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
+<P><STRONG><a name="[e8]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
 
-<P><STRONG><a name="[e8]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
+<P><STRONG><a name="[e9]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
 
-<P><STRONG><a name="[e9]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+<P><STRONG><a name="[ea]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
 
-<P><STRONG><a name="[ea]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+<P><STRONG><a name="[eb]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[5b]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
-<P><STRONG><a name="[eb]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[ec]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
 
 <P><STRONG><a name="[64]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -246,17 +246,17 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[ec]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[ed]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[68]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; servo_positioning_mode_set_acceleration_time &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; servo_positioning_mode_path_length &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[ed]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+<P><STRONG><a name="[ee]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
 <P><STRONG><a name="[7c]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -266,7 +266,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
 </UL>
 
-<P><STRONG><a name="[ee]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[ef]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
 
 <P><STRONG><a name="[6d]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
@@ -509,8 +509,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_read_command
 </UL>
 
@@ -545,7 +545,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_x
 </UL>
 
-<P><STRONG><a name="[ef]"></a>_printf_longlong_hex</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, _printf_hex_int.o(.text), UNUSED)
+<P><STRONG><a name="[f0]"></a>_printf_longlong_hex</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, _printf_hex_int.o(.text), UNUSED)
 
 <P><STRONG><a name="[75]"></a>__printf</STRONG> (Thumb, 308 bytes, Stack size 40 bytes, __printf_flags_wp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
@@ -557,11 +557,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
 
-<P><STRONG><a name="[f0]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[f1]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[f1]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[f2]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[f2]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[f3]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[74]"></a>_printf_int_common</STRONG> (Thumb, 178 bytes, Stack size 32 bytes, _printf_intcommon.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = _printf_int_common &rArr; _printf_post_padding
@@ -625,23 +625,23 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[f3]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[f4]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[7a]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[f4]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[f5]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[6e]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[f5]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[f6]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[f6]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[f7]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[f7]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[f8]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, gd32e50x_it.o(.text.BusFault_Handler))
 <BR><BR>[Calls]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BusFault_Handler
@@ -650,23 +650,22 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_gd32e50x_hd.o(RESET)
 </UL>
-<P><STRONG><a name="[1a]"></a>DMA0_Channel5_IRQHandler</STRONG> (Thumb, 386 bytes, Stack size 8 bytes, gd32e50x_it.o(.text.DMA0_Channel5_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
-<LI>Call Chain = DMA0_Channel5_IRQHandler &rArr; servo_positioning_mode_set_acceleration_time &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[1a]"></a>DMA0_Channel5_IRQHandler</STRONG> (Thumb, 372 bytes, Stack size 8 bytes, gd32e50x_it.o(.text.DMA0_Channel5_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 232 + Unknown Stack Size
+<LI>Call Chain = DMA0_Channel5_IRQHandler &rArr; servo_handle_error &rArr; servo_emg_stop &rArr; servo_positioning_mode_off &rArr; servo_send_write_command4 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_set_acceleration_time
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_path_length
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_off
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_break
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_stop_rotation
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_revers_rotation
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_on
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_direct_rotation
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_path_length
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_off
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_config
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_break
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_stop_rotation
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_revers_rotation
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_on
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_direct_rotation
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_handle_error
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_transfer_number_config
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_interrupt_flag_get
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_interrupt_flag_clear
@@ -713,15 +712,15 @@ Global Symbols
 <P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, gd32e50x_it.o(.text.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysTick_Handler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_decrement
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_decrement
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_gd32e50x_hd.o(RESET)
 </UL>
 <P><STRONG><a name="[56]"></a>SystemInit</STRONG> (Thumb, 166 bytes, Stack size 16 bytes, system_gd32e50x.o(.text.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SystemInit &rArr; system_clock_config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_vector_table_set
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_clock_config
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_vector_table_set
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_clock_config
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_gd32e50x_hd.o(.text)
 </UL>
@@ -729,10 +728,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
 <LI>Call Chain = TIMER2_IRQHandler &rArr; servo_send_read_command &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_flag_get
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_flag_clear
+<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_flag_get
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_flag_clear
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_read_command
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_gd32e50x_hd.o(RESET)
 </UL>
@@ -747,7 +746,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[92]"></a>delay_decrement</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, systick.o(.text.delay_decrement))
+<P><STRONG><a name="[91]"></a>delay_decrement</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, systick.o(.text.delay_decrement))
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
@@ -756,8 +755,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
+<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
@@ -766,9 +765,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
+<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
@@ -777,8 +776,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
 </UL>
 
 <P><STRONG><a name="[9a]"></a>dma_deinit</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, gd32e50x_dma.o(.text.dma_deinit))
@@ -786,8 +785,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
 </UL>
 
 <P><STRONG><a name="[7f]"></a>dma_flag_clear</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, gd32e50x_dma.o(.text.dma_flag_clear))
@@ -795,7 +794,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
@@ -804,8 +803,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
 </UL>
 
 <P><STRONG><a name="[9c]"></a>dma_interrupt_enable</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, gd32e50x_dma.o(.text.dma_interrupt_enable))
@@ -813,8 +812,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
 </UL>
 
 <P><STRONG><a name="[82]"></a>dma_interrupt_flag_clear</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, gd32e50x_dma.o(.text.dma_interrupt_flag_clear))
@@ -840,7 +839,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
+<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
 </UL>
 
 <P><STRONG><a name="[9e]"></a>dma_memory_to_memory_disable</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, gd32e50x_dma.o(.text.dma_memory_to_memory_disable))
@@ -848,8 +847,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
 </UL>
 
 <P><STRONG><a name="[9f]"></a>dma_nvic_config</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, usart1_dma0.o(.text.dma_nvic_config))
@@ -865,29 +864,26 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_periph_and_channel_check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
+<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[86]"></a>gpio_bit_reset</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gd32e50x_gpio.o(.text.gpio_bit_reset))
+<P><STRONG><a name="[85]"></a>gpio_bit_reset</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gd32e50x_gpio.o(.text.gpio_bit_reset))
 <BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[84]"></a>gpio_bit_set</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gd32e50x_gpio.o(.text.gpio_bit_set))
+<P><STRONG><a name="[96]"></a>gpio_bit_set</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gd32e50x_gpio.o(.text.gpio_bit_set))
 <BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_handle_error
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER2_IRQHandler
-<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
 <P><STRONG><a name="[a3]"></a>gpio_init</STRONG> (Thumb, 182 bytes, Stack size 32 bytes, gd32e50x_gpio.o(.text.gpio_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = gpio_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -895,9 +891,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[69]"></a>main</STRONG> (Thumb, 258 bytes, Stack size 0 bytes, main.o(.text.main))
+<P><STRONG><a name="[69]"></a>main</STRONG> (Thumb, 246 bytes, Stack size 0 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
-<LI>Call Chain = main &rArr; servo_positioning_mode_set_acceleration_time &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+<LI>Call Chain = main &rArr; servo_positioning_mode_path_length &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_config
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_set_path_length
@@ -908,12 +904,12 @@ Global Symbols
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_input_bit_get
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_1ms
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_set_acceleration_time
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_path_length
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_off
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_path_length
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_off
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_config
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -923,7 +919,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_DisableIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
+<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
 </UL>
 
 <P><STRONG><a name="[a0]"></a>nvic_irq_enable</STRONG> (Thumb, 162 bytes, Stack size 16 bytes, gd32e50x_misc.o(.text.nvic_irq_enable))
@@ -931,7 +927,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_priority_group_set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_enable
+<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_enable
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_nvic_config
 </UL>
 
@@ -939,37 +935,50 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_enable
 </UL>
 
-<P><STRONG><a name="[94]"></a>nvic_vector_table_set</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, gd32e50x_misc.o(.text.nvic_vector_table_set))
+<P><STRONG><a name="[93]"></a>nvic_vector_table_set</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, gd32e50x_misc.o(.text.nvic_vector_table_set))
 <BR><BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[cb]"></a>rcu_clock_freq_get</STRONG> (Thumb, 264 bytes, Stack size 16 bytes, gd32e50x_rcu.o(.text.rcu_clock_freq_get))
+<P><STRONG><a name="[cc]"></a>rcu_clock_freq_get</STRONG> (Thumb, 264 bytes, Stack size 16 bytes, gd32e50x_rcu.o(.text.rcu_clock_freq_get))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = rcu_clock_freq_get
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_baudrate_set
+<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_baudrate_set
 </UL>
 
 <P><STRONG><a name="[a2]"></a>rcu_periph_clock_enable</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, gd32e50x_rcu.o(.text.rcu_periph_clock_enable))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c0]"></a>rcu_periph_reset_disable</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, gd32e50x_rcu.o(.text.rcu_periph_reset_disable))
-<BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_deinit
+<P><STRONG><a name="[c1]"></a>rcu_periph_reset_disable</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, gd32e50x_rcu.o(.text.rcu_periph_reset_disable))
+<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_deinit
 </UL>
 
-<P><STRONG><a name="[bf]"></a>rcu_periph_reset_enable</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, gd32e50x_rcu.o(.text.rcu_periph_reset_enable))
-<BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_deinit
+<P><STRONG><a name="[c0]"></a>rcu_periph_reset_enable</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, gd32e50x_rcu.o(.text.rcu_periph_reset_enable))
+<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_deinit
 </UL>
 
-<P><STRONG><a name="[83]"></a>servo_handle_error</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_handle_error))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = servo_handle_error
+<P><STRONG><a name="[ad]"></a>servo_emg_stop</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_emg_stop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<LI>Call Chain = servo_emg_stop &rArr; servo_positioning_mode_off &rArr; servo_send_write_command4 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_off
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
+</UL>
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_handle_error
+</UL>
+
+<P><STRONG><a name="[83]"></a>servo_handle_error</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_handle_error))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<LI>Call Chain = servo_handle_error &rArr; servo_emg_stop &rArr; servo_positioning_mode_off &rArr; servo_send_write_command4 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_emg_stop
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
@@ -977,114 +986,114 @@ Global Symbols
 <P><STRONG><a name="[a4]"></a>servo_init</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = servo_init &rArr; usart1_dma0_txinit &rArr; dma_memory_to_memory_disable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_txinit
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_nvic_config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[89]"></a>servo_jog_mode_direct_rotation</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_direct_rotation))
+<P><STRONG><a name="[88]"></a>servo_jog_mode_direct_rotation</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_direct_rotation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_jog_mode_direct_rotation &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[88]"></a>servo_jog_mode_off</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_off))
+<P><STRONG><a name="[87]"></a>servo_jog_mode_off</STRONG> (Thumb, 150 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_jog_mode_off &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
+<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_emg_stop
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[85]"></a>servo_jog_mode_on</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_on))
+<P><STRONG><a name="[84]"></a>servo_jog_mode_on</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_jog_mode_on &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_enable
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_enable
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8a]"></a>servo_jog_mode_revers_rotation</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_revers_rotation))
+<P><STRONG><a name="[89]"></a>servo_jog_mode_revers_rotation</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_revers_rotation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_jog_mode_revers_rotation &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8b]"></a>servo_jog_mode_stop_rotation</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_stop_rotation))
+<P><STRONG><a name="[8a]"></a>servo_jog_mode_stop_rotation</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_jog_mode_stop_rotation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_jog_mode_stop_rotation &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8f]"></a>servo_positioning_mode_break</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_break))
+<P><STRONG><a name="[8e]"></a>servo_positioning_mode_break</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_break))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_positioning_mode_break &rArr; servo_send_write_command4 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8c]"></a>servo_positioning_mode_off</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_off))
+<P><STRONG><a name="[8c]"></a>servo_positioning_mode_config</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_config))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<LI>Call Chain = servo_positioning_mode_config &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+</UL>
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
+</UL>
+
+<P><STRONG><a name="[8b]"></a>servo_positioning_mode_off</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_positioning_mode_off &rArr; servo_send_write_command4 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_emg_stop
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[87]"></a>servo_positioning_mode_on</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_on))
+<P><STRONG><a name="[86]"></a>servo_positioning_mode_on</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_positioning_mode_on &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_set
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_bit_reset
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8e]"></a>servo_positioning_mode_path_length</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length))
+<P><STRONG><a name="[8d]"></a>servo_positioning_mode_path_length</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_path_length))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = servo_positioning_mode_path_length &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-</UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
-</UL>
-
-<P><STRONG><a name="[8d]"></a>servo_positioning_mode_set_acceleration_time</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, mr_j2s_a_servo.o(.text.servo_positioning_mode_set_acceleration_time))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
-<LI>Call Chain = servo_positioning_mode_set_acceleration_time &rArr; servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
-</UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_Channel5_IRQHandler
@@ -1094,47 +1103,47 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
 <LI>Call Chain = servo_send_read_command &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[b1]"></a>servo_send_write_command4</STRONG> (Thumb, 148 bytes, Stack size 64 bytes, mr_j2s_a_servo.o(.text.servo_send_write_command4))
+<P><STRONG><a name="[b3]"></a>servo_send_write_command4</STRONG> (Thumb, 148 bytes, Stack size 64 bytes, mr_j2s_a_servo.o(.text.servo_send_write_command4))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
 <LI>Call Chain = servo_send_write_command4 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_set_acceleration_time
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_off
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_break
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_revers_rotation
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_on
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_direct_rotation
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_off
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_config
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_break
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_revers_rotation
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_on
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_direct_rotation
 </UL>
 
-<P><STRONG><a name="[b2]"></a>servo_send_write_command8</STRONG> (Thumb, 168 bytes, Stack size 64 bytes, mr_j2s_a_servo.o(.text.servo_send_write_command8))
+<P><STRONG><a name="[b4]"></a>servo_send_write_command8</STRONG> (Thumb, 168 bytes, Stack size 64 bytes, mr_j2s_a_servo.o(.text.servo_send_write_command8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
 <LI>Call Chain = servo_send_write_command8 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxdata
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_set_acceleration_time
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_path_length
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_stop_rotation
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_revers_rotation
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_on
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_direct_rotation
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_path_length
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_on
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_positioning_mode_config
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_stop_rotation
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_revers_rotation
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_on
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_direct_rotation
 </UL>
 
 <P><STRONG><a name="[a6]"></a>servo_set_acceleration_time</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, mr_j2s_a_servo.o(.text.servo_set_acceleration_time))
@@ -1149,90 +1158,91 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b0]"></a>servo_timer_config</STRONG> (Thumb, 68 bytes, Stack size 32 bytes, timer.o(.text.servo_timer_config))
+<P><STRONG><a name="[b2]"></a>servo_timer_config</STRONG> (Thumb, 68 bytes, Stack size 32 bytes, timer.o(.text.servo_timer_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = servo_timer_config &rArr; timer_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_struct_para_init
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_init
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
+<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_struct_para_init
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_init
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_deinit
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_clock_enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_init
 </UL>
 
-<P><STRONG><a name="[b3]"></a>servo_timer_disable</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, timer.o(.text.servo_timer_disable))
+<P><STRONG><a name="[ae]"></a>servo_timer_disable</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, timer.o(.text.servo_timer_disable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = servo_timer_disable &rArr; nvic_irq_disable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_disable
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_disable
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_disable
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_disable
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
+<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_emg_stop
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_off
 </UL>
 
-<P><STRONG><a name="[b4]"></a>servo_timer_enable</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, timer.o(.text.servo_timer_enable))
+<P><STRONG><a name="[b5]"></a>servo_timer_enable</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, timer.o(.text.servo_timer_enable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = servo_timer_enable &rArr; nvic_irq_enable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_enable
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_enable
+<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_interrupt_enable
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_enable
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nvic_irq_enable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_on
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_jog_mode_on
 </UL>
 
 <P><STRONG><a name="[a1]"></a>systick_config</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, systick.o(.text.systick_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = systick_config &rArr; SysTick_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b7]"></a>timer_deinit</STRONG> (Thumb, 324 bytes, Stack size 8 bytes, gd32e50x_timer.o(.text.timer_deinit))
+<P><STRONG><a name="[b8]"></a>timer_deinit</STRONG> (Thumb, 324 bytes, Stack size 8 bytes, gd32e50x_timer.o(.text.timer_deinit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = timer_deinit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_enable
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_disable
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_enable
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
-</UL>
-
-<P><STRONG><a name="[ba]"></a>timer_disable</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_disable))
-<BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
+<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
 </UL>
 
-<P><STRONG><a name="[bd]"></a>timer_enable</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_enable))
-<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_enable
+<P><STRONG><a name="[bb]"></a>timer_disable</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_disable))
+<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
 </UL>
 
-<P><STRONG><a name="[b9]"></a>timer_init</STRONG> (Thumb, 194 bytes, Stack size 8 bytes, gd32e50x_timer.o(.text.timer_init))
+<P><STRONG><a name="[be]"></a>timer_enable</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_enable))
+<BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_enable
+</UL>
+
+<P><STRONG><a name="[ba]"></a>timer_init</STRONG> (Thumb, 194 bytes, Stack size 8 bytes, gd32e50x_timer.o(.text.timer_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = timer_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
+<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
 </UL>
 
-<P><STRONG><a name="[bb]"></a>timer_interrupt_disable</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_interrupt_disable))
-<BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
+<P><STRONG><a name="[bc]"></a>timer_interrupt_disable</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_interrupt_disable))
+<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_disable
 </UL>
 
-<P><STRONG><a name="[bc]"></a>timer_interrupt_enable</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_interrupt_enable))
-<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_enable
+<P><STRONG><a name="[bd]"></a>timer_interrupt_enable</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_interrupt_enable))
+<BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_enable
 </UL>
 
-<P><STRONG><a name="[96]"></a>timer_interrupt_flag_clear</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_interrupt_flag_clear))
+<P><STRONG><a name="[95]"></a>timer_interrupt_flag_clear</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_interrupt_flag_clear))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[95]"></a>timer_interrupt_flag_get</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_interrupt_flag_get))
+<P><STRONG><a name="[94]"></a>timer_interrupt_flag_get</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_interrupt_flag_get))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[b8]"></a>timer_struct_para_init</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_struct_para_init))
-<BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
+<P><STRONG><a name="[b9]"></a>timer_struct_para_init</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gd32e50x_timer.o(.text.timer_struct_para_init))
+<BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_timer_config
 </UL>
 
-<P><STRONG><a name="[b5]"></a>usart1_dma0_rxdata</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, usart1_dma0.o(.text.usart1_dma0_rxdata))
+<P><STRONG><a name="[b6]"></a>usart1_dma0_rxdata</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, usart1_dma0.o(.text.usart1_dma0_rxdata))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = usart1_dma0_rxdata &rArr; dma_transfer_number_config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_transfer_number_config
@@ -1240,15 +1250,15 @@ Global Symbols
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_channel_enable
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_channel_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_read_command
 </UL>
 
-<P><STRONG><a name="[af]"></a>usart1_dma0_rxinit</STRONG> (Thumb, 118 bytes, Stack size 48 bytes, usart1_dma0.o(.text.usart1_dma0_rxinit))
+<P><STRONG><a name="[b1]"></a>usart1_dma0_rxinit</STRONG> (Thumb, 118 bytes, Stack size 48 bytes, usart1_dma0.o(.text.usart1_dma0_rxinit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = usart1_dma0_rxinit &rArr; dma_memory_to_memory_disable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_dma_receive_config
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_dma_receive_config
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_memory_to_memory_disable
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_interrupt_enable
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_init
@@ -1259,21 +1269,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_init
 </UL>
 
-<P><STRONG><a name="[b6]"></a>usart1_dma0_send</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, usart1_dma0.o(.text.usart1_dma0_send))
+<P><STRONG><a name="[b7]"></a>usart1_dma0_send</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, usart1_dma0.o(.text.usart1_dma0_send))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = usart1_dma0_send &rArr; dma_memory_address_config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_dma_transmit_config
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_dma_transmit_config
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_memory_address_config
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_transfer_number_config
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_channel_enable
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_channel_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
+<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command8
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_write_command4
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_send_read_command
 </UL>
 
-<P><STRONG><a name="[ae]"></a>usart1_dma0_txinit</STRONG> (Thumb, 110 bytes, Stack size 48 bytes, usart1_dma0.o(.text.usart1_dma0_txinit))
+<P><STRONG><a name="[b0]"></a>usart1_dma0_txinit</STRONG> (Thumb, 110 bytes, Stack size 48 bytes, usart1_dma0.o(.text.usart1_dma0_txinit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = usart1_dma0_txinit &rArr; dma_memory_to_memory_disable
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_memory_to_memory_disable
@@ -1286,70 +1296,70 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_init
 </UL>
 
-<P><STRONG><a name="[ad]"></a>usart1_init</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, usart1_dma0.o(.text.usart1_init))
+<P><STRONG><a name="[af]"></a>usart1_init</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, usart1_dma0.o(.text.usart1_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = usart1_init &rArr; usart_baudrate_set &rArr; rcu_clock_freq_get
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_word_length_set
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_transmit_config
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_stop_bit_set
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_receive_config
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_parity_config
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_enable
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_deinit
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_baudrate_set
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_word_length_set
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_transmit_config
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_stop_bit_set
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_receive_config
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_parity_config
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_enable
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_deinit
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_baudrate_set
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_clock_enable
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_init
 </UL>
 
-<P><STRONG><a name="[c4]"></a>usart_baudrate_set</STRONG> (Thumb, 206 bytes, Stack size 16 bytes, gd32e50x_usart.o(.text.usart_baudrate_set))
+<P><STRONG><a name="[c5]"></a>usart_baudrate_set</STRONG> (Thumb, 206 bytes, Stack size 16 bytes, gd32e50x_usart.o(.text.usart_baudrate_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = usart_baudrate_set &rArr; rcu_clock_freq_get
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_clock_freq_get
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_clock_freq_get
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
 </UL>
 
-<P><STRONG><a name="[c3]"></a>usart_deinit</STRONG> (Thumb, 136 bytes, Stack size 8 bytes, gd32e50x_usart.o(.text.usart_deinit))
+<P><STRONG><a name="[c4]"></a>usart_deinit</STRONG> (Thumb, 136 bytes, Stack size 8 bytes, gd32e50x_usart.o(.text.usart_deinit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = usart_deinit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_enable
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_disable
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_enable
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rcu_periph_reset_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
-</UL>
-
-<P><STRONG><a name="[c1]"></a>usart_dma_receive_config</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_dma_receive_config))
-<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
 </UL>
 
-<P><STRONG><a name="[c2]"></a>usart_dma_transmit_config</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_dma_transmit_config))
-<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
+<P><STRONG><a name="[c2]"></a>usart_dma_receive_config</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_dma_receive_config))
+<BR><BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_rxinit
 </UL>
 
-<P><STRONG><a name="[ca]"></a>usart_enable</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_enable))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<P><STRONG><a name="[c3]"></a>usart_dma_transmit_config</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_dma_transmit_config))
+<BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_dma0_send
 </UL>
 
-<P><STRONG><a name="[c7]"></a>usart_parity_config</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_parity_config))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<P><STRONG><a name="[cb]"></a>usart_enable</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_enable))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
 </UL>
 
-<P><STRONG><a name="[c5]"></a>usart_receive_config</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_receive_config))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<P><STRONG><a name="[c8]"></a>usart_parity_config</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_parity_config))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
 </UL>
 
-<P><STRONG><a name="[c8]"></a>usart_stop_bit_set</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_stop_bit_set))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<P><STRONG><a name="[c6]"></a>usart_receive_config</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_receive_config))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
 </UL>
 
-<P><STRONG><a name="[c6]"></a>usart_transmit_config</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_transmit_config))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<P><STRONG><a name="[c9]"></a>usart_stop_bit_set</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_stop_bit_set))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
 </UL>
 
-<P><STRONG><a name="[c9]"></a>usart_word_length_set</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_word_length_set))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+<P><STRONG><a name="[c7]"></a>usart_transmit_config</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_transmit_config))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
+</UL>
+
+<P><STRONG><a name="[ca]"></a>usart_word_length_set</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, gd32e50x_usart.o(.text.usart_word_length_set))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart1_init
 </UL>
 
 <P><STRONG><a name="[76]"></a>_is_digit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, __printf_wp.o(i._is_digit))
@@ -1360,34 +1370,34 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_fp_1
 </UL>
 
-<P><STRONG><a name="[f8]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+<P><STRONG><a name="[f9]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 
-<P><STRONG><a name="[f9]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+<P><STRONG><a name="[fa]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 <P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[90]"></a>SysTick_Config</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, systick.o(.text.SysTick_Config))
+<P><STRONG><a name="[8f]"></a>SysTick_Config</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, systick.o(.text.SysTick_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SysTick_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_config
 </UL>
 
-<P><STRONG><a name="[91]"></a>__NVIC_SetPriority</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, systick.o(.text.__NVIC_SetPriority))
-<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
+<P><STRONG><a name="[90]"></a>__NVIC_SetPriority</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, systick.o(.text.__NVIC_SetPriority))
+<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_config
 </UL>
 
-<P><STRONG><a name="[be]"></a>system_clock_180m_hxtal</STRONG> (Thumb, 228 bytes, Stack size 0 bytes, system_gd32e50x.o(.text.system_clock_180m_hxtal))
-<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_clock_config
+<P><STRONG><a name="[bf]"></a>system_clock_180m_hxtal</STRONG> (Thumb, 228 bytes, Stack size 0 bytes, system_gd32e50x.o(.text.system_clock_180m_hxtal))
+<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_clock_config
 </UL>
 
-<P><STRONG><a name="[93]"></a>system_clock_config</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_gd32e50x.o(.text.system_clock_config))
+<P><STRONG><a name="[92]"></a>system_clock_config</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_gd32e50x.o(.text.system_clock_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = system_clock_config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_clock_180m_hxtal
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_clock_180m_hxtal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>

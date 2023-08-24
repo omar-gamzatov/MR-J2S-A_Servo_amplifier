@@ -1,7 +1,5 @@
 #include "usart1_dma0.h"
 
-uint32_t index = 0;
-
 void usart1_init(uint32_t baudrate)
 {
     /* enable COM GPIO clock */
@@ -38,8 +36,6 @@ void usart1_dma0_send(char* buffer, uint16_t len)
     dma_channel_enable(DMA0, DMA_CH6);
     /* USART DMA enable for transmission and reception */
     usart_dma_transmit_config(USART1, USART_TRANSMIT_DMA_ENABLE);
-    /* wait DMA Channel transfer complete */
-    //while(RESET == dma_flag_get(DMA0, DMA_CH6, DMA_FLAG_FTF));
 }
 
 void usart1_dma0_txinit(char* txbuffer, uint16_t len)
@@ -96,15 +92,9 @@ void usart1_dma0_rxdata(uint16_t response_size)
 {
     dma_channel_disable(DMA0, DMA_CH5);
     dma_flag_clear(DMA0, DMA_CH5, DMA_FLAG_G);
-    //index = buffer_len - dma_transfer_number_get(DMA0, DMA_CH5);
     
     dma_transfer_number_config(DMA0, DMA_CH5, response_size);
     dma_channel_enable(DMA0, DMA_CH5);
-    
-    //if( index == 0 )
-    //    return 0;
-    //else
-    //    return 1;
 }
 
 void dma_nvic_config(void)

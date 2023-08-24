@@ -164,8 +164,6 @@
 #define COMMAND_SIZE											10
 #define WRITE_COMMAND_RESPONSE_SIZE								6
 
-typedef enum {READY = 1, BUSY = 0} servo_ready_status;
-
 typedef enum {
 	BAUDRATE_9600 = 0,
 	BAUDRATE_19200,
@@ -174,7 +172,12 @@ typedef enum {
 } servo_baudrate;
 
 typedef enum {
-//	init_mode,
+	jog,
+	positioning,
+	ready
+} servo_state;
+
+typedef enum {
 	jog_mode,
 	pos_mode,
 	timer_mode,
@@ -184,8 +187,6 @@ typedef enum {
 typedef enum {
 	jog_on,
 	jog_off,
-//	jog_freq_set,
-//	jog_acceleration_time_set,
 	jog_direct_rotation,
 	jog_reverse_rotation,
 	jog_stop,
@@ -193,51 +194,30 @@ typedef enum {
 
 #define JOG_ON							0
 #define JOG_OFF							1
-//#define JOG_FREQ_SET					2
-//#define JOG_ACCELERATION_TIME_SET		3
-#define JOG_DIRECT_ROT					4
-#define JOG_REVERSE_ROT					5
-#define JOG_STOP						6
+#define JOG_DIRECT_ROT					2
+#define JOG_REVERSE_ROT					3
+#define JOG_STOP						4
 
 typedef enum {
 	pos_on,
 	pos_off,
-	//pos_freq_set,
-	pos_acceleration_time_set,
+	pos_config,
 	pos_path_length,
 	pos_break,
 } servo_pos_functions;
 
 #define POS_ON							0
 #define POS_OFF							1
-#define POS_FREQ_SET					2
-#define POS_ACCELERATION_TIME_SET		3
-#define POS_PATH_LENGTH					4
-#define POS_BREAK						5
-
-//typedef enum {
-//	ok,
-//	parity_err,
-//	sum_err,
-//	symbol_err,
-//	command_err,
-//	data_err,
-//	ok_alarm,
-//	parity_err_alarm,
-//	sum_err_alarm,
-//	symbol_err_alarm,
-//	command_err_alarm,
-//	data_err_alarm,
-// servo_error;
+#define POS_CONFIG						2
+#define POS_PATH_LENGTH					3
+#define POS_BREAK						4
 
 //__IO FlagStatus g_transfer_complete = SET;
 
 #define ARRAYNUM(arr_nanme)       (uint32_t)(sizeof(arr_nanme) / sizeof(*(arr_nanme)))
 
-uint16_t get_servo_data_length(const char* data);
 
 void servo_init(servo_baudrate _baudrate);
-void servo_set_rs232_baudrate(void);
 
 void servo_send_read_command(uint16_t read_command, uint16_t data_to_read, uint16_t response_size, uint8_t servo_number);
 void servo_send_write_command4(uint16_t write_command, uint16_t data_number, uint16_t data_to_write, uint8_t servo_number);
@@ -253,9 +233,8 @@ void servo_set_operating_mode(uint32_t op_mode);
 void servo_positioning_mode_on(void);
 void servo_positioning_mode_off(void);
 void servo_positioning_mode_path_length(void);
+void servo_positioning_mode_config(void);
 void servo_positioning_mode_break(void);
-void servo_positioning_mode_set_freq(void);
-void servo_positioning_mode_set_acceleration_time(void);
 
 
 void servo_jog_mode_on(void);
@@ -267,5 +246,5 @@ void servo_jog_mode_revers_rotation(void);
 void servo_jog_mode_stop_rotation(void);
 
 uint8_t servo_handle_error(void);
-uint8_t servo_handle_alarm(void);	
+uint16_t get_servo_data_length(const char* data);
 #endif /* MR_J2S_A_SERVO_H */

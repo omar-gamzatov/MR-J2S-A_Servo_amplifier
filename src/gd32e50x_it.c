@@ -39,14 +39,13 @@ OF SUCH DAMAGE.
 #include "mr_j2s_a_servo.h"
 
 //extern servo_ready_status servo_ready;
-extern uint16_t rx_size;
+extern uint16_t servo_rx_size;
 extern servo_func_mode servo_mode;
 extern servo_jog_functions jog_func;
 extern servo_pos_functions pos_func;
-//extern uint8_t servo_init_cnt;
 extern uint8_t servo_jog_functions_cnt[];
 extern uint8_t servo_pos_functions_cnt[];
-extern uint8_t servo_alarm;
+uint8_t servo_error = 0;
 
 /*!
     \brief      this function handles NMI exception
@@ -176,23 +175,13 @@ void DMA0_Channel5_IRQHandler(void)
     if(RESET != dma_interrupt_flag_get(DMA0, DMA_CH5, DMA_INT_FLAG_FTF)) {
 		dma_channel_disable(DMA0, DMA_CH5);
 		dma_flag_clear(DMA0, DMA_CH5, DMA_FLAG_G);				
-		dma_transfer_number_config(DMA0, DMA_CH5, rx_size);
+		dma_transfer_number_config(DMA0, DMA_CH5, servo_rx_size);
 		dma_channel_enable(DMA0, DMA_CH5);
 		dma_interrupt_flag_clear(DMA0, DMA_CH5, DMA_INT_FLAG_G); 
 
-		servo_alarm = servo_handle_error();
-		if (servo_alarm != 'A') {
-			gpio_bit_set(GPIOA, GPIO_PIN_7);
-			//servo_emg_stop();
-			//return;
-		}
+		servo_error = servo_handle_error();
 		
 		switch (servo_mode) {
-			//case init_mode:
-			//	if (servo_init_cnt != 0) {
-			//		servo_set_rs232_baudrate();
-			//	}
-			//	break;
 			case jog_mode:
 				switch (jog_func) {
 					case jog_on:
@@ -205,16 +194,6 @@ void DMA0_Channel5_IRQHandler(void)
 							servo_jog_mode_off();
 						}
 						break;
-					//case jog_freq_set:
-					//	if (servo_jog_functions_cnt[JOG_FREQ_SET] != 0) {
-					//		servo_jog_mode_set_freq();
-					//	}
-					//	break;
-					//case jog_acceleration_time_set:
-					//	if (servo_jog_functions_cnt[JOG_ACCELERATION_TIME_SET] != 0) {
-					//		servo_jog_mode_set_acceleration_time();
-					//	}
-					//	break;
 					case jog_direct_rotation:
 						if (servo_jog_functions_cnt[JOG_DIRECT_ROT] != 0) {
 							servo_jog_mode_direct_rotation();
@@ -245,14 +224,9 @@ void DMA0_Channel5_IRQHandler(void)
 							servo_positioning_mode_off();
 						}
 						break;
-					//case pos_freq_set:
-					//	if (servo_pos_functions_cnt[POS_FREQ_SET] != 0) {
-					//		servo_jog_mode_on();
-					//	}
-					//	break;
-					case pos_acceleration_time_set:
-						if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] != 0) {
-							servo_positioning_mode_set_acceleration_time();
+					case pos_config:
+						if (servo_pos_functions_cnt[POS_CONFIG] != 0) {
+							servo_positioning_mode_config();
 						}
 						break;
 					case pos_path_length:
@@ -268,8 +242,6 @@ void DMA0_Channel5_IRQHandler(void)
 				}
 				break;
 			case timer_mode:
-				
-				//servo_send_read_command(READ_ALARMS, CURRENT_ALARM, RESPONSE_SIZE_ALARMS, 0);
 				gpio_bit_reset(GPIOA, GPIO_PIN_8);
 				break;
 			case nothing_mode:
@@ -295,12 +267,5 @@ void TIMER2_IRQHandler(void)
 			gpio_bit_set(GPIOA, GPIO_PIN_8);
 			servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
 		}
-		//else if (servo_mode == nothing_mode) {
-		//	servo_mode = timer_mode;
-		//	gpio_bit_set(GPIOA, GPIO_PIN_8);
-		//	servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
-		//	//servo_send_read_command(READ_ALARMS, CURRENT_ALARM, RESPONSE_SIZE_ALARMS, 0);
-		//	//gpio_bit_reset(GPIOA, GPIO_PIN_8);
-		//}
     }
 }
