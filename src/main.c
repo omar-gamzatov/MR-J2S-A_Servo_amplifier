@@ -55,8 +55,22 @@ int main(void)
 		
 		if (!gpio_input_bit_get(GPIOC, GPIO_PIN_0))	{
 			delay_1ms(200);
-			servo_positioning_mode_config();
+			// pos mode
+			if (button1 == 0) {
+				button1 = 1;
+				servo_set_freq(200);
+				servo_set_acceleration_time(1000);
+				servo_set_path_length(131072);
+				servo_positioning_mode_config();
+			} else {
+				button1 = 0;
+				servo_set_freq(100);
+				servo_set_acceleration_time(1000);
+				servo_set_path_length(-131072);
+				servo_positioning_mode_config();
+			}
 			
+			//// jog mode
 			//if (button1 == 0) {
 			//	button1 = 1;
 			//	servo_set_freq(0x00ff);
@@ -74,8 +88,10 @@ int main(void)
 		
 		if (!gpio_input_bit_get(GPIOC, GPIO_PIN_1))	{
 			delay_1ms(200);
+			// pos mode
 			servo_positioning_mode_path_length();
 			
+			//// jog mode
 			//if (button2 == 0) {
 			//	button2 = 1;
 			//	servo_set_freq(0x015E);

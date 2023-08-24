@@ -40,6 +40,7 @@ OF SUCH DAMAGE.
 
 //extern servo_ready_status servo_ready;
 extern uint16_t servo_rx_size;
+extern servo_state servo_status;
 extern servo_func_mode servo_mode;
 extern servo_jog_functions jog_func;
 extern servo_pos_functions pos_func;
@@ -242,6 +243,10 @@ void DMA0_Channel5_IRQHandler(void)
 				}
 				break;
 			case timer_mode:
+				//if (servo_status == jog)
+				//	// read feedback impulses
+				//else if (servo_status == positioning)
+				//	// read in_position signal
 				gpio_bit_reset(GPIOA, GPIO_PIN_8);
 				break;
 			case nothing_mode:
@@ -265,7 +270,10 @@ void TIMER2_IRQHandler(void)
         timer_interrupt_flag_clear(TIMER2, TIMER_INT_UP);
 		if (servo_mode == timer_mode) {
 			gpio_bit_set(GPIOA, GPIO_PIN_8);
-			servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+			if (servo_status == jog)
+				servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
+			else if (servo_status == positioning)
+				servo_send_read_command(READ_STATE, DATA_FEEDBACK_IMPULSES, RESPONSE_SIZE_STATE, 0);
 		}
     }
 }

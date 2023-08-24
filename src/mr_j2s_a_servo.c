@@ -124,7 +124,7 @@ void servo_positioning_mode_on(void)
 			servo_mode = pos_mode;
 			pos_func = pos_on;
 			servo_pos_functions_cnt[POS_ON] = 1;
-			servo_send_write_command8(WRITE_PARAMS, 0x00, 0x30000002, 0);
+			servo_send_write_command8(WRITE_PARAMS, 0x00, 0x30000000, 0);
 			break;
 		case 1:
 			servo_pos_functions_cnt[POS_ON] = 2;
