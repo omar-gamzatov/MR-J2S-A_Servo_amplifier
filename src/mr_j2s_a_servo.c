@@ -1,6 +1,6 @@
 #include "mr_j2s_a_servo.h"
 
-servo_func_mode servo_mode = jog_mode;
+servo_func_mode servo_mode = nothing_mode;
 servo_jog_functions jog_func = jog_on;
 servo_pos_functions pos_func = pos_on;
 
@@ -25,7 +25,7 @@ servo_ready_status servo_ready = READY;
 
 uint16_t servo_freq = 100;
 uint32_t servo_acceleration_time = 1000;
-int32_t pos_mode_path_length = 0;
+int32_t pos_mode_path_length = 1000;
 
 uint8_t ascii[16] = {
     0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46
@@ -38,22 +38,9 @@ void servo_init(servo_baudrate _baudrate)
 	usart1_init(baudrate[_baudrate]);
 	usart1_dma0_txinit(tx_read_buffer, tx_read_size);
 	usart1_dma0_rxinit(rxbuffer, rx_size);
-	//servo_set_rs232_baudrate();
+
 	servo_timer_config();
 }
-
-
-//void servo_set_rs232_baudrate(void)
-//{
-//	if (servo_init_cnt == 0) {
-//		servo_mode = init_mode;
-//		servo_init_cnt = 1;
-//		servo_send_write_command8(WRITE_PARAMS, 0x10, 0x00000000 | servo_curr_baudrate, 0);
-//	} else if (servo_init_cnt == 1) {
-//		servo_init_cnt = 0;
-//		servo_mode = nothing_mode;
-//	}
-//}
 
 //----------------------------------------------------------------------------------------------------------------------
 void servo_send_read_command(uint16_t command, uint16_t data, uint16_t response_size, uint8_t servo_number)
@@ -127,26 +114,28 @@ void servo_set_operating_mode(uint32_t op_mode)
 //-----------------------------------------------------------------Positioning mode----------------------------------------------------------------
 void servo_positioning_mode_on(void)
 {
-	switch (servo_jog_functions_cnt[POS_ON]) {
+	
+	switch (servo_pos_functions_cnt[POS_ON]) {
 		case 0:
+			gpio_bit_set(GPIOA, GPIO_PIN_7);
 			servo_mode = pos_mode;
 			pos_func = pos_on;
-			servo_jog_functions_cnt[POS_ON] = 1;
+			servo_pos_functions_cnt[POS_ON] = 1;
 			servo_send_write_command8(WRITE_PARAMS, 0x00, 0x30000002, 0);
 			break;
 		case 1:
-			servo_jog_functions_cnt[POS_ON] = 2;
+			servo_pos_functions_cnt[POS_ON] = 2;
 			servo_send_write_command4(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_BLOCK, TEST_MODE_BREAK_DATA, 0);
 			break;
 		case 2:
-			servo_jog_functions_cnt[POS_ON] = 2;
+			servo_pos_functions_cnt[POS_ON] = 3;
 			servo_send_write_command4(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_POSITIONING, 0);
-			break;
 		case 3:
-			servo_jog_functions_cnt[POS_ON] = 0;
-			servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, POS_MODE_SON_LSP_LSN_ON_DATA, 0);
+			servo_pos_functions_cnt[POS_ON] = 0;
+			//servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, POS_MODE_SON_LSP_LSN_ON_DATA, 0);
 			servo_mode = nothing_mode;
-			servo_timer_enable();
+			gpio_bit_reset(GPIOA, GPIO_PIN_7);
+			//servo_timer_enable();
 			break;
 		default:
 			break;
@@ -155,24 +144,24 @@ void servo_positioning_mode_on(void)
 
 void servo_positioning_mode_off(void)
 {
-	switch (servo_jog_functions_cnt[POS_OFF]) {
+	switch (servo_pos_functions_cnt[POS_OFF]) {
 		case 0:
-			servo_timer_disable();
+			//servo_timer_disable();
 			servo_mode = pos_mode;
 			pos_func = pos_off;
-			servo_jog_functions_cnt[POS_OFF] = 1;
+			servo_pos_functions_cnt[POS_OFF] = 1;
 			servo_send_write_command4(TEST_MODE, POS_MODE_STOP, TEST_MODE_BREAK_DATA, 0);
 			break;
 		case 1:
-			servo_jog_functions_cnt[POS_OFF] = 2;
+			servo_pos_functions_cnt[POS_OFF] = 2;
 			servo_send_write_command4(TEST_MODE, POS_MODE_STOP, TEST_MODE_BREAK_DATA, 0);
 			break;
 		case 2:
-			servo_jog_functions_cnt[POS_OFF] = 3;
+			servo_pos_functions_cnt[POS_OFF] = 3;
 			servo_send_write_command4(WRITE_TEST_OPERATING_MODE, SET_TEST_MODE, TEST_MODE_BREAK, 0);
 			break;
 		case 3:
-			servo_jog_functions_cnt[POS_OFF] = 0;
+			servo_pos_functions_cnt[POS_OFF] = 0;
 			servo_send_write_command4(EXTERN_OUTPUT_SIGNAL_BLOCK, OUTPUT_SIGNAL_UNLOCK, TEST_MODE_BREAK_DATA, 0);
 			servo_mode = nothing_mode;
 			break;
@@ -194,52 +183,74 @@ void servo_positioning_mode_off(void)
 //	}
 //}
 //
-//void servo_set_pos_mode_acceleration_time(void)
-//{
-//	if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] == 0) {
-//		servo_mode = pos_mode;
-//		pos_func = pos_acceleration_time_set;
-//		servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 1;
-//		servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
-//	} else if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] == 1) {
-//		servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 0;
-//		servo_mode = nothing_mode;
-//	}
-//}
-
-void servo_positioning_mode_path_length(void)
+void servo_positioning_mode_set_acceleration_time(void)
 {
-	switch (servo_jog_functions_cnt[POS_PATH_LENGTH]) {
+		switch (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET]) {
 		case 0:
 			//servo_timer_disable();
 			servo_mode = pos_mode;
-			pos_func = pos_path_length;
-			servo_jog_functions_cnt[POS_PATH_LENGTH] = 1;
+			pos_func = pos_acceleration_time_set;
+			servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 1;
 			servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
 			break;
 		case 1:
-			servo_jog_functions_cnt[POS_PATH_LENGTH] = 2;
+			servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 2;
 			servo_send_write_command8(TEST_MODE, POS_MODE_ACCELERATION_TIME, servo_acceleration_time, 0);
 			break;
 		case 2:
-			servo_jog_functions_cnt[POS_PATH_LENGTH] = 0;
-			servo_send_write_command8(TEST_MODE, POS_MODE_SET_PATH_LENGTH, pos_mode_path_length, 0);
-			servo_mode = timer_mode;
+			servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 0;
+			servo_send_write_command8(TEST_MODE_INPUT_SIGNAL, POS_MODE_SON_LSP_LSN_ON, POS_MODE_SON_LSP_LSN_ON_DATA, 0);
+			servo_mode = nothing_mode;
 			//servo_timer_enable();
 			break;
 		default:
 			break;
 	};
 	
-	//if (servo_pos_functions_cnt[POS_PATH_LENGTH] == 0) {
+	//if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] == 0) {
 	//	servo_mode = pos_mode;
-	//	pos_func = pos_path_length;
-	//	servo_pos_functions_cnt[POS_PATH_LENGTH] = 1;
-	//	servo_send_write_command8(TEST_MODE, POS_MODE_SET_PATH_LENGTH, pos_mode_path_length, 0);
-	//} else if (servo_pos_functions_cnt[POS_PATH_LENGTH] == 1) {
-	//	servo_pos_functions_cnt[POS_PATH_LENGTH] = 0;
+	//	pos_func = pos_acceleration_time_set;
+	//	servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 1;
+	//	servo_send_write_command8(TEST_MODE, POS_MODE_FREQUENCY, servo_acceleration_time, 0);
+	//} else if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] == 1) {
+	//	servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] = 0;
 	//	servo_mode = nothing_mode;
 	//}
+}
+
+void servo_positioning_mode_path_length(void)
+{
+	//switch (servo_pos_functions_cnt[POS_PATH_LENGTH]) {
+	//	case 0:
+	//		//servo_timer_disable();
+	//		servo_mode = pos_mode;
+	//		pos_func = pos_path_length;
+	//		servo_pos_functions_cnt[POS_PATH_LENGTH] = 1;
+	//		servo_send_write_command4(TEST_MODE, POS_MODE_FREQUENCY, servo_freq, 0);
+	//		break;
+	//	case 1:
+	//		servo_pos_functions_cnt[POS_PATH_LENGTH] = 2;
+	//		servo_send_write_command8(TEST_MODE, POS_MODE_ACCELERATION_TIME, servo_acceleration_time, 0);
+	//		break;
+	//	case 2:
+	//		servo_pos_functions_cnt[POS_PATH_LENGTH] = 0;
+	//		servo_send_write_command8(TEST_MODE, POS_MODE_SET_PATH_LENGTH, pos_mode_path_length, 0);
+	//		servo_mode = timer_mode;
+	//		//servo_timer_enable();
+	//		break;
+	//	default:
+	//		break;
+	//};
+	
+	if (servo_pos_functions_cnt[POS_PATH_LENGTH] == 0) {
+		servo_mode = pos_mode;
+		pos_func = pos_path_length;
+		servo_pos_functions_cnt[POS_PATH_LENGTH] = 1;
+		servo_send_write_command8(TEST_MODE, POS_MODE_SET_PATH_LENGTH, pos_mode_path_length, 0);
+	} else if (servo_pos_functions_cnt[POS_PATH_LENGTH] == 1) {
+		servo_pos_functions_cnt[POS_PATH_LENGTH] = 0;
+		servo_mode = nothing_mode;
+	}
 	
 }
 

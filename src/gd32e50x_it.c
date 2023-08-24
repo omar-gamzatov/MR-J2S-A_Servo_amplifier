@@ -237,32 +237,32 @@ void DMA0_Channel5_IRQHandler(void)
 				switch (pos_func) {
 					case pos_on:
 						if (servo_pos_functions_cnt[POS_ON] != 0) {
-							servo_jog_mode_on();
+							servo_positioning_mode_on();
 						}
 						break;
 					case pos_off:
 						if (servo_pos_functions_cnt[POS_OFF] != 0) {
-							servo_jog_mode_on();
+							servo_positioning_mode_off();
 						}
 						break;
-					case pos_freq_set:
-						if (servo_pos_functions_cnt[POS_FREQ_SET] != 0) {
-							servo_jog_mode_on();
-						}
-						break;
+					//case pos_freq_set:
+					//	if (servo_pos_functions_cnt[POS_FREQ_SET] != 0) {
+					//		servo_jog_mode_on();
+					//	}
+					//	break;
 					case pos_acceleration_time_set:
 						if (servo_pos_functions_cnt[POS_ACCELERATION_TIME_SET] != 0) {
-							servo_jog_mode_on();
-						}
-						break;
-					case pos_break:
-						if (servo_pos_functions_cnt[POS_PATH_LENGTH] != 0) {
-							servo_jog_mode_on();
+							servo_positioning_mode_set_acceleration_time();
 						}
 						break;
 					case pos_path_length:
+						if (servo_pos_functions_cnt[POS_PATH_LENGTH] != 0) {
+							servo_positioning_mode_path_length();
+						}
+						break;
+					case pos_break:
 						if (servo_pos_functions_cnt[POS_BREAK] != 0) {
-							servo_jog_mode_on();
+							servo_positioning_mode_break();
 						}
 						break;
 				}

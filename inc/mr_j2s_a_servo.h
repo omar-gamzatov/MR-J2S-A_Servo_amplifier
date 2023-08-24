@@ -202,7 +202,7 @@ typedef enum {
 typedef enum {
 	pos_on,
 	pos_off,
-	pos_freq_set,
+	//pos_freq_set,
 	pos_acceleration_time_set,
 	pos_path_length,
 	pos_break,
