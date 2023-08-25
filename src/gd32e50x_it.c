@@ -44,6 +44,7 @@ extern servo_state servo_status;
 extern servo_func_mode servo_mode;
 extern servo_jog_functions jog_func;
 extern servo_pos_functions pos_func;
+extern uint8_t servo_is_ready_cnt;
 extern uint8_t servo_jog_functions_cnt[];
 extern uint8_t servo_pos_functions_cnt[];
 uint8_t servo_error = 0;
@@ -183,6 +184,11 @@ void DMA0_Channel5_IRQHandler(void)
 		servo_error = servo_handle_error();
 		
 		switch (servo_mode) {
+			case is_ready:
+				if (servo_is_ready_cnt != 0) {
+					servo_is_ready();
+				}
+				break;
 			case jog_mode:
 				switch (jog_func) {
 					case jog_on:

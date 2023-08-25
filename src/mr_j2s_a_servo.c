@@ -4,6 +4,7 @@ servo_func_mode servo_mode = nothing_mode;
 servo_jog_functions jog_func = jog_on;
 servo_pos_functions pos_func = pos_on;
 
+uint8_t servo_is_ready_cnt = 0;
 uint8_t servo_jog_functions_cnt[5] = {0, 0, 0, 0, 0};
 uint8_t servo_pos_functions_cnt[5] = {0, 0, 0, 0, 0};
 uint32_t baudrate[4] = {9600, 19200, 38400, 57600};
@@ -16,6 +17,7 @@ uint16_t servo_tx_size = 50;
 char servo_txbuffer[50];
 
 servo_state servo_status = ready;
+uint8_t servo_rd_on = 0;
 
 uint16_t servo_freq = 100;
 uint32_t servo_acceleration_time = 1000;
@@ -80,6 +82,22 @@ void servo_send_write_command8(uint16_t write_command, uint16_t data_number, uin
 	usart1_dma0_send(servo_txbuffer, COMMAND_SIZE + 8 + 1);
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------
+void servo_check_rd_on(void)
+{ 
+	if (servo_is_ready_cnt == 0) {
+		servo_mode = is_ready;
+		servo_is_ready_cnt = 1;
+		servo_send_read_command(READ_IO_SIGNALS, OUTPUT_SIGNALS, RESPONSE_SIZE_IO_SIGNALS, 0);
+	} else {
+		servo_is_ready_cnt = 0;
+		if ((servo_rxbuffer[10] - '0') & 1)
+			servo_rd_on = 1;
+		else
+			servo_rd_on = 0;
+		servo_mode = nothing_mode;
+	}
+}
+
 void servo_emg_stop(void)
 {
 	switch (servo_status) {

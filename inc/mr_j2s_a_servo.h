@@ -178,6 +178,7 @@ typedef enum {
 } servo_state;
 
 typedef enum {
+	is_ready,
 	jog_mode,
 	pos_mode,
 	timer_mode,
@@ -218,6 +219,7 @@ typedef enum {
 
 
 void servo_init(servo_baudrate _baudrate);
+void servo_check_rd_on(void);
 
 void servo_send_read_command(uint16_t read_command, uint16_t data_to_read, uint16_t response_size, uint8_t servo_number);
 void servo_send_write_command4(uint16_t write_command, uint16_t data_number, uint16_t data_to_write, uint8_t servo_number);
